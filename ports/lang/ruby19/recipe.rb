@@ -35,6 +35,7 @@
     [ :Linux, :MacOSX ] => "make",
     [ :Windows ] => lambda { |c|
       ENV['OLD_PATH'] = "#{ENV['PATH']}"
+      ENV['PATH'] = "#{ENV['PATH'].gsub('C:\\Program Files\\Git\\bin', '')}"
       ENV['PATH'] = "#{ENV['PATH']};#{c[:wintools_dir].gsub('/', '\\')}\\bin"
       system("nmake")
       ENV['PATH'] = "#{ENV['OLD_PATH']}"
