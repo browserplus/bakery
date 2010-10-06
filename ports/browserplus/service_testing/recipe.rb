@@ -1,6 +1,6 @@
 {
   :deps => [ "service_runner" ], 
-  :url => 'github://browserplus/service-testing/e6b3a2517b662fc22535b4d8b44f62aac2aad978',
+  :url => 'github://browserplus/service-testing/e7d8f0e7eb6e2964f70b21f0e85043b1bd62e778',
   :install => lambda { |c|
     tgtDir = File.join(c[:output_dir], "share", "service_testing")
     FileUtils.mkdir_p(tgtDir)
