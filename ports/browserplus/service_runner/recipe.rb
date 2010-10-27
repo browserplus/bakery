@@ -1,12 +1,12 @@
 {
   :url => {
-    :Windows => 'http://github.com/downloads/browserplus/platform/bpsdk_2.10.6-Win32-i386.zip',
-    :MacOSX => 'http://github.com/downloads/browserplus/platform/bpsdk_2.10.6-Darwin-i386.tgz',
+    :Windows => 'http://github.com/downloads/browserplus/platform/bpsdk_2.10.7-Win32-i386.zip',
+    :MacOSX => 'http://github.com/downloads/browserplus/platform/bpsdk_2.10.7-Darwin-i386.tgz',
     :Linux => 'http://github.com/downloads/browserplus/platform/bpsdk_2.10.2-Linux-x86_64.tgz'
   },
   :md5 => {
-    :Windows => '1c1bab8616496f80354e44aec8b2a2ad',
-    :MacOSX => 'ce59efb736830339c840704b8c50585d',
+    :Windows => '8ead2bcd0bc32acd418399803a42c1ad',
+    :MacOSX => 'e5564bf09c130c74667f02a48f1134d4',
     :Linux => 'f51e373781c2d4fe93f9cf4bb4b9bd68'
   },
   :install => lambda { |c|
