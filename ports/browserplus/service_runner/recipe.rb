@@ -14,5 +14,8 @@
     FileUtils.cp(File.join(c[:src_dir], "bin", "ServiceRunner#{ext}"),
                  c[:output_bin_dir],
                  { :verbose => true, :preserve => true })
+    FileUtils.cp(File.join(c[:src_dir], "bin", "BrowserPlus.crt"),
+                 c[:output_bin_dir],
+                 { :verbose => true, :preserve => true })
   }
 }
