@@ -6,7 +6,7 @@
   },
   :md5 => {
     :Windows => '8ead2bcd0bc32acd418399803a42c1ad',
-    :MacOSX => '16166ae5731d187af65a95f688dee298',
+    :MacOSX => 'e5564bf09c130c74667f02a48f1134d4',
     :Linux => 'f51e373781c2d4fe93f9cf4bb4b9bd68'
   },
   :install => lambda { |c|
