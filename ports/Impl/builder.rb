@@ -4,12 +4,31 @@ require 'uri'
 require 'rbconfig'
 require 'fileutils'
 require 'open-uri'
+require 'openssl'
 require 'digest/md5'
 require 'pathname'
 include Config
 
 require File.join(File.dirname(__FILE__), 'build_timer')
 require File.join(File.dirname(__FILE__), 'fast_md5')
+
+# WORKAROUND
+# This is a workaround, we open the OpenURI class and redefine the
+# redirectable? method so that we can redirect from http:// -> https://
+# This should be safe, but is not allowed in the current implementation.
+# The reason for the redirect is related to Sidejack exploit that allows
+# existing sessions to be hijacked from other computers by sniffing a
+# few cookies.
+if OpenSSL::SSL::VERIFY_PEER != OpenSSL::SSL::VERIFY_NONE
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+end
+def OpenURI.redirectable?(uri1, uri2) # :nodoc:
+  # This test is intended to forbid a redirection from http://... to
+  # file:///etc/passwd.
+  # However this is ad hoc.  It should be extensible/configurable.
+  uri1.scheme.downcase == uri2.scheme.downcase ||
+  (/\A(?:http|ftp|https)\z/i =~ uri1.scheme && /\A(?:http|ftp|https)\z/i =~ uri2.scheme)
+end
 
 alias actual_system system
 
