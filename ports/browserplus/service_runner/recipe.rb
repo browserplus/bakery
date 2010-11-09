@@ -11,11 +11,10 @@
   },
   :install => lambda { |c|
     ext = (c[:platform] == :Windows ? ".exe" : "")
-    int = (c[:platform] == :Windows ? "bpsdk" : "")
-    FileUtils.cp(File.join(c[:src_dir], "#{int}", "bin", "ServiceRunner#{ext}"),
+    FileUtils.cp(File.join(c[:src_dir], "bin", "ServiceRunner#{ext}"),
                  c[:output_bin_dir],
                  { :verbose => true, :preserve => true })
-    FileUtils.cp(File.join(c[:src_dir], "#{int}", "bin", "BrowserPlus.crt"),
+    FileUtils.cp(File.join(c[:src_dir], "bin", "BrowserPlus.crt"),
                  c[:output_bin_dir],
                  { :verbose => true, :preserve => true })
   }
