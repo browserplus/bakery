@@ -1,5 +1,5 @@
 {
-  :url => 'http://downloads.sourceforge.net/project/libpng/libpng12/1.2.40/libpng-1.2.40.tar.bz2',
+  :url => 'http://sourceforge.net/projects/libpng/files/libpng12/older-releases/1.2.40/libpng-1.2.40.tar.bz2',
   :md5 => '29bbd1c3cbe54b04bfc2bda43067ccb5',
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
