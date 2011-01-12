@@ -13,7 +13,7 @@
         ENV['CFLAGS'] = "-g -O0 #{ENV['CFLAGS']}"
       end
       configScript = File.join(c[:src_dir], "configure")
-      configstr = "#{configScript} --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps"
+      configstr = "#{configScript} --build=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps"
       puts "running configure: #{configstr}"
       system(configstr)
     }
