@@ -1,7 +1,8 @@
 {
   :url => 'http://curl.haxx.se/download/curl-7.21.3.tar.gz',
   :md5 => '25e01bd051533f320c05ccbb0c52b246',
-  :deps => [ 'openssl', 'zlib' ],
+  :deps => [ 'openssl' ],
+  :deps => [ ],
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       if $platform == :MacOSX
@@ -12,7 +13,7 @@
         ENV['CFLAGS'] = "-g -O0 #{ENV['CFLAGS']}"
       end
       configScript = File.join(c[:src_dir], "configure")
-      configstr = "#{configScript} --prefix=#{c[:output_dir]} --disable-shared --with-zlib=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --disable-ldap --disable-ldaps"
+      configstr = "#{configScript} --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps"
       puts "running configure: #{configstr}"
       system(configstr)
     }
@@ -32,9 +33,16 @@
   :install => {
     [ :MacOSX, :Linux ] => lambda { |c|
       system("make install")
-      FileUtils.mv(File.join(c[:output_dir], "lib", "libcurl.a"), File.join(c[:output_lib_dir], "libcurl_s.a"))
-      FileUtils.mv(File.join(c[:output_dir], "lib", "libcurl.la"), File.join(c[:output_lib_dir], "libcurl_s.la"))
-      FileUtils.mv(File.join(c[:output_dir], "lib", "pkgconfig"), File.join(c[:output_lib_dir]))
+      FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.a"), File.join(c[:output_lib_dir], "libcurl_s.a"))
+      FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.la"), File.join(c[:output_lib_dir], "libcurl_s.la"))
+      FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.4.dylib"), File.join(c[:output_lib_dir], "libcurl.4.dylib"))
+      FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.dylib"), File.join(c[:output_lib_dir], "libcurl.dylib"))
+      FileUtils.cp_r(File.join(c[:output_dir], "lib", "pkgconfig"), File.join(c[:output_lib_dir]))
+      FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.a"))
+      FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.la"))
+      FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.4.dylib"))
+      FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.dylib"))
+      FileUtils.rm_rf(File.join(c[:output_dir], "lib", "pkgconfig"))
     },
     :Windows => lambda { |c|
       # install static lib
