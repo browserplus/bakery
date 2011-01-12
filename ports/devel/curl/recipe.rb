@@ -2,25 +2,26 @@
   :url => 'http://curl.haxx.se/download/curl-7.21.3.tar.gz',
   :md5 => '25e01bd051533f320c05ccbb0c52b246',
   :deps => [ 'openssl' ],
-  #:deps => [ ],
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
-      if $platform == :MacOSX
-        ENV['CFLAGS'] = "#{c[:os_compile_flags]} #{ENV['CFLAGS']}"
-        ENV['LDFLAGS'] = "#{c[:os_link_flags]} #{ENV['LDFLAGS']}"
-      end
-      if c[:build_type] == :debug
-        ENV['CFLAGS'] = "-g -O0 #{ENV['CFLAGS']}"
-      end
-      configScript = File.join(c[:src_dir], "configure")
-      configstr = "#{configScript} --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps"
-      #configstr = "#{configScript} --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --without-ssl --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps"
-      puts "running configure: #{configstr}"
-      system(configstr)
-    }
+      ENV['CFLAGS'] = "#{c[:os_compile_flags]} #{ENV['CFLAGS']}"
+      ENV['CFLAGS'] += ' -g -O0 ' if c[:build_type] == :debug
+      ENV['LDFLAGS'] = "#{c[:os_link_flags]} #{ENV['LDFLAGS']}"
+      puts "CFLAGS = #{ENV['CFLAGS']}"
+      puts "LDFLAGS = #{ENV['LDFLAGS']}"
+
+      Dir.chdir(c[:src_dir]) {
+          system("./configure --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps")
+      }
+    },
+    :Windows => "echo no configuration required"
   },
   :build => {
-    [ :Linux, :MacOSX ] => "make",
+    [ :Linux, :MacOSX ] => lambda { |c|
+      Dir.chdir(c[:src_dir]) {
+          system("make")
+      }
+    },
     [ :Windows ] => lambda { |c|
       Dir.chdir(c[:src_dir]) do
         configStr = "#{c[:build_type].to_s.capitalize}"
@@ -33,17 +34,19 @@
   },
   :install => {
     [ :MacOSX, :Linux ] => lambda { |c|
-      system("make install")
-      FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.a"), File.join(c[:output_lib_dir], "libcurl_s.a"))
-      FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.la"), File.join(c[:output_lib_dir], "libcurl_s.la"))
-      FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.4.dylib"), File.join(c[:output_lib_dir], "libcurl.4.dylib"))
-      FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.dylib"), File.join(c[:output_lib_dir], "libcurl.dylib"))
-      FileUtils.cp_r(File.join(c[:output_dir], "lib", "pkgconfig"), File.join(c[:output_lib_dir]))
-      FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.a"))
-      FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.la"))
-      FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.4.dylib"))
-      FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.dylib"))
-      FileUtils.rm_rf(File.join(c[:output_dir], "lib", "pkgconfig"))
+      Dir.chdir(c[:src_dir]) {
+        system("make install")
+        FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.a"), File.join(c[:output_lib_dir], "libcurl_s.a"))
+        FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.la"), File.join(c[:output_lib_dir], "libcurl_s.la"))
+        FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.4.dylib"), File.join(c[:output_lib_dir], "libcurl.4.dylib"))
+        FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.dylib"), File.join(c[:output_lib_dir], "libcurl.dylib"))
+        FileUtils.cp_r(File.join(c[:output_dir], "lib", "pkgconfig"), File.join(c[:output_lib_dir]))
+        FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.a"))
+        FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.la"))
+        FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.4.dylib"))
+        FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.dylib"))
+        FileUtils.rm_rf(File.join(c[:output_dir], "lib", "pkgconfig"))
+      }
     },
     :Windows => lambda { |c|
       # install static lib
