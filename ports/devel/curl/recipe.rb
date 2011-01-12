@@ -1,7 +1,8 @@
 {
   :url => 'http://curl.haxx.se/download/curl-7.21.3.tar.gz',
   :md5 => '25e01bd051533f320c05ccbb0c52b246',
-  :deps => [ 'openssl' ],
+  #:deps => [ 'openssl' ],
+  :deps => [ ],
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       if $platform == :MacOSX
@@ -12,7 +13,8 @@
         ENV['CFLAGS'] = "-g -O0 #{ENV['CFLAGS']}"
       end
       configScript = File.join(c[:src_dir], "configure")
-      configstr = "#{configScript} --build=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps"
+      #configstr = "#{configScript} --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps"
+      configstr = "#{configScript} --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --without-ssl --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps"
       puts "running configure: #{configstr}"
       system(configstr)
     }
