@@ -1,7 +1,7 @@
 {
   :url => 'http://curl.haxx.se/download/curl-7.21.3.tar.gz',
   :md5 => '25e01bd051533f320c05ccbb0c52b246',
-  :deps => [ 'openssl' ],
+  :deps => [ 'openssl', 'zlib' ],
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       if $platform == :MacOSX
@@ -12,7 +12,7 @@
         ENV['CFLAGS'] = "-g -O0 #{ENV['CFLAGS']}"
       end
       configScript = File.join(c[:src_dir], "configure")
-      configstr = "#{configScript} --enable-static --enable-universalsdk --with-ssl=#{c[:output_dir]} --prefix=#{c[:output_dir]}"
+      configstr = "#{configScript} --prefix=#{c[:output_dir]} --disable-shared --with-zlib=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --disable-ldap --disable-ldaps"
       puts "running configure: #{configstr}"
       system(configstr)
     }
@@ -32,10 +32,8 @@
   :install => {
     [ :MacOSX, :Linux ] => lambda { |c|
       system("make install")
-      FileUtils.mv(File.join(c[:output_dir], "lib", "libcurl.4.dylib"), File.join(c[:output_lib_dir]))
-      FileUtils.mv(File.join(c[:output_dir], "lib", "libcurl.a"), File.join(c[:output_lib_dir]))
-      FileUtils.mv(File.join(c[:output_dir], "lib", "libcurl.dylib"), File.join(c[:output_lib_dir]))
-      FileUtils.mv(File.join(c[:output_dir], "lib", "libcurl.la"), File.join(c[:output_lib_dir]))
+      FileUtils.mv(File.join(c[:output_dir], "lib", "libcurl.a"), File.join(c[:output_lib_dir], "libcurl_s.a"))
+      FileUtils.mv(File.join(c[:output_dir], "lib", "libcurl.la"), File.join(c[:output_lib_dir], "libcurl_s.la"))
       FileUtils.mv(File.join(c[:output_dir], "lib", "pkgconfig"), File.join(c[:output_lib_dir]))
     },
     :Windows => lambda { |c|
@@ -43,7 +41,7 @@
       buildType = c[:build_type].to_s
       libFile = File.join(c[:src_dir], "lib", buildType, "libcurl.lib")
       puts "installing #{c[:build_type].to_s} static library..."
-      FileUtils.cp(libFile, c[:output_lib_dir], :verbose => true)
+      FileUtils.cp(libFile, File.join(c[:output_lib_dir], "libcurl_s.a"), :verbose => true)
       # install headers
       puts "installing headers..."
       Dir.glob(File.join(File.join(c[:src_dir], "include", "curl", "*.h"))).each { |h|
