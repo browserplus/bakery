@@ -2,7 +2,6 @@
   :url => 'http://curl.haxx.se/download/curl-7.21.3.tar.gz',
   :md5 => '25e01bd051533f320c05ccbb0c52b246',
   :deps => [ 'openssl' ],
-  :deps => [ ],
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       if $platform == :MacOSX
