@@ -181,7 +181,14 @@ class Builder
       end
     end
 
-    @cmake_generator = cmake_gen if cmake_gen
+    # set cmake_generator.  passed arg takes precedence,
+    # then CMAKE_GENERATOR env var
+    if cmake_gen
+      @cmake_generator = cmake_gen
+    elsif ENV["CMAKE_GENERATOR"]
+      @cmake_generator = ENV["CMAKE_GENERATOR"]
+    end
+
     
     #build up the configuration object that will be passed into build functions
     @conf = {

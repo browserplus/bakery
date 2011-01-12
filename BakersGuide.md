@@ -116,3 +116,17 @@ Bakery Layout Conventions
 
 Patching
 --------
+
+Environment Variables
+--------
+
+CMAKE_GENERATOR will cause any recipes which use cmake to use the
+specified generator.  This allows development with multiple versions
+of Visual Studio installed.  For example:
+
+c:\path> set CMAKE_GENERATOR='Visual Studio 8 2005'
+
+will cause cmake to use the VS2005 generator, even if later versions
+of Visual Studio are installed.
+
+
