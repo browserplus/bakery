@@ -1,5 +1,5 @@
 --- curl-7.21.3/lib/libcurl.vcproj.orig	2011-01-12 15:51:29.000000000 -0800
-+++ curl-7.21.3/lib/libcurl.vcproj	2011-01-12 16:39:06.000000000 -0800
++++ curl-7.21.3/lib/libcurl.vcproj	2011-01-12 17:03:30.000000000 -0800
 @@ -21,7 +21,7 @@
  			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
  			UseOfMFC="0"
@@ -14,7 +14,7 @@
  			<Tool Name="VCMIDLTool" PreprocessorDefinitions="NDEBUG" MkTypLibCompatible="true" SuppressStartupBanner="true" TargetEnvironment="1" TypeLibraryName=".\Release/libcurl.tlb" HeaderFileName=""
  			/>
 -			<Tool Name="VCCLCompilerTool" Optimization="2" InlineFunctionExpansion="1" AdditionalIncludeDirectories=".,..\include" PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;BUILDING_LIBCURL" StringPooling="true" RuntimeLibrary="2" EnableFunctionLevelLinking="true" PrecompiledHeaderFile=".\Release/libcurl.pch" AssemblerListingLocation=".\Release/" ObjectFile=".\Release/" ProgramDataBaseFileName=".\Release/" BrowseInformation="1" WarningLevel="0" SuppressStartupBanner="true" DebugInformationFormat="3"
-+			<Tool Name="VCCLCompilerTool" Optimization="1" InlineFunctionExpansion="0" AdditionalIncludeDirectories=".,..\include" PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;BUILDING_LIBCURL" StringPooling="false" RuntimeLibrary="0" EnableFunctionLevelLinking="true" PrecompiledHeaderFile=".\Release/libcurl.pch" AssemblerListingLocation=".\Release/" ObjectFile=".\Release/" ProgramDataBaseFileName=".\Release/" BrowseInformation="1" WarningLevel="0" SuppressStartupBanner="true" DebugInformationFormat="3"
++			<Tool Name="VCCLCompilerTool" Optimization="1" InlineFunctionExpansion="0" AdditionalIncludeDirectories=".,..\include,..\..\..\..\..\dist\include" PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;BUILDING_LIBCURL;USE_SSLEAY;USE_OPENSSL" StringPooling="false" RuntimeLibrary="0" EnableFunctionLevelLinking="true" PrecompiledHeaderFile=".\Release/libcurl.pch" AssemblerListingLocation=".\Release/" ObjectFile=".\Release/" ProgramDataBaseFileName=".\Release/" BrowseInformation="1" WarningLevel="0" SuppressStartupBanner="true" DebugInformationFormat="3"
  			/>
  			<Tool Name="VCManagedResourceCompilerTool"
  			/>
@@ -32,7 +32,7 @@
  			<Tool Name="VCMIDLTool" PreprocessorDefinitions="_DEBUG" MkTypLibCompatible="true" SuppressStartupBanner="true" TargetEnvironment="1" TypeLibraryName=".\Debug/libcurl.tlb" HeaderFileName=""
  			/>
 -			<Tool Name="VCCLCompilerTool" Optimization="0" AdditionalIncludeDirectories=".,..\include" PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;BUILDING_LIBCURL" MinimalRebuild="true" BasicRuntimeChecks="3" RuntimeLibrary="3" PrecompiledHeaderFile=".\Debug/libcurl.pch" AssemblerListingLocation=".\Debug/" ObjectFile=".\Debug/" ProgramDataBaseFileName=".\Debug/" BrowseInformation="1" WarningLevel="0" SuppressStartupBanner="true" DebugInformationFormat="3"
-+			<Tool Name="VCCLCompilerTool" Optimization="0" AdditionalIncludeDirectories=".,..\include" PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;BUILDING_LIBCURL" SmallerTypeCheck="true" EnableFunctionLevelLinking="true" MinimalRebuild="false" BasicRuntimeChecks="3" RuntimeLibrary="1" PrecompiledHeaderFile=".\Debug/libcurl.pch" AssemblerListingLocation=".\Debug/" ObjectFile=".\Debug/" ProgramDataBaseFileName=".\Debug/" BrowseInformation="1" WarningLevel="0" SuppressStartupBanner="true" DebugInformationFormat="3"
++			<Tool Name="VCCLCompilerTool" Optimization="0" AdditionalIncludeDirectories=".,..\include,..\..\..\..\..\dist\include" PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;BUILDING_LIBCURL;USE_SSLEAY;USE_OPENSSL" SmallerTypeCheck="true" EnableFunctionLevelLinking="true" MinimalRebuild="false" BasicRuntimeChecks="3" RuntimeLibrary="1" PrecompiledHeaderFile=".\Debug/libcurl.pch" AssemblerListingLocation=".\Debug/" ObjectFile=".\Debug/" ProgramDataBaseFileName=".\Debug/" BrowseInformation="1" WarningLevel="0" SuppressStartupBanner="true" DebugInformationFormat="3"
  			/>
  			<Tool Name="VCManagedResourceCompilerTool"
  			/>
