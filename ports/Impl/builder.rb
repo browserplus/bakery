@@ -189,7 +189,6 @@ class Builder
       @cmake_generator = ENV["CMAKE_GENERATOR"]
     end
     # Strips out unnecessary quotes, if they were given
-    @cmake_generator.strip!
     if @cmake_generator.start_with?("\"") && @cmake_generator.end_with?("\"")
         xyzzy = @cmake_generator.slice(1, (@cmake_generator.length - 2))
         @cmake_generator = xyzzy
