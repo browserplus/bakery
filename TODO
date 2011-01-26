@@ -7,4 +7,3 @@
 5. rebuild guards and "receipts" mechanisms
 6. non-build type specific pre and post targets for patching and header
    installation respectively.
-
