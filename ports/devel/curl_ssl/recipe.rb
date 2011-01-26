@@ -1,6 +1,7 @@
 {
   :url => 'http://curl.haxx.se/download/curl-7.21.3.tar.gz',
   :md5 => '25e01bd051533f320c05ccbb0c52b246',
+  :deps => [ 'openssl' ],
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       ENV['CFLAGS'] = "#{c[:os_compile_flags]} #{ENV['CFLAGS']}"
@@ -10,7 +11,7 @@
       puts "LDFLAGS = #{ENV['LDFLAGS']}"
 
       Dir.chdir(c[:src_dir]) {
-          system("./configure --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --without-ssl --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps")
+          system("./configure --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps")
       }
     },
     :Windows => "echo no configuration required"
