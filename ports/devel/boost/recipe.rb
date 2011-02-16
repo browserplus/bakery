@@ -31,6 +31,13 @@
         uconfig.close
       elsif c[:platform] == :Windows
         toolset="msvc"
+        if c[:cmake_generator] == "Visual Studio 8 2005"
+          toolset="msvc-8.0"
+        elsif c[:cmake_generator] == "Visual Studio 9 2008"
+          toolset="msvc-9.0"
+        elsif c[:cmake_generator] == "Visual Studio 10"
+          toolset="msvc-10.0"
+        end
       elsif c[:platform] == :Linux
         toolset="gcc"
       else
