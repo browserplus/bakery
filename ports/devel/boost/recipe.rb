@@ -24,7 +24,7 @@
         uconfig.write("# Allow Darwin to build with 10.5 compatibility\n")
         uconfig.write("\n")
         uconfig.write("# Compiler configuration\n")
-        uconfig.write("using darwin : 4.0 : g++-4.0 -arch i386 : ")
+        uconfig.write("using darwin : 4.2 : g++-4.2 -arch i386 : ")
         uconfig.write("<compileflags>\"#{c[:os_compile_flags]}\" ")
         uconfig.write("<architecture>\"x86\" ")
         uconfig.write("<linkflags>\"#{c[:os_link_flags]}\" ;\n")
