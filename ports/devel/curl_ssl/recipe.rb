@@ -11,7 +11,7 @@
       puts "LDFLAGS = #{ENV['LDFLAGS']}"
 
       Dir.chdir(c[:src_dir]) {
-          system("./configure --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps")
+          system("./configure --build=i386-apple-darwin10.5.0 --host=i386-apple-darwin10.5.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps")
       }
     },
     :Windows => "echo no configuration required"

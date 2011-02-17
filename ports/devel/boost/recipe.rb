@@ -18,10 +18,10 @@
       toolset=""
       if c[:platform] == :MacOSX
         toolset="darwin"
-        # add a user-config.jam for Darwin to allow 10.4 compatibility
+        # add a user-config.jam for Darwin to allow 10.5 compatibility
         uconfig = File.new("user-config.jam", "w")
         uconfig.write("# Boost.Build Configuration\n")
-        uconfig.write("# Allow Darwin to build with 10.4 compatibility\n")
+        uconfig.write("# Allow Darwin to build with 10.5 compatibility\n")
         uconfig.write("\n")
         uconfig.write("# Compiler configuration\n")
         uconfig.write("using darwin : 4.0 : g++-4.0 -arch i386 : ")
