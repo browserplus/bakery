@@ -54,6 +54,7 @@
       }
       Dir.glob(File.join(c[:output_dir], "lib", "*ruby*")).each { |l|
         if File.symlink?(l)
+          FileUtils.safe_unlink(File.join(c[:output_lib_dir], File.basename(l))) if File.exist?(File.join(c[:output_lib_dir], File.basename(l)))
           FileUtils.symlink(File.join(c[:output_lib_dir], File.readlink(l)), File.join(c[:output_lib_dir], File.basename(l)))
           FileUtils.safe_unlink(l)
         end
@@ -82,7 +83,9 @@
       }
       Dir.glob(File.join(rb19dir, "*")).each { |h|
         if File.symlink?(h)
+          FileUtils.safe_unlink(File.join(c[:output_inc_dir], File.basename(h))) if File.exist?(File.join(c[:output_inc_dir], File.basename(h)))
           FileUtils.symlink(File.join(c[:output_inc_dir], File.readlink(h)), File.join(c[:output_inc_dir], File.basename(h)))
+          FileUtils.safe_unlink(h)
         end
       }
       FileUtils.rmdir(rb19dir)

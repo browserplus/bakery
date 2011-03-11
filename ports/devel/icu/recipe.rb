@@ -75,6 +75,7 @@
       }
       Dir.glob(File.join(c[:output_dir], "lib", "*icu*")).each { |l|
         if !File.directory?(l) && File.symlink?(l)
+          FileUtils.safe_unlink(File.join(c[:output_lib_dir], File.basename(l))) if File.exist?(File.join(c[:output_lib_dir], File.basename(l)))
           FileUtils.symlink(File.join(c[:output_lib_dir], File.readlink(l)), File.join(c[:output_lib_dir], File.basename(l)))
           FileUtils.safe_unlink(l)
         end
@@ -93,8 +94,7 @@
       # rather than how icu wants you to do it, #include "unicode/XXX".
       # this would mean bakery users can just include include/ and use headers
       # with #include "icu/<header>"
-      FileUtils.mv(File.join(c[:output_dir], "include", "unicode"),
-                   c[:output_inc_dir], :verbose => true)
+      FileUtils.mv(File.join(c[:output_dir], "include", "unicode"), c[:output_inc_dir], :verbose => true)
     },
     :Windows => lambda { |c|
       FileUtils.cp_r(File.join(c[:src_dir], "include", "unicode"),
