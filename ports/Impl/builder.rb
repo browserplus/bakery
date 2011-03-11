@@ -133,7 +133,7 @@ class Builder
       # what sdk to use.  In addition, source which defines any of the preprocessor
       # symbols mentioned in the above article will be problematic.
       #
-      @os_compile_flags += " -mmacosx-version-min=10.5 "
+      @os_compile_flags = " -mmacosx-version-min=10.5 "
       @os_link_flags = @os_compile_flags
       @os_compile_flags += " -arch i386 "
 
