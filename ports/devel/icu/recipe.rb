@@ -66,8 +66,18 @@
       system("make install")
       # now glob all files containing icu in the lib dir, and move into
       # lib/{debug,release}
+      # Make two passes because Ruby 1.9 does not allow
+      # symlinks to be moved
       Dir.glob(File.join(c[:output_dir], "lib", "*icu*")).each { |l|
-        FileUtils.mv(l, c[:output_lib_dir], :verbose => true) if !File.directory?(l)
+        if !File.directory?(l) && !File.symlink?(l)
+          FileUtils.mv(l, c[:output_lib_dir], :verbose => true)
+        end
+      }
+      Dir.glob(File.join(c[:output_dir], "lib", "*icu*")).each { |l|
+        if !File.directory?(l) && File.symlink?(l)
+          FileUtils.symlink(File.join(c[:output_lib_dir], File.readlink(l)), File.join(c[:output_lib_dir], File.basename(l)))
+          FileUtils.safe_unlink(l)
+        end
       }
       FileUtils.rm_rf(File.join(c[:output_dir], "lib", "icu"))
     }
