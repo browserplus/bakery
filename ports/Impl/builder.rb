@@ -186,7 +186,8 @@ class Builder
     if cmake_gen
       @cmake_generator = cmake_gen
     elsif ENV["CMAKE_GENERATOR"]
-      @cmake_generator = ENV["CMAKE_GENERATOR"]
+      # must dup, otherwise this is a frozen string in ruby 1.9.x
+      @cmake_generator = ENV["CMAKE_GENERATOR"].dup
     end
     # Strips out unnecessary quotes, if they were given
     if @cmake_generator != nil
