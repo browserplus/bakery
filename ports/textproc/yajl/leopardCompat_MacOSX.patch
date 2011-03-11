@@ -5,12 +5,12 @@
  ELSE (WIN32)
    SET(CMAKE_C_FLAGS
 -      "${CMAKE_C_FLAGS} -fPIC -ansi -pedantic -Wpointer-arith -Wno-format-y2k -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wextra	-Wundef -Wwrite-strings -Wold-style-definition -Wno-missing-field-initializers -Wredundant-decls -Wno-unused-parameter -Wno-sign-compare -Wmissing-prototypes")
-+      "${CMAKE_C_FLAGS} -fPIC -ansi -pedantic -Wpointer-arith -Wno-format-y2k -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wextra	-Wundef -Wwrite-strings -Wold-style-definition -Wno-missing-field-initializers -Wredundant-decls -Wno-unused-parameter -Wno-sign-compare -Wmissing-prototypes -isysroot /Developer/SDKs/MacOSX10.4u.sdk -arch i386 -mmacosx-version-min=10.4")
++      "${CMAKE_C_FLAGS} -fPIC -ansi -pedantic -Wpointer-arith -Wno-format-y2k -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wextra	-Wundef -Wwrite-strings -Wold-style-definition -Wno-missing-field-initializers -Wredundant-decls -Wno-unused-parameter -Wno-sign-compare -Wmissing-prototypes -arch i386 -mmacosx-version-min=10.5")
  
    SET(CMAKE_C_FLAGS_DEBUG "-DDEBUG -g")
    SET(CMAKE_C_FLAGS_RELEASE "-DNDEBUG -O2 -Wuninitialized")
 +
-+  SET(linkFlags "-mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk -syslibroot,/Developer/SDKs/MacOSX10.5.sdk -arch i386")
++  SET(linkFlags "-mmacosx-version-min=10.5 -arch i386")
 +  SET(CMAKE_EXE_LINKER_FLAGS    "${linkFlags}"
 +      CACHE STRING "YAJL linker flags" FORCE)
 +  SET(CMAKE_SHARED_LINKER_FLAGS    "${linkFlags}"

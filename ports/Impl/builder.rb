@@ -133,14 +133,9 @@ class Builder
       # what sdk to use.  In addition, source which defines any of the preprocessor
       # symbols mentioned in the above article will be problematic.
       #
-      @os_compile_flags = " -isysroot /Developer/SDKs/MacOSX10.5.sdk "
       @os_compile_flags += " -mmacosx-version-min=10.5 "
       @os_link_flags = @os_compile_flags
       @os_compile_flags += " -arch i386 "
-      if CONFIG['arch'] !~ /darwin8/
-        # this flag only exists on 10.5 and later
-        @os_link_flags += " -syslibroot,/Developer/SDKs/MacOSX10.5.sdk "
-      end
 
       # globally update CC/CXX env vars
       ENV['CC'] = 'gcc-4.2'
