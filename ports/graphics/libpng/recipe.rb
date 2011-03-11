@@ -1,6 +1,7 @@
 {
   :url => 'http://sourceforge.net/projects/libpng/files/libpng12/older-releases/1.2.40/libpng-1.2.40.tar.bz2',
   :md5 => '29bbd1c3cbe54b04bfc2bda43067ccb5',
+  :deps => [ 'zlib' ],
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       ENV['CFLAGS'] = "#{c[:os_compile_flags]} #{ENV['CFLAGS']}"
