@@ -138,8 +138,8 @@ class Builder
       @os_compile_flags += " -arch i386 "
 
       # globally update CC/CXX env vars
-      ENV['CC'] = 'gcc-4.2'
-      ENV['CXX'] = 'g++-4.2'
+      ENV['CC'] = '/Developer/usr/bin/llvm-gcc-4.2'
+      ENV['CXX'] = '/Developer/usr/bin/llvm-g++-4.2'
       @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.5"
     elsif CONFIG['arch'] =~ /linux/
       @platform = :Linux
