@@ -40,6 +40,14 @@ def system *args
 end
 
 class Builder
+  def cache_dir
+    @cache_dir
+  end
+
+  def toolchain
+    @toolchain
+  end
+
   def __checkSym map, sym
     if !map || !map.has_key?(sym)
       throw "recipe for #{@pkg} is incomplete: missing ':#{sym}' key"
@@ -47,10 +55,6 @@ class Builder
   end
 
   def initialize pkg, verbose, output_dir, cmake_gen, cache_dir, wintools_dir, recipe_location = nil
-    @pkg = pkg
-    @verbose = verbose
-    @cache_dir = cache_dir
-
     # capture the top level portDir
     @port_dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
 
@@ -79,7 +83,10 @@ class Builder
 
     @deps = (@recipe.has_key? :deps) ? @recipe[:deps] : Array.new
 
-    @distfiles_path = File.join(@cache_dir, "distfiles")
+    @pkg = pkg
+    @verbose = verbose
+
+    @distfiles_path = File.join(cache_dir, "distfiles") # not @cache_dir
     FileUtils.mkdir_p(@distfiles_path)
 
     @workdir_path = File.join(@port_dir, "work", @pkg)
@@ -112,6 +119,7 @@ class Builder
 
     # let's determine the platform
     @patch_cmd = "patch"
+    @toolchain = nil
     if CONFIG['arch'] =~ /mswin|mingw/
       @platform = :Windows
       @platlookup = [ @platform, :All ]
@@ -119,7 +127,22 @@ class Builder
       # on windows, patch is called ptch since an exe named "patch" will
       # cause a UAC on Vista
       @patch_cmd = File.expand_path(File.join(@port_dir, "WinTools", "ptch.exe"))
-      @cmake_generator = "Visual Studio 9 2008"
+
+      # determine what Visual Studio we are using
+      foo=`devenv.com /?`
+      @vsVersion = nil
+      if foo.index("Visual Studio Version 10.")
+        @toolchain = "vs10"
+        @cmake_generator = "Visual Studio 10"
+      elsif foo.index("Visual Studio Version 9.")
+        @toolchain = "vs9"
+        @cmake_generator = "Visual Studio 9 2008"
+      elsif foo.index("Visual Studio Version 8.")
+        @toolchain = "vs8"
+        @cmake_generator = "Visual Studio 8 2005"
+      else 
+        raise "Unknown visual studio version"
+      end
     elsif CONFIG['arch'] =~ /darwin/
       @platform = :MacOSX
       @platlookup = [ @platform, :Unix, :All ]
@@ -146,11 +169,17 @@ class Builder
       ENV['CC'] = 'gcc-4.0'
       ENV['CXX'] = 'g++-4.0'
       @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.4"
+
+      @toolchain = File.basename(ENV['CC'])
     elsif CONFIG['arch'] =~ /linux/
       @platform = :Linux
       @platlookup = [ @platform, :Unix, :All ]
       @os_compile_flags = " -fPIC "
     end
+
+    # now set @cache_dir, which includes a subdir for build toolset
+    @cache_dir = cache_dir
+    @cache_dir = File.join(@cache_dir, @toolchain) if @toolchain
 
     # determine the URL for this platform
     @url = nil
@@ -181,13 +210,9 @@ class Builder
       end
     end
 
-    # set cmake_generator.  passed arg takes precedence,
-    # then CMAKE_GENERATOR env var
+    # set cmake_generator if passed
     if cmake_gen
       @cmake_generator = cmake_gen
-    elsif ENV["CMAKE_GENERATOR"]
-      # must dup, otherwise this is a frozen string in ruby 1.9.x
-      @cmake_generator = ENV["CMAKE_GENERATOR"].dup
     end
     # Strips out unnecessary quotes, if they were given
     if @cmake_generator != nil
@@ -204,6 +229,7 @@ class Builder
       :platform => @platform,
       :output_dir => @output_dir,
       :wintools_dir => @wintools_dir,
+      :toolchain => @toolchain,
       :output_inc_dir => @output_inc_dir,
       :output_bin_dir => @output_bin_dir,
       :output_doc_dir => @output_doc_dir,
@@ -448,7 +474,7 @@ class Builder
           if @platform == :Windows
             system("\"#{@sevenZCmd}\" x \"#{path}\"")
           else
-            system("tar xvzf \"#{path}\"")
+            system("unzip \"#{path}\"")
           end
         else
           throw "unrecognized format for #{path}"

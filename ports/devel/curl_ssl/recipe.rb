@@ -2,6 +2,14 @@
   :url => 'http://curl.haxx.se/download/curl-7.21.3.tar.gz',
   :md5 => '25e01bd051533f320c05ccbb0c52b246',
   :deps => [ 'openssl' ],
+  :post_patch => {
+    :Windows => lambda { |c|
+      Dir.chdir(File.join(c[:src_dir], "lib")) do
+        devenvOut = File.join(c[:log_dir], "devenv_upgrade.txt")
+        system("devenv libcurl.vcproj /upgrade > #{devenvOut}")
+      end
+    }
+  },
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       ENV['CFLAGS'] = "#{c[:os_compile_flags]} #{ENV['CFLAGS']}"
@@ -13,8 +21,7 @@
       Dir.chdir(c[:src_dir]) {
           system("./configure --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --with-ssl=#{c[:output_dir]} --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps")
       }
-    },
-    :Windows => "echo no configuration required"
+    }
   },
   :build => {
     [ :Linux, :MacOSX ] => lambda { |c|
@@ -22,13 +29,15 @@
           system("make")
       }
     },
-    [ :Windows ] => lambda { |c|
+    :Windows => lambda { |c|
       Dir.chdir(c[:src_dir]) do
         configStr = "#{c[:build_type].to_s.capitalize}"
-        devenvOut1 = File.join(c[:log_dir], "devenv_upgrade_#{c[:build_type]}.txt")
-        devenvOut2 = File.join(c[:log_dir], "devenv_#{c[:build_type]}.txt")
-        system("vcbuild /upgrade /M1 lib\\libcurl.vcproj \"#{configStr}|Win32\" > #{devenvOut1}")
-        system("vcbuild /M1 lib\\libcurl.vcproj \"#{configStr}|Win32\" > #{devenvOut2}")
+        devenvOut = File.join(c[:log_dir], "devenv_#{c[:build_type]}.txt")
+        if c[:toolchain] == "vs10"
+          system("devenv lib\\libcurl.vcxproj /build \"#{configStr}\" > #{devenvOut}")
+        else 
+          system("devenv lib\\libcurl.vcproj /build \"#{configStr}\" > #{devenvOut}")
+        end
       end
     }
   },

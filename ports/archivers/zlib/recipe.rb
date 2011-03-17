@@ -1,6 +1,15 @@
 {
   :url => "http://prdownloads.sourceforge.net/libpng/zlib-1.2.5.tar.bz2?download",
   :md5 => "be1e89810e66150f5b0327984d8625a0",
+  :post_patch => {
+    :Windows => lambda { |c|
+      pathToSLN = File.join(c[:src_dir], "projects", "visualc6", "zlib.sln")
+      devenvOut = File.join(c[:log_dir], "devenv_upgrade.txt")
+      devenvCmd = "devenv #{pathToSLN} /upgrade > #{devenvOut}"
+      puts "issuing: #{devenvCmd}"
+      system(devenvCmd)
+    }
+  },
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       ENV['CFLAGS'] = "#{c[:os_compile_flags]} #{ENV['CFLAGS']}"
@@ -11,8 +20,7 @@
       Dir.chdir(c[:src_dir]) {
         system("./configure")
       }
-    },
-    :Windows => "echo no configuration required"
+    }
   },
   :build => {
     [ :Linux, :MacOSX ] => lambda { |c|

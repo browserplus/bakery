@@ -2,6 +2,14 @@
   :url => 'http://sourceforge.net/projects/libpng/files/libpng12/older-releases/1.2.40/libpng-1.2.40.tar.bz2',
   :md5 => '29bbd1c3cbe54b04bfc2bda43067ccb5',
   :deps => [ 'zlib' ],
+  :post_patch => {
+    :Windows => lambda { |c|
+      Dir.chdir(File.join(c[:src_dir], "projects", "visualc71")) do
+        devenvOut = File.join(c[:log_dir], "devenv_upgrade.txt")
+        system("devenv libpng.sln /upgrade > #{devenvOut}")
+      end
+    }
+  },
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       ENV['CFLAGS'] = "#{c[:os_compile_flags]} #{ENV['CFLAGS']}"
@@ -16,9 +24,10 @@
       if c[:build_type] == :debug
         # patched jpegsrc includes a substitution target in libpng.vcproj
         # we'll sub that now with the path to zlib headers
-        
+
         vcpPath = File.join(c[:src_dir], "projects",
-                            "visualc71", "libpng.vcproj")
+                            "visualc71",
+                            c[:toolchain] == "vs10" ? "libpng.vcxproj" : "libpng.vcproj")
 
         raise "can't find libpng.vcproj (#{vcpPath})" if !File.readable?(vcpPath)
 

@@ -6,6 +6,7 @@
   :post_patch => {
     :Windows => lambda { |c| 
       puts "Running post-patch"
+
       # Now ladies and gentlemen, we'll go through all vcproj files and
       # replace a couple paths with their actual path
       inc_dir = File.join(c[:output_dir], "include")
@@ -31,6 +32,12 @@
         # write the whole thing
         File.open(p, "w") { |f| f.write contents }
       }
+
+      Dir.chdir(File.join(c[:src_dir])) do
+        devenvOut = File.join(c[:log_dir], "devenv_upgrade.txt")
+        system("devenv VisualMagick\\VisualStaticMT.sln /upgrade > #{devenvOut}")
+      end
+
     }
   },
   :configure => {

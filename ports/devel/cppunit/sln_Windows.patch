@@ -1,7 +1,7 @@
 diff -PNaur cppunit-1.12.1.orig/src/cppunit/cppunit.vcproj cppunit-1.12.1/src/cppunit/cppunit.vcproj
 --- cppunit-1.12.1.orig/src/cppunit/cppunit.vcproj	1969-12-31 16:00:00.000000000 -0800
 +++ cppunit-1.12.1/src/cppunit/cppunit.vcproj	2009-05-19 11:25:42.385122500 -0700
-@@ -0,0 +1,1663 @@
+@@ -0,0 +1,1653 @@
 +<?xml version="1.0" encoding="Windows-1252"?>
 +<VisualStudioProject
 +	ProjectType="Visual C++"
@@ -90,11 +90,6 @@ diff -PNaur cppunit-1.12.1.orig/src/cppunit/cppunit.vcproj cppunit-1.12.1/src/cp
 +			<Tool
 +				Name="VCFxCopTool"
 +			/>
-+			<Tool
-+				Name="VCPostBuildEventTool"
-+				Description="Copying target to lib/"
-+				CommandLine="copy &quot;$(TargetPath)&quot; ..\..\lib\$(TargetName).lib"
-+			/>
 +		</Configuration>
 +		<Configuration
 +			Name="Release|Win32"
@@ -168,11 +163,6 @@ diff -PNaur cppunit-1.12.1.orig/src/cppunit/cppunit.vcproj cppunit-1.12.1/src/cp
 +			/>
 +			<Tool
 +				Name="VCFxCopTool"
-+			/>
-+			<Tool
-+				Name="VCPostBuildEventTool"
-+				Description="Copying target to lib/"
-+				CommandLine="copy &quot;$(TargetPath)&quot; ..\..\lib\$(TargetName).lib"
 +			/>
 +		</Configuration>
 +	</Configurations>

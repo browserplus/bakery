@@ -3,6 +3,13 @@
   :md5 => '2f6ecca935948f7db92d925d88d0d078',
 
   :post_patch => lambda { |c|
+    if c[:platform] == :Windows
+      Dir.chdir(c[:src_dir]) do
+        devenvOut = File.join(c[:log_dir], "devenv_upgrade.txt")
+        system("devenv source\\allinone\\allinone.sln /upgrade > #{devenvOut}")
+      end
+    end
+
     # copy in our custom data file
     FileUtils.cp(File.join(c[:recipe_dir], "icudt40l.dat"),
                  File.join(c[:src_dir], "source", "data", "in"),

@@ -1,8 +1,7 @@
-# zip depends on zlib, which must be built first
-#
 {
   :url => 'http://www.winimage.com/zLibDll/unzip101e.zip',
   :md5 => '59e14911bffbb40ce49aa38f6f1efd2a',
+  :deps => [ 'zlib' ],
   :build => {
     :Windows => lambda { |c|
       zlibIncDir = File.join(c[:output_inc_dir], "..", "zlib")
