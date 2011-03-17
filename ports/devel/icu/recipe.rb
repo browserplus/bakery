@@ -6,7 +6,7 @@
     if c[:platform] == :Windows
       Dir.chdir(c[:src_dir]) do
         devenvOut = File.join(c[:log_dir], "devenv_upgrade.txt")
-        system("devenv source\\allinone\\allinone.sln /upgrade > #{devenvOut2}")
+        system("devenv source\\allinone\\allinone.sln /upgrade > #{devenvOut}")
       end
     end
 
