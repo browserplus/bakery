@@ -25,7 +25,7 @@ end
 
 # build 'em
 $order = {
-  :output_dir => File.join(File.dirname(__FILE__), "all_build")
+  :output_dir => File.join(File.dirname(__FILE__), "all_build"),
   :packages => allRecipes,
   :verbose => true
 }
