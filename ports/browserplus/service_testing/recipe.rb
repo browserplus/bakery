@@ -10,7 +10,7 @@
     FileUtils.cp(File.join(c[:src_dir], "ruby", "bp_service_runner.rb"),
                  tgtDir,
                  { :verbose => true, :preserve => true })
-    FileUtils.cp(File.join(c[:src_dir], "ruby", "cppunit_runner.rb"),
+    FileUtils.cp(File.join(c[:src_dir], "ruby", "ruby18_cppunit_runner.rb"),
                  tgtDir,
                  { :verbose => true, :preserve => true })
     FileUtils.cp_r(File.join(c[:src_dir], "ruby", "json"),
