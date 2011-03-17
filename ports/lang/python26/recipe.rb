@@ -1,6 +1,14 @@
 {
   :url => "http://www.python.org/ftp/python/2.6.5/Python-2.6.5.tar.bz2",
   :md5 => "6bef0417e71a1a1737ccf5750420fdb3",
+  :post_patch => {
+    :Windows => lambda { |c|
+      Dir.chdir(c[:src_dir]) do
+        devenvOut = File.join(c[:log_dir], "devenv_upgrade.txt")
+        system("devenv PCbuild\\pcbuild.sln /upgrade > #{devenvOut}")
+      end
+    }
+  },
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       if $platform == :MacOSX
@@ -18,7 +26,7 @@
   },
   :build => {
     [ :Linux, :MacOSX ] => "make",
-    [ :Windows ] => lambda { |c|
+    :Windows => lambda { |c|
       Dir.chdir(c[:src_dir]) do
         # this sequence is stolen from Tools\buildbot.bat
         configStr = "#{c[:build_type].to_s.capitalize}"
@@ -30,7 +38,7 @@
         ENV['OLD_PATH'] = "#{ENV['PATH']}"
         ENV['PATH'] = "#{ENV['PATH']};#{c[:wintools_dir].gsub('/', '\\')}\\nasmw"
         devenvOut = File.join(c[:log_dir], "devenv_#{c[:build_type]}.txt")
-        system("vcbuild /M1 PCbuild\\pcbuild.sln \"#{configStr}|Win32\" > #{devenvOut}")
+        system("devenv PCbuild\\pcbuild.sln /build #{configStr} > #{devenvOut}")
         ENV['PATH'] = "#{ENV['OLD_PATH']}"
       end
     }

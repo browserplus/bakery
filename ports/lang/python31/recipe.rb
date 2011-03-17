@@ -1,6 +1,14 @@
 {
   :url => "http://www.python.org/ftp/python/3.1.2/Python-3.1.2.tar.bz2",
   :md5 => "45350b51b58a46b029fb06c61257e350",
+  :post_patch => {
+    :Windows => lambda { |c|
+      Dir.chdir(c[:src_dir]) do
+        devenvOut = File.join(c[:log_dir], "devenv_upgrade.txt")
+        system("devenv PCbuild\\pcbuild.sln /upgrade > #{devenvOut}")
+      end
+    }
+  },
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       if $platform == :MacOSX
@@ -30,7 +38,7 @@
         ENV['OLD_PATH'] = "#{ENV['PATH']}"
         ENV['PATH'] = "#{ENV['PATH']};#{c[:wintools_dir].gsub('/', '\\')}\\nasmw"
         devenvOut = File.join(c[:log_dir], "devenv_#{c[:build_type]}.txt")
-        system("vcbuild /M1 PCbuild\\pcbuild.sln \"#{configStr}|Win32\" > #{devenvOut}")
+        system("devenv PCbuild\\pcbuild.sln /build #{configStr} > #{devenvOut}")
         ENV['PATH'] = "#{ENV['OLD_PATH']}"
       end
     }
