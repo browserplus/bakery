@@ -24,6 +24,7 @@ if CONFIG['arch'] =~ /mswin|mingw/
 elsif CONFIG['arch'] =~ /darwin/
   # really only broken for llvm toolchain
   allRecipes.delete("portaudio")
+  allRecipes.delete("nodejs")
 end
 
 # build 'em
