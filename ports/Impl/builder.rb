@@ -468,7 +468,7 @@ class Builder
           if @platform == :Windows
             system("\"#{@sevenZCmd}\" x \"#{path}\"")
           else
-            system("tar xvzf \"#{path}\"")
+            system("unzip \"#{path}\"")
           end
         else
           throw "unrecognized format for #{path}"

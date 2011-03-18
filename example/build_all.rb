@@ -14,17 +14,14 @@ Dir.glob(File.join("..", "ports", "**", "recipe.rb")).each {  |r|
 }
 
 # now remove know broken/incomplete ones
-[ "curl_ssl", "python26", "python31", "ruby19" ].each { |b| 
+[ "curl_ssl", "python26", "python31", "ruby19", "nodejs" ].each { |b| 
   allRecipes.delete(b)
 }
 
 # now remove ones which don't work on a platform 
-if CONFIG['arch'] =~ /mswin|mingw/
-  allRecipes.delete("nodejs")
-elsif CONFIG['arch'] =~ /darwin/
-  # really only broken for llvm toolchain
+if CONFIG['arch'] =~ /darwin/
+  # really only broken for llvm toolchain? 10.6 sdk?
   allRecipes.delete("portaudio")
-  allRecipes.delete("nodejs")
 end
 
 # build 'em
