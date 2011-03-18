@@ -21,6 +21,9 @@ Dir.glob(File.join("..", "ports", "**", "recipe.rb")).each {  |r|
 # now remove ones which don't work on a platform 
 if CONFIG['arch'] =~ /mswin|mingw/
   allRecipes.delete("nodejs")
+elsif CONFIG['arch'] =~ /darwin/
+  # really only broken for llvm toolchain
+  allRecipes.delete("portaudio")
 end
 
 # build 'em

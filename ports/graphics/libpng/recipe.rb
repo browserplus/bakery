@@ -27,7 +27,7 @@
 
         vcpPath = File.join(c[:src_dir], "projects",
                             "visualc71",
-                            c[:vsVersion] == 10 ? "libpng.vcxproj" : "libpng.vcproj")
+                            c[:toolchain] == "vs10" ? "libpng.vcxproj" : "libpng.vcproj")
 
         raise "can't find libpng.vcproj (#{vcpPath})" if !File.readable?(vcpPath)
 

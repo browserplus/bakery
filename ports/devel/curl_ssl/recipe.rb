@@ -33,7 +33,7 @@
       Dir.chdir(c[:src_dir]) do
         configStr = "#{c[:build_type].to_s.capitalize}"
         devenvOut = File.join(c[:log_dir], "devenv_#{c[:build_type]}.txt")
-        if c[:vsVersion] == 10
+        if c[:toolchain] == "vs10"
           system("devenv lib\\libcurl.vcxproj /build \"#{configStr}\" > #{devenvOut}")
         else 
           system("devenv lib\\libcurl.vcproj /build \"#{configStr}\" > #{devenvOut}")

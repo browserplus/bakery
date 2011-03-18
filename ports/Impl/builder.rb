@@ -40,6 +40,14 @@ def system *args
 end
 
 class Builder
+  def cache_dir
+    @cache_dir
+  end
+
+  def toolchain
+    @toolchain
+  end
+
   def __checkSym map, sym
     if !map || !map.has_key?(sym)
       throw "recipe for #{@pkg} is incomplete: missing ':#{sym}' key"
@@ -110,8 +118,8 @@ class Builder
     @os_link_flags = ""
 
     # let's determine the platform
+    @toolchain = nil
     @patch_cmd = "patch"
-    @cache_subdir = nil
     if CONFIG['arch'] =~ /mswin|mingw/
       @platform = :Windows
       @platlookup = [ @platform, :All ]
@@ -122,20 +130,18 @@ class Builder
 
       # determine what Visual Studio we are using
       foo=`devenv.com /?`
-      @vsVersion = nil
       if foo.index("Visual Studio Version 10.")
-        @vsVersion = 10
+        @toolchain = "vs10"
         @cmake_generator = "Visual Studio 10"
       elsif foo.index("Visual Studio Version 9.")
-        @vsVersion = 9
+        @toolchain = "vs9"
         @cmake_generator = "Visual Studio 9 2008"
       elsif foo.index("Visual Studio Version 8.")
-        @vsVersion = 8
+        @toolchain = "vs8"
         @cmake_generator = "Visual Studio 8 2005"
       else 
         raise "Unknown visual studio version"
       end
-      @cache_subdir = "vs#{@vsVersion}"
     elsif CONFIG['arch'] =~ /darwin/
       @platform = :MacOSX
       @platlookup = [ @platform, :Unix, :All ]
@@ -158,7 +164,7 @@ class Builder
       ENV['CXX'] = '/Developer/usr/bin/llvm-g++-4.2'
       @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.5"
 
-      @cache_subdir = ENV['CC']
+      @toolchain = File.basename(ENV['CC'])
     elsif CONFIG['arch'] =~ /linux/
       @platform = :Linux
       @platlookup = [ @platform, :Unix, :All ]
@@ -167,7 +173,7 @@ class Builder
 
     # now set @cache_dir, which includes a subdir for build toolset
     @cache_dir = cache_dir
-    @cache_dir = File.join(@cache_dir, @cache_subdir) if @cache_subdir
+    @cache_dir = File.join(@cache_dir, @toolchain) if @toolchain
 
     # determine the URL for this platform
     @url = nil
@@ -217,7 +223,7 @@ class Builder
       :platform => @platform,
       :output_dir => @output_dir,
       :wintools_dir => @wintools_dir,
-      :vsVersion => @vsVersion,
+      :toolchain => @toolchain,
       :output_inc_dir => @output_inc_dir,
       :output_bin_dir => @output_bin_dir,
       :output_doc_dir => @output_doc_dir,

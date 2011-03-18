@@ -115,7 +115,7 @@ class Bakery
       b.dist_clean
       log_with_time "  - Writing receipt for #{p}" if @verbose      
       b.write_receipt
-      log_with_time "  - Saving #{p} build output to cache (#{@cache_dir})" if @verbose      
+      log_with_time "  - Saving #{p} build output to cache (#{b.cache_dir})" if @verbose      
       b.save_to_cache
     }
   end
