@@ -30,8 +30,9 @@
       system("make install-lib")
 
       # move headers into place
-      Dir.glob(File.join(c[:output_dir], "include", "j*h")).each { |h|
-        FileUtils.mv(h, c[:output_inc_dir])
+      ["jconfig.h", "jerror.h", "jmorecfg.h", "jpeglib.h"].each { |h|
+        FileUtils.mv(File.join(c[:output_dir], "include", h),
+                     c[:output_inc_dir])
       }
 
       # move library into place
