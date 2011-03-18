@@ -53,6 +53,7 @@ class Bakery
     while stack.length > 0
       p = stack.pop
       next if fullDeps.has_key? p
+      recipe = nil
       recipe = @use_recipe[p] if @use_recipe && @use_recipe.has_key?(p) 
       b = Builder.new(p, @verbose, @output_dir, @cmake_generator, @cache_dir, @wintools_dir, recipe)      
       fullDeps[p] = b.deps
@@ -65,6 +66,7 @@ class Bakery
   def build
     log_with_time "building #{@packages.length} packages:" if @verbose
     @packages.each { |p|
+      recipe = nil
       recipe = @use_recipe[p] if @use_recipe && @use_recipe.has_key?(p) 
       log_with_time "--- building #{p}#{recipe ? (" (" + recipe + ")") : ""} ---" if @verbose      
       b = Builder.new(p, @verbose, @output_dir, @cmake_generator, @cache_dir, @wintools_dir, recipe)
@@ -141,6 +143,7 @@ class Bakery
 
     Dir.glob(File.join(@output_dir, "receipts", "*.yaml")).each { |rp|
       pkg = File.basename(rp, ".yaml")
+      recipe = nil
       recipe = @use_recipe[pkg] if @use_recipe && @use_recipe.has_key?(pkg)       
       b = Builder.new(pkg, @verbose, @output_dir, @cmake_generator, @cache_dir, @wintools_dir, recipe)
       state[:info].push "#{pkg} is out of date, and needs to be built" if b.needsBuild

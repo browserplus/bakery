@@ -47,10 +47,6 @@ class Builder
   end
 
   def initialize pkg, verbose, output_dir, cmake_gen, cache_dir, wintools_dir, recipe_location = nil
-    @pkg = pkg
-    @verbose = verbose
-    @cache_dir = cache_dir
-
     # capture the top level portDir
     @port_dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
 
@@ -79,7 +75,10 @@ class Builder
 
     @deps = (@recipe.has_key? :deps) ? @recipe[:deps] : Array.new
 
-    @distfiles_path = File.join(@cache_dir, "distfiles")
+    @pkg = pkg
+    @verbose = verbose
+
+    @distfiles_path = File.join(cache_dir, "distfiles") # not @cache_dir
     FileUtils.mkdir_p(@distfiles_path)
 
     @workdir_path = File.join(@port_dir, "work", @pkg)
@@ -112,6 +111,7 @@ class Builder
 
     # let's determine the platform
     @patch_cmd = "patch"
+    @cache_subdir = nil
     if CONFIG['arch'] =~ /mswin|mingw/
       @platform = :Windows
       @platlookup = [ @platform, :All ]
@@ -119,7 +119,23 @@ class Builder
       # on windows, patch is called ptch since an exe named "patch" will
       # cause a UAC on Vista
       @patch_cmd = File.expand_path(File.join(@port_dir, "WinTools", "ptch.exe"))
-      @cmake_generator = "Visual Studio 9 2008"
+
+      # determine what Visual Studio we are using
+      foo=`devenv.com /?`
+      @vsVersion = nil
+      if foo.index("Visual Studio Version 10.")
+        @vsVersion = 10
+        @cmake_generator = "Visual Studio 10"
+      elsif foo.index("Visual Studio Version 9.")
+        @vsVersion = 9
+        @cmake_generator = "Visual Studio 9 2008"
+      elsif foo.index("Visual Studio Version 8.")
+        @vsVersion = 8
+        @cmake_generator = "Visual Studio 8 2005"
+      else 
+        raise "Unknown visual studio version"
+      end
+      @cache_subdir = "vs#{@vsVersion}"
     elsif CONFIG['arch'] =~ /darwin/
       @platform = :MacOSX
       @platlookup = [ @platform, :Unix, :All ]
@@ -141,11 +157,17 @@ class Builder
       ENV['CC'] = '/Developer/usr/bin/llvm-gcc-4.2'
       ENV['CXX'] = '/Developer/usr/bin/llvm-g++-4.2'
       @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.5"
+
+      @cache_subdir = ENV['CC']
     elsif CONFIG['arch'] =~ /linux/
       @platform = :Linux
       @platlookup = [ @platform, :Unix, :All ]
       @os_compile_flags = " -fPIC "
     end
+
+    # now set @cache_dir, which includes a subdir for build toolset
+    @cache_dir = cache_dir
+    @cache_dir = File.join(@cache_dir, @cache_subdir) if @cache_subdir
 
     # determine the URL for this platform
     @url = nil
@@ -176,12 +198,9 @@ class Builder
       end
     end
 
-    # set cmake_generator.  passed arg takes precedence,
-    # then CMAKE_GENERATOR env var
+    # set cmake_generator if passed
     if cmake_gen
       @cmake_generator = cmake_gen
-    elsif ENV["CMAKE_GENERATOR"]
-      @cmake_generator = ENV["CMAKE_GENERATOR"]
     end
     # Strips out unnecessary quotes, if they were given
     if @cmake_generator != nil
@@ -198,6 +217,7 @@ class Builder
       :platform => @platform,
       :output_dir => @output_dir,
       :wintools_dir => @wintools_dir,
+      :vsVersion => @vsVersion,
       :output_inc_dir => @output_inc_dir,
       :output_bin_dir => @output_bin_dir,
       :output_doc_dir => @output_doc_dir,

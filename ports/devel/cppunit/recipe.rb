@@ -1,6 +1,14 @@
 {
   :url => "http://prdownloads.sourceforge.net/cppunit/cppunit-1.12.1.tar.gz",
   :md5 => "bd30e9cf5523cdfc019b94f5e1d7fd19",
+  :post_patch => {
+    :Windows => lambda { |c|
+      Dir.chdir(File.join(c[:src_dir], "src")) do
+        devenvOut = File.join(c[:log_dir], "devenv_upgrade.txt")
+        system("devenv CppUnitLibraries.sln /upgrade >#{devenvOut}")
+      end
+    }
+  },
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       puts "Configuring #{c[:build_type].to_s} bits..."

@@ -11,6 +11,14 @@ end
 {
   :url => 'http://downloads.sourceforge.net/expat/expat-2.0.1.tar.gz',
   :md5 => 'ee8b492592568805593f81f8cdf2a04c',
+  :post_patch => {
+    :Windows => lambda { |c|
+      Dir.chdir(c[:src_dir]) do
+        devenvOut2 = File.join(c[:log_dir], "devenv_upgrade.txt")
+        system("devenv expat.sln /upgrade > #{devenvOut2}")
+      end
+    }
+  },
   :configure => {
     [ :MacOSX, :Linux ] => lambda { |c|
       setupEnv(c)

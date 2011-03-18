@@ -45,10 +45,19 @@
     [ :Linux, :MacOSX ] => lambda { |c|
       system("make install")
       # now move output in lib dir into build config dir
+      # Make two passes because Ruby 1.9 does not allow
+      # symlinks to be moved
       Dir.glob(File.join(c[:output_dir], "lib", "*ruby*")).each { |l|
-        tgtBasename = File.basename(l)
-        tgt = File.join(c[:output_lib_dir], tgtBasename)
-        FileUtils.mv(l, tgt, :verbose => true)
+        if !File.symlink?(l)
+          FileUtils.mv(l, File.join(c[:output_lib_dir], File.basename(l)), :verbose => true)
+        end
+      }
+      Dir.glob(File.join(c[:output_dir], "lib", "*ruby*")).each { |l|
+        if File.symlink?(l)
+          FileUtils.safe_unlink(File.join(c[:output_lib_dir], File.basename(l))) if File.exist?(File.join(c[:output_lib_dir], File.basename(l)))
+          FileUtils.symlink(File.join(c[:output_lib_dir], File.readlink(l)), File.join(c[:output_lib_dir], File.basename(l)))
+          FileUtils.safe_unlink(l)
+        end
       }
     },
     [ :Windows ] => lambda { |c|
@@ -58,17 +67,26 @@
       ENV['PATH'] = "#{ENV['OLD_PATH']}"
       # now move output in lib dir into build config dir
       Dir.glob(File.join(c[:output_dir], "lib", "*ruby*")).each { |l|
-        tgtBasename = File.basename(l)
-        tgt = File.join(c[:output_lib_dir], tgtBasename)
-        FileUtils.mv(l, tgt, :verbose => true)
+        FileUtils.mv(l, File.join(c[:output_lib_dir], File.basename(l)), :verbose => true)
       }
     }
   },
   :post_install_common => {
     [ :Linux, :MacOSX ] => lambda { |c|
       rb19dir = File.join(c[:output_dir], "include", "ruby-1.9.1")
+      # Make two passes because Ruby 1.9 does not allow
+      # symlinks to be moved
       Dir.glob(File.join(rb19dir, "*")).each { |h|
-        FileUtils.mv(h, c[:output_inc_dir], :verbose => true)
+        if !File.symlink?(h)
+          FileUtils.mv(h, c[:output_inc_dir], :verbose => true)
+        end
+      }
+      Dir.glob(File.join(rb19dir, "*")).each { |h|
+        if File.symlink?(h)
+          FileUtils.safe_unlink(File.join(c[:output_inc_dir], File.basename(h))) if File.exist?(File.join(c[:output_inc_dir], File.basename(h)))
+          FileUtils.symlink(File.join(c[:output_inc_dir], File.readlink(h)), File.join(c[:output_inc_dir], File.basename(h)))
+          FileUtils.safe_unlink(h)
+        end
       }
       FileUtils.rmdir(rb19dir)
     },

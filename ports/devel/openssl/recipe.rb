@@ -14,8 +14,8 @@ def setupEnv(c)
 end
 
 {
-  :url => "http://openssl.org/source/openssl-1.0.0.tar.gz",
-  :md5 => "89eaa86e25b2845f920ec00ae4c864ed",
+  :url => "http://openssl.org/source/openssl-1.0.0d.tar.gz",
+  :md5 => "40b6ea380cc8a5bf9734c2f8bf7e701e",
   :configure => lambda { |c|
     Dir.chdir(c[:src_dir]) {
       setupEnv(c)
