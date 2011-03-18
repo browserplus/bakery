@@ -38,12 +38,12 @@
       # i.e. move from lib/libfoo.a to lib/debug/foo.a
       # Make two passes because Ruby 1.9 does not allow
       # symlinks to be moved
-      Dir.glob(File.join(c[:output_dir], "lib", "*")).each { |f|
+      Dir.glob(File.join(c[:output_dir], "lib", "libyajl*")).each { |f|
         if !File.directory?(f) && !File.symlink?(f)
           FileUtils.mv(f, c[:output_lib_dir])
         end
       }
-      Dir.glob(File.join(c[:output_dir], "lib", "*")).each { |f|
+      Dir.glob(File.join(c[:output_dir], "lib", "libyajl*")).each { |f|
         # FileUtils.mv does not handle symlinks in Ruby 1.9
         if !File.directory?(f) && File.symlink?(f)
           FileUtils.safe_unlink(File.join(c[:output_lib_dir], File.basename(f))) if File.exist?(File.join(c[:output_lib_dir], File.basename(f)))
