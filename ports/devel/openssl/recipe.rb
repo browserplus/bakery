@@ -20,7 +20,11 @@ end
     Dir.chdir(c[:src_dir]) {
       setupEnv(c)
       if c[:platform] == :Windows
-        configureCmd = "perl Configure VC-WIN32"
+        if c[:build_type] == :debug
+          configureCmd = "perl Configure debug-VC-WIN32"
+        else
+          configureCmd = "perl Configure VC-WIN32"
+        end
       else
         configureCmd = "sh ./config"
       end
