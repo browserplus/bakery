@@ -14,7 +14,7 @@ Dir.glob(File.join("..", "ports", "**", "recipe.rb")).each {  |r|
 }
 
 # now remove know broken/incomplete ones
-[ "curl_ssl", "python26", "python31", "ruby19", "nodejs" ].each { |b| 
+[ "curl_ssl", "python26", "python31", "nodejs" ].each { |b| 
   allRecipes.delete(b)
 }
 
