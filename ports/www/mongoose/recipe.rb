@@ -4,7 +4,7 @@
   :configure => lambda { |c|
     # configuration is making a local copy of source.  why not?
     Dir.glob(File.join(c[:src_dir], "*")).each { |f|
-      FileUtils.cp_r(f, c[:build_dir])
+      FileUtils.cp_r(f, c[:build_dir], :preserve => true)
     }
   },
   :build => {
@@ -23,13 +23,13 @@
   },
   :install => {
     :Windows => lambda { |c|
-      FileUtils.cp("mongoose_s.lib", c[:output_lib_dir])
+      FileUtils.cp("mongoose_s.lib", c[:output_lib_dir], :preserve => true)
     },
     [ :MacOSX, :Linux ] => lambda { |c|
-      FileUtils.cp("libmongoose_s.a", c[:output_lib_dir])
+      FileUtils.cp("libmongoose_s.a", c[:output_lib_dir], :preserve => true)
     }
   },
   :post_install_common => lambda { |c|
-    FileUtils.cp("mongoose.h", c[:output_inc_dir])
+    FileUtils.cp("mongoose.h", c[:output_inc_dir], :preserve => true)
   }
 }

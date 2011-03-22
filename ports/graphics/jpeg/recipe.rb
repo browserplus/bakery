@@ -20,7 +20,8 @@
         makeFilePath = File.join(c[:src_dir], "makefile.vc")
         makeCmd = "nmake /f \"#{makeFilePath}\""
         makeCmd += " nodebug=1" if c[:build_type] == :release
-        FileUtils.cp("jconfig.vc", "jconfig.h", :verbose => true)
+        FileUtils.cp("jconfig.vc", "jconfig.h",
+                     :preserve => true, :verbose => true)
         system(makeCmd)
       }
     }
@@ -44,7 +45,7 @@
       puts "install lib..."
       FileUtils.install(File.join(c[:src_dir], "libjpeg.lib"),
                         File.join(c[:output_lib_dir], "jpeg_s.lib"),
-                        :verbose => true)
+                        :preserve => true, :verbose => true)
 
       if c[:build_type] == :release
         puts "installing headers..."

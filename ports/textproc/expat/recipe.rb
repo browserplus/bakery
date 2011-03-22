@@ -50,13 +50,13 @@ end
       FileUtils.cp(File.join(c[:src_dir], "win32", "bin",
                              buildStr, "libexpatMT.lib"),
                    File.join(c[:output_lib_dir], "libexpatMT.lib"),
-                   :verbose => true)
+                   :preserve => true, :verbose => true)
     },
     [ :MacOSX, :Linux ] => lambda { |c|
       ["libexpat.a", "libexpat.la"].each do |l|
         FileUtils.cp(File.join(c[:build_dir], "lib", l),
                      File.join(c[:output_lib_dir], l),
-                     :verbose => true)
+                     :preserve => true, :verbose => true)
       end
     },
   },
@@ -64,7 +64,7 @@ end
     ["expat.h", "expat_external.h"].each do |h|
       FileUtils.cp(File.join(c[:src_dir], "lib", h),
                    File.join(c[:output_inc_dir], h),
-                   :verbose => true)
+                   :preserve => true, :verbose => true)
     end
   }
 }

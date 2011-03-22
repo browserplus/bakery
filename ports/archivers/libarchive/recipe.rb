@@ -97,12 +97,12 @@ end
       dst = File.join(c[:output_lib_dir], "libarchive_s.a")
     end
     puts "copying from #{src} to #{dst}"
-    FileUtils.cp(src, dst, :verbose => true)
+    FileUtils.cp(src, dst, :preserve => true, :verbose => true)
 
     puts "Installing headers..."
     [ "archive.h", "archive_entry.h" ].each do |h|
         FileUtils.cp(File.join(c[:build_dir], "install", "include", h),
-                     c[:output_inc_dir], :verbose => true)
+                     c[:output_inc_dir], :preserve => true, :verbose => true)
       end
   }
 }

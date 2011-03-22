@@ -507,7 +507,7 @@ class Builder
       Dir.glob(File.join(p, "*")).each { |f|
         # skip toplevel dotfiles
         next if f =~ /^\./
-        FileUtils.cp_r(f, srcPath)
+        FileUtils.cp_r(f, srcPath, :preserve => true)
       }
       
       @src_dir = srcPath

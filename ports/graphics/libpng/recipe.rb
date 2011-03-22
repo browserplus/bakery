@@ -87,12 +87,12 @@
                                   "Win32_LIB_#{bt}",
                                   "libpng#{suffix}.lib"),
                         File.join(c[:output_lib_dir], "png_s.lib"),
-                        :verbose => true)
+                        :preserve => true, :verbose => true)
 
       puts "installing headers"
       ["png.h", "pngconf.h"].each do |f|
         FileUtils.install(File.join(c[:src_dir], f), c[:output_inc_dir],
-                          :verbose => true)
+                          :preserve => true, :verbose => true)
       end
     }
   }
