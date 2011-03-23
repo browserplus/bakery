@@ -16,9 +16,18 @@ if packages.length == 0
     b = File.basename(d)
     packages.push(b)
   }
+
   # now remove known broken/incomplete ones
   #   nodejs depends on some ENV vars, haven't dug into it
-  [ "nodejs" ].each { |b| 
+  #   pythons are fine on osx10.5 and later
+  badPackages = [ "nodejs" ]
+  if CONFIG['arch'] =~ /darwin/
+    ["python26", "python31"].each { |p| 
+      badPackages.push(p)
+    }
+  elsif CONFIG['arch'] =~ /mswin|mingw/
+  end
+  badPackages.each { |b| 
     packages.delete(b)
   }
 end
