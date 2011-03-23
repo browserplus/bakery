@@ -56,7 +56,8 @@
       libTrailer = (c[:build_type] == :debug) ? "d" : ""
       libFile = File.join(c[:src_dir], "src", "cppunit", buildType, "cppunit#{libTrailer}.lib")
       puts "installing #{c[:build_type].to_s} static library..."
-      FileUtils.cp(libFile, File.join(c[:output_lib_dir], "cppunit.lib"), :verbose => true)
+      FileUtils.cp(libFile, File.join(c[:output_lib_dir], "cppunit.lib"),
+                   :preserve => true, :verbose => true)
     }
   },
 
@@ -65,7 +66,8 @@
       # install headers 
       puts "installing headers..."
       Dir.glob(File.join(File.join(c[:src_dir], "include", "cppunit", "*"))).each { |h| 
-        FileUtils.cp_r(h, c[:output_inc_dir], :verbose => true)
+        FileUtils.cp_r(h, c[:output_inc_dir],
+                       :preserve => true, :verbose => true)
       }
     }
   }

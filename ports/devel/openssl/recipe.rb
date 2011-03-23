@@ -70,7 +70,7 @@ end
           src = File.join("lib", "#{l}.lib")
           dst = File.join(c[:output_lib_dir], "#{l}_s.lib")
           puts "copying from #{src} to #{dst}"
-          FileUtils.cp(src, dst, :verbose => true)
+          FileUtils.cp(src, dst, :preserve => true, :verbose => true)
         end
       else
         ["libssl", "libcrypto"].each() do |l|
@@ -78,7 +78,7 @@ end
           src = File.join("lib64", "#{l}.a") if !File.exist? src
           dst = File.join(c[:output_lib_dir], "#{l}_s.a")
           puts "copying from #{src} to #{dst}"
-          FileUtils.cp(src, dst, :verbose => true)
+          FileUtils.cp(src, dst, :preserve => true, :verbose => true)
         end
       end
 
@@ -86,7 +86,7 @@ end
       exeSuffix = c[:platform] == :Windows ? ".exe" : ""
       FileUtils.cp(File.join("bin", "openssl#{exeSuffix}"),
                    File.join(c[:output_bin_dir], "openssl#{exeSuffix}"),
-                   :verbose => true)
+                   :preserve => true, :verbose => true)
     }
   },
 
@@ -94,14 +94,14 @@ end
     Dir.chdir(c[:build_dir]) {
       puts "Installing headers..."
       Dir.glob(File.join("include", "openssl", "*.h")).each { |h|
-        FileUtils.cp(h, c[:output_inc_dir], :verbose => true)
+        FileUtils.cp(h, c[:output_inc_dir], :preserve => true, :verbose => true)
       }
       
       puts "Installing openssl.cnf..."
       src = File.join("ssl", "openssl.cnf")
       dest = File.join(c[:output_dir], "ssl")
       FileUtils.mkdir_p(dest)
-      FileUtils.cp_r(src, dest, :verbose => true)
+      FileUtils.cp_r(src, dest, :preserve => true, :verbose => true)
     }
   }
 }

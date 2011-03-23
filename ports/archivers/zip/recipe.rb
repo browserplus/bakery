@@ -20,9 +20,9 @@
         ENV["CFLAGS"] = ENV['CFLAGS'].to_s + cflags
         system("nmake -e -f Makefile")
         Dir.glob("*.obj").each do |o|
-          FileUtils.cp(o, c[:build_dir])
+          FileUtils.cp(o, c[:build_dir], :preserve => true)
         end
-        FileUtils.cp("zip_s.lib", c[:build_dir])
+        FileUtils.cp("zip_s.lib", c[:build_dir], :preserve => true)
       end
     },
     [:Linux, :MacOSX] => lambda { |c|
@@ -44,9 +44,9 @@
         puts "ruby LDFLAGS = #{ENV['LDFLAGS'].to_s}"
         system("make -e")
         Dir.glob("*.o").each do |o|
-          FileUtils.cp(o, c[:build_dir])
+          FileUtils.cp(o, c[:build_dir], :preserve => true)
         end
-        FileUtils.cp("libzip_s.a", c[:build_dir])
+        FileUtils.cp("libzip_s.a", c[:build_dir], :preserve => true)
       end
     }
   },
@@ -56,7 +56,7 @@
       src = File.join(c[:src_dir], "zip_s.lib")
       dst = File.join(c[:output_lib_dir], "zip_s.lib")
       puts "copying from #{src} to #{dst}"
-      FileUtils.cp(src, dst, :verbose => true)
+      FileUtils.cp(src, dst, :preserve => true, :verbose => true)
 
       puts "Installing headers..."
       Dir.glob(File.join(c[:src_dir], "*.h")).each do |h| 

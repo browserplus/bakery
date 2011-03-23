@@ -43,7 +43,7 @@
       puts "installing static library..."
       FileUtils.cp(File.join(c[:src_dir], "libz.a"),
                    File.join(c[:output_lib_dir], "libzlib_s.a"),
-                   :verbose => true)
+                   :preserve => true, :verbose => true)
     },
     :Windows => lambda { |c|
       bt = c[:build_type].to_s.capitalize      
@@ -51,7 +51,7 @@
       FileUtils.install(File.join(c[:src_dir], "projects", "visualc6",
                                   "Win32_LIB_#{bt}", "zlib#{suffix}.lib"),
                         File.join(c[:output_lib_dir], "zlib_s.lib"),
-                        :verbose => true)
+                        :preserve => true, :verbose => true)
     }
   },
   :post_install => lambda { |c|
@@ -59,7 +59,8 @@
       puts "installing headers..."
       ["zconf.h", "zlib.h"].each { |h|
         FileUtils.cp(File.join(c[:src_dir], h),
-                     c[:output_inc_dir], :verbose => true)
+                     c[:output_inc_dir],
+                     :preserve => true, :verbose => true)
       }
     end
   }

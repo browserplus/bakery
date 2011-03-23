@@ -1,6 +1,6 @@
 {
-  :url => "http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.1-p376.tar.bz2",
-  :md5 => "e019ae9c643c5efe91be49e29781fb94",
+  :url => "http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p180.tar.bz2", 
+  :md5 => "68510eeb7511c403b91fe5476f250538",
   :deps => [ 'zlib', 'openssl' ],
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
@@ -23,7 +23,9 @@
       # XXX: add openssl and zlib
       ENV['EXTS'] = "bigdecimal,continuation,coverage,digest,digest/md5,digest/rmd160,digest/sha1,digest/sha2,dl,fcntl,fiber,json,mathn,nkf,racc/cparse,ripper,sdbm,socket,stringio,strscan,syck,win32ole" 
       # grrr.  make a copy
-      Dir.glob(File.join(c[:src_dir], "*")).each { |f| FileUtils.cp_r(f, ".") }
+      Dir.glob(File.join(c[:src_dir], "*")).each { |f|
+        FileUtils.cp_r(f, ".", :preserve => true)
+      }
       configScript = File.join(c[:src_dir], "win32\\configure.bat")
       configstr = "#{configScript} --prefix=#{c[:output_dir].gsub('/', '\\')} "
       configstr = configstr + "--disable-install-doc"
@@ -49,7 +51,8 @@
       # symlinks to be moved
       Dir.glob(File.join(c[:output_dir], "lib", "*ruby*")).each { |l|
         if !File.symlink?(l)
-          FileUtils.mv(l, File.join(c[:output_lib_dir], File.basename(l)), :verbose => true)
+          FileUtils.mv(l, File.join(c[:output_lib_dir], File.basename(l)),
+                       :verbose => true)
         end
       }
       Dir.glob(File.join(c[:output_dir], "lib", "*ruby*")).each { |l|

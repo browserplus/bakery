@@ -25,7 +25,7 @@
   :install => {
     :Windows => lambda { |c|
       Dir.glob(File.join(c[:build_dir], "yajl-1.0.9", "*")).each { |d|
-        FileUtils.cp_r(d , c[:output_dir])
+        FileUtils.cp_r(d , c[:output_dir], :preserve => true)
       }
     },
     [ :Linux, :MacOSX ] => "make install"
@@ -55,7 +55,7 @@
   },
   :post_install_common => lambda { |c|
     Dir.glob(File.join("src", "api", "*")).each { |f|
-      FileUtils.cp(f, c[:output_inc_dir])
+      FileUtils.cp(f, c[:output_inc_dir], :preserve => true)
     }
   }
 }

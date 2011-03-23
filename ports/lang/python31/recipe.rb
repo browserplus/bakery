@@ -34,7 +34,9 @@
         # Python pulls down the source of its own deps from their svn repo
         # as part of the build process.  So it's too late for the normal
         # patching mechanism we would use.  Instead we do poor-man's version.
-        FileUtils.copy(File.join(c[:recipe_dir], "bzip2-1.0.5", "makefile.msc"), File.join(c[:src_dir], "..\\bzip2-1.0.5"))
+        FileUtils.copy(File.join(c[:recipe_dir], "bzip2-1.0.5", "makefile.msc"),
+                       File.join(c[:src_dir], "..\\bzip2-1.0.5"),
+                       :preserve => true)
         ENV['OLD_PATH'] = "#{ENV['PATH']}"
         ENV['PATH'] = "#{ENV['PATH']};#{c[:wintools_dir].gsub('/', '\\')}\\nasmw"
         devenvOut = File.join(c[:log_dir], "devenv_#{c[:build_type]}.txt")
@@ -57,7 +59,8 @@
           py31SrcFile = py31SrcFile.sub(".exe", "_d.exe")
           py31DstFile = py31DstFile.sub(".exe", "_d.exe")
         end
-        FileUtils.cp(py31SrcFile, py31DstFile, :verbose => true)
+        FileUtils.cp(py31SrcFile, py31DstFile,
+                     :preserve => true, :verbose => true)
       }
       # install python interpreter and support libs
       binfiles = %w[python31 sqlite3]
@@ -70,7 +73,8 @@
             py31SrcFile = py31SrcFile.sub("." + j.to_s, "_d." + j.to_s)
             py31DstFile = py31DstFile.sub("." + j.to_s, "_d." + j.to_s)
           end
-          FileUtils.cp(py31SrcFile, py31DstFile, :verbose => true)
+          FileUtils.cp(py31SrcFile, py31DstFile,
+                       :preserve => true, :verbose => true)
         }
       }
       # install python C libs
@@ -84,7 +88,8 @@
             py31SrcFile = py31SrcFile.sub("." + j.to_s, "_d." + j.to_s)
             py31DstFile = py31DstFile.sub("." + j.to_s, "_d." + j.to_s)
           end
-          FileUtils.cp(py31SrcFile, py31DstFile, :verbose => true)
+          FileUtils.cp(py31SrcFile, py31DstFile,
+                       :preserve => true, :verbose => true)
         }
       }
       # install python stdlib libs
@@ -92,19 +97,19 @@
       Dir.glob(File.join(c[:src_dir], "Lib", "*.*")).each { |l|
         tgtBasename = File.basename(l)
         tgt = File.join(c[:output_lib_dir], "lib", tgtBasename)
-        FileUtils.cp(l, tgt, :verbose => true)
+        FileUtils.cp(l, tgt, :preserve => true, :verbose => true)
       }
       FileUtils.mkdir_p(File.join(c[:output_lib_dir], "lib", "lib-tk"))
       Dir.glob(File.join(c[:src_dir], "Lib", "lib-tk", "*.*")).each { |l|
         tgtBasename = File.basename(l)
         tgt = File.join(c[:output_lib_dir], "lib", "lib-tk", tgtBasename)
-        FileUtils.cp(l, tgt, :verbose => true)
+        FileUtils.cp(l, tgt, :preserve => true, :verbose => true)
       }
       FileUtils.mkdir_p(File.join(c[:output_lib_dir], "lib", "site-packages"))
       Dir.glob(File.join(c[:src_dir], "Lib", "site-packages", "*.*")).each { |l|
         tgtBasename = File.basename(l)
         tgt = File.join(c[:output_lib_dir], "lib", "site-packages", tgtBasename)
-        FileUtils.cp(l, tgt, :verbose => true)
+        FileUtils.cp(l, tgt, :preserve => true, :verbose => true)
       }
     }
   },
@@ -119,10 +124,12 @@
     [ :Windows ] => lambda { |c|
       py31dir = File.join(c[:src_dir], "Include")
       Dir.glob(File.join(py31dir, "*")).each { |h|
-        FileUtils.cp(h, c[:output_inc_dir], :verbose => true)
+        FileUtils.cp(h, c[:output_inc_dir],
+                     :preserve => true, :verbose => true)
       }
       py31File = File.join(c[:src_dir], "PC", "pyconfig.h")
-      FileUtils.cp(py31File, c[:output_inc_dir], :verbose => true)
+      FileUtils.cp(py31File, c[:output_inc_dir],
+                   :preserve => true, :verbose => true)
     }
   }
 }
