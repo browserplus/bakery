@@ -1,0 +1,13 @@
+--- yajl-1.0.9/CMakeLists.txt.orig	2011-03-23 16:23:23.756835900 -0700
++++ yajl-1.0.9/CMakeLists.txt	2011-03-23 16:23:48.783203100 -0700
+@@ -58,8 +58,8 @@
+       CACHE STRING "YAJL module linker flags" FORCE)
+ 
+   SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /wd4996 /wd4255 /wd4130 /wd4100 /wd4711")
+-  SET(CMAKE_C_FLAGS_DEBUG "/D DEBUG /Od /Z7")
+-  SET(CMAKE_C_FLAGS_RELEASE "/D NDEBUG /O2")
++  SET(CMAKE_C_FLAGS_DEBUG "/D DEBUG /Od /Z7 /MTd")
++  SET(CMAKE_C_FLAGS_RELEASE "/D NDEBUG /O2 /MT")
+ ELSE (WIN32)
+   SET(CMAKE_C_FLAGS
+       "${CMAKE_C_FLAGS} -fPIC -ansi -pedantic -Wpointer-arith -Wno-format-y2k -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wextra	-Wundef -Wwrite-strings -Wold-style-definition -Wno-missing-field-initializers -Wredundant-decls -Wno-unused-parameter -Wno-sign-compare -Wmissing-prototypes")
