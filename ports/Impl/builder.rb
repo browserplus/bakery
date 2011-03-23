@@ -120,6 +120,7 @@ class Builder
     # let's determine the platform
     @toolchain = nil
     @patch_cmd = "patch"
+    @toolchain = nil
     if CONFIG['arch'] =~ /mswin|mingw/
       @platform = :Windows
       @platlookup = [ @platform, :All ]
@@ -163,7 +164,6 @@ class Builder
       ENV['CC'] = '/Developer/usr/bin/llvm-gcc-4.2'
       ENV['CXX'] = '/Developer/usr/bin/llvm-g++-4.2'
       @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.5"
-
       @toolchain = File.basename(ENV['CC'])
     elsif CONFIG['arch'] =~ /linux/
       @platform = :Linux
@@ -501,7 +501,7 @@ class Builder
       Dir.glob(File.join(p, "*")).each { |f|
         # skip toplevel dotfiles
         next if f =~ /^\./
-        FileUtils.cp_r(f, srcPath)
+        FileUtils.cp_r(f, srcPath, :preserve => true)
       }
       
       @src_dir = srcPath

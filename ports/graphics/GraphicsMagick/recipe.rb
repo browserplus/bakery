@@ -95,7 +95,7 @@
         fname = "CORE_#{bt}#{k}.lib"
         FileUtils.cp(File.join(c[:src_dir], "VisualMagick", "lib", fname),
                      File.join(c[:output_lib_dir], v),
-                     :verbose => true)
+                     :preserve => true, :verbose => true)
       }
 
       if (c[:build_type] == :release) 
@@ -104,7 +104,7 @@
           tgt = File.join(c[:output_inc_dir], d)
           FileUtils.mkdir_p(tgt)
           Dir.glob(File.join(c[:src_dir], d, "*.h")).each { |h|
-            FileUtils.cp(h, tgt, :verbose => true)
+            FileUtils.cp(h, tgt, :preserve => true, :verbose => true)
           }
         }
 
@@ -112,10 +112,10 @@
         tgt = File.join(c[:output_inc_dir], "Magick++")
         FileUtils.mkdir_p(tgt)
         Dir.glob(File.join(c[:src_dir], "Magick++", "lib", "Magick++", "*.h")).each { |h|
-          FileUtils.cp(h, tgt, :verbose => true)
+          FileUtils.cp(h, tgt, :preserve => true, :verbose => true)
         }
         FileUtils.cp(File.join(c[:src_dir], "Magick++", "lib", "Magick++.h"),
-                     c[:output_inc_dir], :verbose => true)
+                     c[:output_inc_dir], :preserve => true, :verbose => true)
 
         # finally the magic.mgk file, an xml document which enumerates
         # supported formats
@@ -123,7 +123,7 @@
                                  "config")
         FileUtils.mkdir_p(magicMgkHome) 
         FileUtils.cp(File.join(c[:src_dir], "VisualMagick", "bin", "magic.mgk"),
-                     magicMgkHome, :verbose => true)
+                     magicMgkHome, :preserve => true, :verbose => true)
       end
     }
   }

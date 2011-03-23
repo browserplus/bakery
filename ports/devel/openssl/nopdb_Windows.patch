@@ -1,0 +1,51 @@
+--- openssl-1.0.0d/Configure.orig	2011-03-21 16:17:14.058593700 -0700
++++ openssl-1.0.0d/Configure	2011-03-21 16:18:08.307617100 -0700
+@@ -492,13 +492,13 @@
+ # Win64 targets, WIN64I denotes IA-64 and WIN64A - AMD64
+ "VC-WIN64I","cl:-W3 -Gs0 -Gy -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN -DL_ENDIAN -DUNICODE -D_UNICODE -D_CRT_SECURE_NO_DEPRECATE:::WIN64I::SIXTY_FOUR_BIT RC4_CHUNK_LL DES_INT EXPORT_VAR_AS_FN:ia64cpuid.o:ia64.o::aes_core.o aes_cbc.o aes-ia64.o::md5-ia64.o:sha1-ia64.o sha256-ia64.o sha512-ia64.o:::::::ias:win32",
+ "VC-WIN64A","cl:-W3 -Gs0 -Gy -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN -DL_ENDIAN -DUNICODE -D_UNICODE -D_CRT_SECURE_NO_DEPRECATE:::WIN64A::SIXTY_FOUR_BIT RC4_CHUNK_LL DES_INT EXPORT_VAR_AS_FN:x86_64cpuid.o:bn_asm.o x86_64-mont.o::aes-x86_64.o::md5-x86_64.o:sha1-x86_64.o sha256-x86_64.o sha512-x86_64.o::rc4-x86_64.o:::wp-x86_64.o:cmll-x86_64.o cmll_misc.o:auto:win32",
+-"debug-VC-WIN64I","cl:-W3 -Gs0 -Gy -Zi -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN -DL_ENDIAN -DUNICODE -D_UNICODE -D_CRT_SECURE_NO_DEPRECATE:::WIN64I::SIXTY_FOUR_BIT RC4_CHUNK_LL DES_INT EXPORT_VAR_AS_FN:ia64cpuid.o:ia64.o::aes_core.o aes_cbc.o aes-ia64.o::md5-ia64.o:sha1-ia64.o sha256-ia64.o sha512-ia64.o:::::::ias:win32",
+-"debug-VC-WIN64A","cl:-W3 -Gs0 -Gy -Zi -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN -DL_ENDIAN -DUNICODE -D_UNICODE -D_CRT_SECURE_NO_DEPRECATE:::WIN64A::SIXTY_FOUR_BIT RC4_CHUNK_LL DES_INT EXPORT_VAR_AS_FN:x86_64cpuid.o:bn_asm.o x86_64-mont.o::aes-x86_64.o::md5-x86_64.o:sha1-x86_64.o sha256-x86_64.o sha512-x86_64.o::rc4-x86_64.o:::wp-x86_64.o:cmll-x86_64.o cmll_misc.o:auto:win32",
++"debug-VC-WIN64I","cl:-W3 -Gs0 -Gy -Z7 -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN -DL_ENDIAN -DUNICODE -D_UNICODE -D_CRT_SECURE_NO_DEPRECATE:::WIN64I::SIXTY_FOUR_BIT RC4_CHUNK_LL DES_INT EXPORT_VAR_AS_FN:ia64cpuid.o:ia64.o::aes_core.o aes_cbc.o aes-ia64.o::md5-ia64.o:sha1-ia64.o sha256-ia64.o sha512-ia64.o:::::::ias:win32",
++"debug-VC-WIN64A","cl:-W3 -Gs0 -Gy -Z7 -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN -DL_ENDIAN -DUNICODE -D_UNICODE -D_CRT_SECURE_NO_DEPRECATE:::WIN64A::SIXTY_FOUR_BIT RC4_CHUNK_LL DES_INT EXPORT_VAR_AS_FN:x86_64cpuid.o:bn_asm.o x86_64-mont.o::aes-x86_64.o::md5-x86_64.o:sha1-x86_64.o sha256-x86_64.o sha512-x86_64.o::rc4-x86_64.o:::wp-x86_64.o:cmll-x86_64.o cmll_misc.o:auto:win32",
+ # x86 Win32 target defaults to ANSI API, if you want UNICODE, complement
+ # 'perl Configure VC-WIN32' with '-DUNICODE -D_UNICODE'
+ "VC-WIN32","cl:-W3 -WX -Gs0 -GF -Gy -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN -DL_ENDIAN -D_CRT_SECURE_NO_DEPRECATE:::WIN32::BN_LLONG RC4_INDEX EXPORT_VAR_AS_FN ${x86_gcc_opts}:${x86_asm}:win32n:win32",
+ # Unified CE target
+-"debug-VC-WIN32","cl:-W3 -WX -Gs0 -GF -Gy -Zi -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN -DL_ENDIAN -D_CRT_SECURE_NO_DEPRECATE:::WIN32::BN_LLONG RC4_INDEX EXPORT_VAR_AS_FN ${x86_gcc_opts}:${x86_asm}:win32n:win32",
++"debug-VC-WIN32","cl:-W3 -WX -Gs0 -GF -Gy -Z7 -nologo -DOPENSSL_SYSNAME_WIN32 -DWIN32_LEAN_AND_MEAN -DL_ENDIAN -D_CRT_SECURE_NO_DEPRECATE:::WIN32::BN_LLONG RC4_INDEX EXPORT_VAR_AS_FN ${x86_gcc_opts}:${x86_asm}:win32n:win32",
+ "VC-CE","cl::::WINCE::BN_LLONG RC4_INDEX EXPORT_VAR_AS_FN ${x86_gcc_opts}:${no_asm}:win32",
+ 
+ # Borland C++ 4.5
+--- openssl-1.0.0d/util/pl/VC-32.pl.orig	2011-03-21 16:17:32.269531200 -0700
++++ openssl-1.0.0d/util/pl/VC-32.pl	2011-03-21 16:19:38.773437500 -0700
+@@ -137,9 +137,8 @@
+ 	$cflags=$opt_cflags.$base_cflags;
+ 	}
+ 
+-# generate symbols.pdb unconditionally
+-$app_cflag.=" /Zi /Fd\$(TMP_D)/app";
+-$lib_cflag.=" /Zi /Fd\$(TMP_D)/lib";
++$app_cflag.=" /Z7 ";
++$lib_cflag.=" /Z7 ";
+ $lflags.=" /debug";
+ 
+ $obj='.obj';
+@@ -185,7 +184,7 @@
+ 		$asm='nasm -f win64 -DNEAR -Ox -g';
+ 		$afile='-o ';
+ 	} else {
+-		$asm='ml64 /c /Cp /Cx /Zi';
++		$asm='ml64 /c /Cp /Cx /Z7';
+ 		$afile='/Fo';
+ 	}
+ } elsif ($FLAVOR =~ /WIN64I/) {
+@@ -199,7 +198,7 @@
+ 	$asmtype="win32n";
+ 	$afile='-o ';
+ } else {
+-	$asm='ml /nologo /Cp /coff /c /Cx /Zi';
++	$asm='ml /nologo /Cp /coff /c /Cx /Z7';
+ 	$afile='/Fo';
+ 	$asmtype="win32";
+ }

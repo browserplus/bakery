@@ -1,6 +1,6 @@
 {
   :deps => [ "service_runner" ], 
-  :url => 'github://browserplus/service-testing/348d7a31dc926bb90c789a480a6097eefebb7cc4',
+  :url => 'github://browserplus/service-testing/7406780f75ac6de596250419b01e7a9239a84e1b',
   :install => lambda { |c|
     tgtDir = File.join(c[:output_dir], "share", "service_testing")
     FileUtils.mkdir_p(tgtDir)
@@ -14,6 +14,15 @@
                  tgtDir,
                  { :verbose => true, :preserve => true })
     FileUtils.cp(File.join(c[:src_dir], "ruby", "ruby19_cppunit_runner.rb"),
+                 tgtDir,
+                 { :verbose => true, :preserve => true })
+    FileUtils.cp(File.join(c[:src_dir], "ruby", "ruby19_error.rb"),
+                 tgtDir,
+                 { :verbose => true, :preserve => true })
+    FileUtils.cp(File.join(c[:src_dir], "ruby", "ruby19_failure.rb"),
+                 tgtDir,
+                 { :verbose => true, :preserve => true })
+    FileUtils.cp(File.join(c[:src_dir], "ruby", "ruby19_success.rb"),
                  tgtDir,
                  { :verbose => true, :preserve => true })
     FileUtils.cp_r(File.join(c[:src_dir], "ruby", "json"),

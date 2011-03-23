@@ -37,11 +37,11 @@
       src = File.join(c[:src_dir], "libbz2.lib")
       dst = File.join(c[:output_lib_dir], "bz2_s.lib")
       puts "copying from #{src} to #{dst}"
-      FileUtils.cp(src, dst, :verbose => true)
+      FileUtils.cp(src, dst, :preserve => true, :verbose => true)
 
       puts "Installing headers..."
       Dir.glob(File.join(c[:src_dir], "*.h")).each do |h| 
-        FileUtils.cp(h, c[:output_inc_dir], :verbose => true)
+        FileUtils.cp(h, c[:output_inc_dir], :preserve => true, :verbose => true)
       end
     },
     [:Linux, :MacOSX] => lambda { |c|
@@ -49,11 +49,11 @@
       src = File.join(c[:src_dir], "libbz2.a")
       dst = File.join(c[:output_lib_dir], "libbz2_s.a")
       puts "copying from #{src} to #{dst}"
-      FileUtils.cp(src, dst, :verbose => true)
+      FileUtils.cp(src, dst, :preserve => true, :verbose => true)
 
       puts "Installing headers..."
       Dir.glob(File.join(c[:src_dir], "*.h")).each do |h| 
-        FileUtils.cp(h, c[:output_inc_dir], :verbose => true)
+        FileUtils.cp(h, c[:output_inc_dir], :preserve => true, :verbose => true)
       end
     }      
   }

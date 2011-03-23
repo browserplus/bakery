@@ -71,7 +71,8 @@
   :install => lambda { |c|
     puts "copying headers..."
     Dir.glob(File.join(c[:src_dir], "boost", "*")).each { |h|
-      FileUtils.cp_r(h, c[:output_inc_dir], :verbose => true)
+      FileUtils.cp_r(h, c[:output_inc_dir],
+                     :preserve => true, :verbose => true)
     }
 
     # copy static libs
@@ -81,7 +82,8 @@
     libSuffix = ((c[:platform] == :Windows) ? "lib" : "a")
     
     Dir.glob("**/#{buildType}/**/libboost*.#{libSuffix}").each do |l|
-      FileUtils.cp(l, c[:output_lib_dir], :verbose => true)
+      FileUtils.cp(l, c[:output_lib_dir],
+                   :preserve => true, :verbose => true)
     end
   }
 }

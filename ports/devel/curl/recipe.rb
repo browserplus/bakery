@@ -46,15 +46,20 @@
       Dir.chdir(c[:src_dir]) {
         system("make install")
         FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.a"),
-                     File.join(c[:output_lib_dir], "libcurl_s.a"))
+                     File.join(c[:output_lib_dir], "libcurl_s.a"), 
+                     :preserve => true)
         FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.la"),
-                     File.join(c[:output_lib_dir], "libcurl_s.la"))
+                     File.join(c[:output_lib_dir], "libcurl_s.la"),
+                     :preserve => true)
         FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.4.dylib"),
-                     File.join(c[:output_lib_dir], "libcurl.4.dylib"))
+                     File.join(c[:output_lib_dir], "libcurl.4.dylib"),
+                     :preserve => true)
         FileUtils.cp(File.join(c[:output_dir], "lib", "libcurl.dylib"),
-                     File.join(c[:output_lib_dir], "libcurl.dylib"))
+                     File.join(c[:output_lib_dir], "libcurl.dylib"),
+                     :preserve => true)
         FileUtils.cp_r(File.join(c[:output_dir], "lib", "pkgconfig"),
-                       File.join(c[:output_lib_dir]))
+                       File.join(c[:output_lib_dir]),
+                       :preserve => true)
         FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.a"))
         FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.la"))
         FileUtils.rm(File.join(c[:output_dir], "lib", "libcurl.4.dylib"))
@@ -67,11 +72,13 @@
       buildType = c[:build_type].to_s
       libFile = File.join(c[:src_dir], "lib", buildType, "libcurl.lib")
       puts "installing #{c[:build_type].to_s} static library..."
-      FileUtils.cp(libFile, File.join(c[:output_lib_dir], "libcurl_s.lib"), :verbose => true)
+      FileUtils.cp(libFile, File.join(c[:output_lib_dir], "libcurl_s.lib"),
+                   :preserve => true, :verbose => true)
       # install headers
       puts "installing headers..."
       Dir.glob(File.join(File.join(c[:src_dir], "include", "curl", "*.h"))).each { |h|
-        FileUtils.cp_r(h, c[:output_inc_dir], :verbose => true)
+        FileUtils.cp_r(h, c[:output_inc_dir],
+                       :preserve => true, :verbose => true)
       }
     }
   },

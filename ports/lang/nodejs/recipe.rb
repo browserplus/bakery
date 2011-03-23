@@ -38,12 +38,14 @@
       # copy in static libraries (appending _s to follow bakery conventions)
       Dir.glob(File.join(c[:build_dir], "**", "lib*.a")).each { |f|
         newName = File.basename(f).sub(/.a$/, '_s.a')  
-        FileUtils.cp(f, File.join(c[:output_lib_dir], newName), :preserve => true)
+        FileUtils.cp(f, File.join(c[:output_lib_dir], newName),
+                     :preserve => true)
       }        
 
       # copy in binary (appending build type to name)
       newName = "node_#{c[:build_type].to_s}"
-      FileUtils.cp("node", File.join(c[:output_bin_dir], newName))      
+      FileUtils.cp("node", File.join(c[:output_bin_dir], newName),
+                   :preserve => true)      
 
       # only copy headers once
       if c[:build_type] == :release

@@ -13,7 +13,7 @@
     # copy in our custom data file
     FileUtils.cp(File.join(c[:recipe_dir], "icudt40l.dat"),
                  File.join(c[:src_dir], "source", "data", "in"),
-                 :verbose => true)
+                 :preserve => true, :verbose => true)
   },
 
   :configure => {
@@ -66,7 +66,7 @@
         end
         FileUtils.install(File.join(libDir, src),
                           File.join(c[:output_lib_dir], l),
-                          :verbose => true)
+                          :preserve => true, :verbose => true)
       end
     },
     [ :Linux, :MacOSX ] => lambda { |c|
@@ -105,7 +105,8 @@
     },
     :Windows => lambda { |c|
       FileUtils.cp_r(File.join(c[:src_dir], "include", "unicode"),
-                     c[:output_inc_dir], :verbose => true)
+                     c[:output_inc_dir],
+                     :preserve => true, :verbose => true)
     }
   }
 }
