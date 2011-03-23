@@ -16,8 +16,21 @@ if packages.length == 0
     b = File.basename(d)
     packages.push(b)
   }
+
   # now remove known broken/incomplete ones
   #   portaudio uses 10.4 sdk
+  #   nodejs depends on some ENV vars, haven't dug into it
+  badPackages = [ "nodejs" ]
+  if CONFIG['arch'] =~ /darwin/
+    ["portaudio"].each { |p| 
+      badPackages.push(p)
+    }
+  elsif CONFIG['arch'] =~ /mswin|mingw/
+  end
+  badPackages.each { |b| 
+    packages.delete(b)
+  }
+  # now remove known broken/incomplete ones
   #   nodejs depends on some ENV vars, haven't dug into it
   [ "portaudio", "nodejs" ].each { |b| 
     packages.delete(b)
