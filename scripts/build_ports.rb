@@ -17,8 +17,9 @@ if packages.length == 0
     packages.push(b)
   }
   # now remove known broken/incomplete ones
+  #   portaudio uses 10.4 sdk
   #   nodejs depends on some ENV vars, haven't dug into it
-  [ "nodejs" ].each { |b| 
+  [ "portaudio", "nodejs" ].each { |b| 
     packages.delete(b)
   }
 end
