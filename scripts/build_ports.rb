@@ -9,15 +9,32 @@ ARGV.each { |a|
 }
 
 if packages.length == 0
-  puts "usage: ruby build_ports port1 ... portn"
-  exit -1
+  puts "Building ALL ports!"
+  # find all recipes
+  Dir.glob(File.join("..", "ports", "**", "recipe.rb")).each {  |r|
+    d = File.dirname(r)
+    b = File.basename(d)
+    packages.push(b)
+  }
+  # now remove known broken/incomplete ones
+  #   nodejs depends on some ENV vars, haven't dug into it
+  [ "nodejs" ].each { |b| 
+    packages.delete(b)
+  }
 end
 
-$order = {
-  :output_dir => File.join(File.dirname(__FILE__), "build"),
-  :packages => packages,
-  :verbose => true
-}
+# build 'em
+packages.each {|r|
+  puts ""
+  puts "Building #{r}..."
+  buildDir = File.join(File.dirname(__FILE__), "build", r)
+  FileUtils.rm_rf(buildDir)
+  $order = {
+    :output_dir => buildDir,
+    :packages => [ r ],
+    :verbose => true
+  }
 
-b = Bakery.new $order
-b.build
+  b = Bakery.new $order
+  b.build
+}
