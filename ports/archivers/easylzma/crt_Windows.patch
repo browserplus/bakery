@@ -1,0 +1,11 @@
+--- easylzma-0.0.7/src/CMakeLists.txt.orig	2011-03-23 16:34:41.758789000 -0700
++++ easylzma-0.0.7/src/CMakeLists.txt	2011-03-23 16:35:57.212890600 -0700
+@@ -9,6 +9,8 @@
+ 
+ IF (WIN32)
+   ADD_DEFINITIONS(-DWIN32)
++  SET(CMAKE_C_FLAGS_DEBUG "/D DEBUG /Od /Z7 /MTd")
++  SET(CMAKE_C_FLAGS_RELEASE "/D NDEBUG /O2 /MT")
+ ENDIF (WIN32)
+ 
+ FILE(GLOB SRCS pavlov/*.c *.c)
