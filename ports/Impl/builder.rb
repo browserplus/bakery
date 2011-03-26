@@ -86,38 +86,9 @@ class Builder
     @pkg = pkg
     @verbose = verbose
 
-    @distfiles_path = File.join(cache_dir, "distfiles") # not @cache_dir
-    FileUtils.mkdir_p(@distfiles_path)
-
-    @workdir_path = File.join(@port_dir, "work", @pkg)
-    FileUtils.mkdir_p(@workdir_path)
-
-    @logdir_path = File.join(@workdir_path, "logs")
-
-    # create and define directories where ports should put stuff
-    @wintools_dir = wintools_dir ? wintools_dir : File.join(@port_dir, "WinTools")
-
-    # create and define directories where ports should put stuff
-    @output_dir = output_dir ? output_dir : File.join(@port_dir, "dist")
-    FileUtils.mkdir_p(@output_dir)    
-
-    @output_inc_dir = File.join(@output_dir, "include", @pkg)
-    FileUtils.mkdir_p(@output_inc_dir)    
-
-    @output_bin_dir = File.join(@output_dir, "bin")
-    FileUtils.mkdir_p(@output_bin_dir)    
-
-    @output_doc_dir = File.join(@output_dir, "doc", @pkg)
-    @output_share_dir = File.join(@output_dir, "share")
-    
-
-    # lib dir will be updated at _pre_build_ time (once per build type)
-
-    # initialize OS specific compile/link flags to the empty string
+    # let's determine the platform and set tool stuff accordingly
     @os_compile_flags = ""
     @os_link_flags = ""
-
-    # let's determine the platform
     @toolchain = nil
     @patch_cmd = "patch"
     @toolchain = nil
@@ -170,6 +141,33 @@ class Builder
       @platlookup = [ @platform, :Unix, :All ]
       @os_compile_flags = " -fPIC "
     end
+
+    @distfiles_path = File.join(cache_dir, "distfiles") # not @cache_dir
+    FileUtils.mkdir_p(@distfiles_path)
+
+    @workdir_path = File.join(@port_dir, "work", @toolchain, @pkg)
+    FileUtils.mkdir_p(@workdir_path)
+
+    @logdir_path = File.join(@workdir_path, "logs")
+
+    # create and define directories where ports should put stuff
+    @wintools_dir = wintools_dir ? wintools_dir : File.join(@port_dir, "WinTools")
+
+    # create and define directories where ports should put stuff
+    @output_dir = output_dir ? output_dir : File.join(@port_dir, "dist")
+    FileUtils.mkdir_p(@output_dir)    
+
+    @output_inc_dir = File.join(@output_dir, "include", @pkg)
+    FileUtils.mkdir_p(@output_inc_dir)    
+
+    @output_bin_dir = File.join(@output_dir, "bin")
+    FileUtils.mkdir_p(@output_bin_dir)    
+
+    @output_doc_dir = File.join(@output_dir, "doc", @pkg)
+    @output_share_dir = File.join(@output_dir, "share")
+    
+
+    # lib dir will be updated at _pre_build_ time (once per build type)
 
     # now set @cache_dir, which includes a subdir for build toolset
     @cache_dir = cache_dir
