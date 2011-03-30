@@ -57,9 +57,15 @@
       }
       Dir.glob(File.join(c[:output_dir], "lib", "*ruby*")).each { |l|
         if File.symlink?(l)
-          FileUtils.safe_unlink(File.join(c[:output_lib_dir], File.basename(l))) if File.exist?(File.join(c[:output_lib_dir], File.basename(l)))
-          FileUtils.symlink(File.join(c[:output_lib_dir], File.readlink(l)), File.join(c[:output_lib_dir], File.basename(l)))
-          FileUtils.safe_unlink(l)
+          if File.exist?(File.join(c[:output_lib_dir], File.basename(l)))
+            FileUtils.safe_unlink(File.join(c[:output_lib_dir],
+                                            File.basename(l)),
+                                  :verbose => true)
+          end
+          FileUtils.symlink(File.basename(File.readlink(l)),
+                            File.join(c[:output_lib_dir], File.basename(l)),
+                            :verbose => true)
+          FileUtils.safe_unlink(l, :verbose => true)
         end
       }
     },
@@ -70,7 +76,8 @@
       ENV['PATH'] = "#{ENV['OLD_PATH']}"
       # now move output in lib dir into build config dir
       Dir.glob(File.join(c[:output_dir], "lib", "*ruby*")).each { |l|
-        FileUtils.mv(l, File.join(c[:output_lib_dir], File.basename(l)), :verbose => true)
+        FileUtils.mv(l, File.join(c[:output_lib_dir], File.basename(l)),
+                     :verbose => true)
       }
     }
   },
@@ -86,9 +93,15 @@
       }
       Dir.glob(File.join(rb19dir, "*")).each { |h|
         if File.symlink?(h)
-          FileUtils.safe_unlink(File.join(c[:output_inc_dir], File.basename(h))) if File.exist?(File.join(c[:output_inc_dir], File.basename(h)))
-          FileUtils.symlink(File.join(c[:output_inc_dir], File.readlink(h)), File.join(c[:output_inc_dir], File.basename(h)))
-          FileUtils.safe_unlink(h)
+          if File.exist?(File.join(c[:output_inc_dir], File.basename(h)))
+            FileUtils.safe_unlink(File.join(c[:output_inc_dir],
+                                            File.basename(h)),
+                                  :verbose => true)
+          end
+          FileUtils.symlink(File.basename(File.readlink(h)),
+                            File.join(c[:output_inc_dir], File.basename(h)),
+                            :verbose => true)
+          FileUtils.safe_unlink(h, :verbose => true)
         end
       }
       FileUtils.rmdir(rb19dir)
