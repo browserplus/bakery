@@ -2,6 +2,15 @@
   :url => "http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p180.tar.bz2", 
   :md5 => "68510eeb7511c403b91fe5476f250538",
   :deps => [ 'zlib', 'openssl' ],
+  :post_patch => {
+    [ :Windows ] => lambda { |c|
+      # Gott run build from a cmd shell.  Sigh.
+      foo = `help ASSOC`
+      if foo.index('Displays or modifies') == nil
+        raise "Must build ruby from a Windows cmd shell"
+      end
+    }
+  },
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       if $platform == :MacOSX
