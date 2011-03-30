@@ -46,9 +46,15 @@
       Dir.glob(File.join(c[:output_dir], "lib", "libyajl*")).each { |f|
         # FileUtils.mv does not handle symlinks in Ruby 1.9
         if !File.directory?(f) && File.symlink?(f)
-          FileUtils.safe_unlink(File.join(c[:output_lib_dir], File.basename(f))) if File.exist?(File.join(c[:output_lib_dir], File.basename(f)))
-          FileUtils.symlink(File.join(c[:output_lib_dir], File.readlink(f)), File.join(c[:output_lib_dir], File.basename(f)))
-          FileUtils.safe_unlink(f)
+          if File.exist?(File.join(c[:output_lib_dir], File.basename(f)))
+            FileUtils.safe_unlink(File.join(c[:output_lib_dir],
+                                            File.basename(f)),
+                                  :verbose => true)
+          end
+          FileUtils.symlink(File.basename(File.readlink(f)),
+                            File.join(c[:output_lib_dir], File.basename(f)),
+                            :verbose => true)
+          FileUtils.safe_unlink(f, :verbose => true)
         end
       }
     }

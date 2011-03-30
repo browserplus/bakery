@@ -82,9 +82,15 @@
       }
       Dir.glob(File.join(c[:output_dir], "lib", "*icu*")).each { |l|
         if !File.directory?(l) && File.symlink?(l)
-          FileUtils.safe_unlink(File.join(c[:output_lib_dir], File.basename(l))) if File.exist?(File.join(c[:output_lib_dir], File.basename(l)))
-          FileUtils.symlink(File.join(c[:output_lib_dir], File.readlink(l)), File.join(c[:output_lib_dir], File.basename(l)))
-          FileUtils.safe_unlink(l)
+          if File.exist?(File.join(c[:output_lib_dir], File.basename(l)))
+            FileUtils.safe_unlink(File.join(c[:output_lib_dir],
+                                            File.basename(l)),
+                                  :verbose => true)
+          end
+          FileUtils.symlink(File.basename(File.readlink(l)),
+                            File.join(c[:output_lib_dir], File.basename(l)),
+                            :verbose => true)
+          FileUtils.safe_unlink(l, :verbose => true)
         end
       }
       FileUtils.rm_rf(File.join(c[:output_dir], "lib", "icu"))
