@@ -16,10 +16,14 @@
       ENV['LDFLAGS'] = "#{c[:os_link_flags]} #{ENV['LDFLAGS']}"
       puts "CFLAGS = #{ENV['CFLAGS']}"
       puts "LDFLAGS = #{ENV['LDFLAGS']}"
-
-      Dir.chdir(c[:src_dir]) {
-          system("./configure --build=i386-apple-darwin10.4.0 --host=i386-apple-darwin10.4.0 --prefix=#{c[:output_dir]} --without-ssl --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps")
-      }
+      if c[:platform] == :MacOSX
+        osVersion = c[:toolchain] == 'gcc-4.0' ? '10.4.0' : '10.5[0'
+        Dir.chdir(c[:src_dir]) {
+          system("./configure --build=i386-apple-darwin#{osVersion} --host=i386-apple-darwin#{osVersion} --prefix=#{c[:output_dir]} --without-ssl --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps")
+        }
+      else
+        raise "Don't know how to configure Linux"
+      end
     }
   },
   :build => {

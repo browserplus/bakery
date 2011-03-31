@@ -118,6 +118,7 @@ class Builder
     @os_link_flags = ""
 
     # let's determine the platform
+    @toolchain = nil
     @patch_cmd = "patch"
     @toolchain = nil
     if CONFIG['arch'] =~ /mswin|mingw/
@@ -130,7 +131,6 @@ class Builder
 
       # determine what Visual Studio we are using
       foo=`devenv.com /?`
-      @vsVersion = nil
       if foo.index("Visual Studio Version 10.")
         @toolchain = "vs10"
         @cmake_generator = "Visual Studio 10"
@@ -147,30 +147,44 @@ class Builder
       @platform = :MacOSX
       @platlookup = [ @platform, :Unix, :All ]
 
-      # Compiler/linker flags needed for 10.4 compatibility.  The surrounding
+      # Compiler/linker flags needed for backward compatibility.  The surrounding
       # spaces are important, don't be tempted to remove them.
       #
-      # 10.4 compatibility is painful, see 
+      # Backward compatibility is painful, see 
       # http://developer.apple.com/releasenotes/Darwin/SymbolVariantsRelNotes/index
       # In general, we must get these flags to the compiler and linker to tell it
       # what sdk to use.  In addition, source which defines any of the preprocessor
       # symbols mentioned in the above article will be problematic.
       #
-      @os_compile_flags = " -isysroot /Developer/SDKs/MacOSX10.4u.sdk "
-      @os_compile_flags += " -mmacosx-version-min=10.4 "
-      @os_link_flags = @os_compile_flags
-      @os_compile_flags += " -arch i386 "
-      if CONFIG['arch'] !~ /darwin8/
-        # this flag only exists on 10.5 and later
-        @os_link_flags += " -syslibroot,/Developer/SDKs/MacOSX10.4u.sdk "
-      end
 
-      # globally update CC/CXX env vars
-      ENV['CC'] = 'gcc-4.0'
-      ENV['CXX'] = 'g++-4.0'
-      @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.4"
+      # Kinda skanky, switch on an env var for 10.5 builds.
+      # When 10.4 goes away, only the if clause remains.  
+      if (ENV['BP_OSX_TARGET'] == '10.5')
+        @os_compile_flags = " -mmacosx-version-min=10.5 "
+        @os_link_flags = @os_compile_flags
+        @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.5 "
+        #ENV['CC'] = 'gcc-4.2'
+        #ENV['CXX'] = 'g++-4.2'
+        ENV['CC'] = '/Developer/usr/bin/llvm-gcc-4.2'
+        ENV['CXX'] = '/Developer/usr/bin/llvm-g++-4.2'
+      else
+        @os_compile_flags = " -isysroot /Developer/SDKs/MacOSX10.4u.sdk "
+        @os_compile_flags += " -mmacosx-version-min=10.4 "
+        @os_link_flags = @os_compile_flags
+        if CONFIG['arch'] !~ /darwin8/
+          # this flag only exists on 10.5 and later
+          @os_link_flags += " -syslibroot,/Developer/SDKs/MacOSX10.4u.sdk "
+        end
+        @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.4 "
+        ENV['CC'] = 'gcc-4.0'
+        ENV['CXX'] = 'g++-4.0'
+      end
+      @os_compile_flags += " -arch i386 "
 
       @toolchain = File.basename(ENV['CC'])
+
+      @cmake_args += "-DCMAKE_OSX_COMPILE_TARGET_FLAGS=\"#{@os_compile_flags}\" "
+      @cmake_args += "-DCMAKE_OSX_LINK_TARGET_FLAGS=\"#{@os_link_flags}\" "
     elsif CONFIG['arch'] =~ /linux/
       @platform = :Linux
       @platlookup = [ @platform, :Unix, :All ]
@@ -525,6 +539,13 @@ class Builder
     patches = Array.new
 
     @platlookup.each do |p|
+      if p == :MacOSX
+        if @toolchain == 'gcc-4.0'
+          patches += Dir.glob(File.join(portDir, "*_#{p.to_s}_10_4.patch"))
+        else
+          patches += Dir.glob(File.join(portDir, "*_#{p.to_s}_10_5.patch"))
+        end
+      end
       patches += Dir.glob(File.join(portDir, "*_#{p.to_s}.patch"))
     end
     patches.sort!

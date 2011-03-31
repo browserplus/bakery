@@ -3,6 +3,9 @@
   :md5 => "d2943e4469834b25afe62cc51adc025f",
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
+      if c[:platform] == :MacOSX && c[:os_compile_flags].index('MacOSX10.4') == nil
+        raise "Cannot build portaudio for non-10.4 target"
+      end
       ENV['CFLAGS'] = "#{c[:os_compile_flags]} #{ENV['CFLAGS']}"
       ENV['CFLAGS'] += ' -g -O0 ' if c[:build_type] == :debug
       ENV['LDFLAGS'] = "#{c[:os_link_flags]} #{ENV['LDFLAGS']}"
