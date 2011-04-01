@@ -17,7 +17,7 @@
       puts "CFLAGS = #{ENV['CFLAGS']}"
       puts "LDFLAGS = #{ENV['LDFLAGS']}"
       if c[:platform] == :MacOSX
-        osVersion = c[:toolchain] == 'gcc-4.0' ? '10.4.0' : '10.5[0'
+        osVersion = c[:toolchain] == 'gcc-4.0' ? '10.4.0' : '10.5.0'
         Dir.chdir(c[:src_dir]) {
           system("./configure --build=i386-apple-darwin#{osVersion} --host=i386-apple-darwin#{osVersion} --prefix=#{c[:output_dir]} --without-ssl --without-ca-bundle --without-zlib --disable-ldap --disable-ldaps")
         }
