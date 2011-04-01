@@ -251,6 +251,7 @@ class Builder
       :cmake_generator => @cmake_generator,
       :os_compile_flags => @os_compile_flags,
       :os_link_flags => @os_link_flags,
+      :cmake_args => @cmake_args,
       :recipe_dir => @recipe_dir,
       :log_dir => @logdir_path
     }
