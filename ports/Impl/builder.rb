@@ -157,17 +157,9 @@ class Builder
       # symbols mentioned in the above article will be problematic.
       #
 
-      # Kinda skanky, switch on an env var for 10.5 builds.
-      # When 10.4 goes away, only the if clause remains.  
-      if (ENV['BP_OSX_TARGET'] == '10.5')
-        @os_compile_flags = " -mmacosx-version-min=10.5 "
-        @os_link_flags = @os_compile_flags
-        @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.5 "
-        #ENV['CC'] = 'gcc-4.2'
-        #ENV['CXX'] = 'g++-4.2'
-        ENV['CC'] = '/Developer/usr/bin/llvm-gcc-4.2'
-        ENV['CXX'] = '/Developer/usr/bin/llvm-g++-4.2'
-      else
+      # Kinda skanky, switch on an env var for 10.4 builds.
+      # When 10.4 goes away, only the else clause remains.  
+      if (ENV['BP_OSX_TARGET'] == '10.4')
         @os_compile_flags = " -isysroot /Developer/SDKs/MacOSX10.4u.sdk "
         @os_compile_flags += " -mmacosx-version-min=10.4 "
         @os_link_flags = @os_compile_flags
@@ -178,6 +170,14 @@ class Builder
         @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.4 "
         ENV['CC'] = 'gcc-4.0'
         ENV['CXX'] = 'g++-4.0'
+      else
+        @os_compile_flags = " -mmacosx-version-min=10.5 "
+        @os_link_flags = @os_compile_flags
+        @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.5 "
+        #ENV['CC'] = 'gcc-4.2'
+        #ENV['CXX'] = 'g++-4.2'
+        ENV['CC'] = '/Developer/usr/bin/llvm-gcc-4.2'
+        ENV['CXX'] = '/Developer/usr/bin/llvm-g++-4.2'
       end
       @os_compile_flags += " -arch i386 "
 
