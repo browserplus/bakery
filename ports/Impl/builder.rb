@@ -174,10 +174,11 @@ class Builder
         @os_compile_flags = " -mmacosx-version-min=10.5 "
         @os_link_flags = @os_compile_flags
         @cmake_args = "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.5 "
-        #ENV['CC'] = 'gcc-4.2'
-        #ENV['CXX'] = 'g++-4.2'
-        ENV['CC'] = '/Developer/usr/bin/llvm-gcc-4.2'
-        ENV['CXX'] = '/Developer/usr/bin/llvm-g++-4.2'
+        # XXX llvm doesn't support code coverage!
+        #ENV['CC'] = '/Developer/usr/bin/llvm-gcc-4.2'
+        #ENV['CXX'] = '/Developer/usr/bin/llvm-g++-4.2'
+        ENV['CC'] = 'gcc-4.2'
+        ENV['CXX'] = 'g++-4.2'
       end
       @os_compile_flags += " -arch i386 "
 
