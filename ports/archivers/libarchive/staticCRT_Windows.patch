@@ -11,7 +11,7 @@
 +        CACHE STRING "BrowserPlus C flags" FORCE)
 +    SET(CMAKE_C_FLAGS_DEBUG "/Z7 /MTd /DDEBUG /D_DEBUG /Od /RTC1 /RTCc"
 +        CACHE STRING "BrowserPlus debug C flags" FORCE)
-+    SET(CMAKE_C_FLAGS_RELEASE "/MT /DNDEBUG /O1"
++    SET(CMAKE_C_FLAGS_RELEASE "/MT /DNDEBUG /O2"
 +        CACHE STRING "BrowserPlus release C flags" FORCE)
 +  
 +    # libs to ignore, from http://msdn.microsoft.com/en-us/library/aa267384.aspx
