@@ -1,6 +1,6 @@
 {
-  :url => "http://downloads.sourceforge.net/boost/boost_1_46_1.tar.bz2",
-  :md5 => "7375679575f4c8db605d426fc721d506",
+  :url => "http://downloads.sourceforge.net/boost/boost_1_45_0.tar.bz2",
+  :md5 => "d405c606354789d0426bc07bea617e58",
   :configure => lambda { |c|
     # for the configure step we'll run bootstrap, which builds bjam
     rpToBuildDir = Pathname.new(c[:build_dir]).relative_path_from(Pathname.pwd).to_s
