@@ -1,6 +1,6 @@
 {
-  :url => 'http://www.bzip.org/1.0.5/bzip2-1.0.5.tar.gz',
-  :md5 => '3c15a0c8d1d3ee1c46a1634d00617b1a',
+  :url => 'http://www.bzip.org/1.0.6/bzip2-1.0.6.tar.gz',
+  :md5 => '00b516f4704d4a7cb50a1d97e6e8e15b',
   :build => {
     :Windows => lambda { |c|
       Dir.chdir(c[:src_dir]) do
