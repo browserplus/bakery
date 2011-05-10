@@ -1,5 +1,6 @@
---- libarchive-2.8.0\CMakeLists.txt.orig	2010-02-10 16:37:27.707031300 -0800
-+++ libarchive-2.8.0\CMakeLists.txt	2010-02-10 16:38:37.708007800 -0800
+diff -durN libarchive-2.8.4.orig/CMakeLists.txt libarchive-2.8.4/CMakeLists.txt
+--- libarchive-2.8.4.orig/CMakeLists.txt	2011-05-09 12:36:14.000000000 -0700
++++ libarchive-2.8.4/CMakeLists.txt	2011-05-09 13:09:25.000000000 -0700
 @@ -8,6 +8,46 @@
    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${libarchive_BINARY_DIR}/bin)
  endif()

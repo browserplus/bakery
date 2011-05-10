@@ -13,8 +13,8 @@ def setupEnv(c)
 end
 
 {
-  :url => 'http://libarchive.googlecode.com/files/libarchive-2.8.0.tar.gz',
-  :md5 => '400fd9ba51fffe6c65c75387fffba9d9',
+  :url => 'http://libarchive.googlecode.com/files/libarchive-2.8.4.tar.gz',
+  :md5 => '83b237a542f27969a8d68ac217dc3796',
   :deps => [ 'openssl', 'zlib', 'bzip2' ],
 
   :configure => lambda { |c|
