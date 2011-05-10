@@ -1,6 +1,6 @@
 {
-  :url => 'http://sourceforge.net/projects/libpng/files/libpng12/older-releases/1.2.40/libpng-1.2.40.tar.bz2',
-  :md5 => '29bbd1c3cbe54b04bfc2bda43067ccb5',
+  :url => 'http://sourceforge.net/projects/libpng/files/libpng12/1.2.44/libpng-1.2.44.tar.bz2',
+  :md5 => 'e3ac7879d62ad166a6f0c7441390d12b',
   :deps => [ 'zlib' ],
   :post_patch => {
     :Windows => lambda { |c|
