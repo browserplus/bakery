@@ -1,6 +1,6 @@
 {
-  :url => 'http://github.com/downloads/browserplus/bakery/GraphicsMagick-1.3.7.tar.bz2',
-  :md5 => '42bfd382ddcda399880721170bcbf61b',
+  :url => 'http://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.12/GraphicsMagick-1.3.12.tar.gz',
+  :md5 => '2cf6e2eea0d7af3019c9a89b81aad624',
   :deps => [ 'jpeg', 'libpng', 'zlib' ],
   
   :post_patch => {
