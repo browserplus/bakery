@@ -1,6 +1,6 @@
 {
-  :url => "http://www.python.org/ftp/python/3.1.2/Python-3.1.2.tar.bz2",
-  :md5 => "45350b51b58a46b029fb06c61257e350",
+  :url => "http://www.python.org/ftp/python/3.1.3/Python-3.1.3.tar.bz2",
+  :md5 => "ad5e5f1c07e829321e0a015f8cafe245",
   :post_patch => {
     :Windows => lambda { |c|
       Dir.chdir(c[:src_dir]) do
