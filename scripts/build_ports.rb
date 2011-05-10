@@ -21,10 +21,13 @@ if packages.length == 0
   #   pythons are fine on osx10.5 and later
   badPackages = []
   if CONFIG['arch'] =~ /darwin/
-    ["python26", "python31"].each { |p| 
+    ["python26"].each { |p| 
       badPackages.push(p)
     }
   elsif CONFIG['arch'] =~ /mswin|mingw/
+    ["python26"].each { |p| 
+      badPackages.push(p)
+    }
   end
   badPackages.each { |b| 
     packages.delete(b)
