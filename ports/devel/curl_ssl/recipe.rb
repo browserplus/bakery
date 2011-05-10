@@ -1,6 +1,6 @@
 {
-  :url => 'http://curl.haxx.se/download/curl-7.21.3.tar.gz',
-  :md5 => '25e01bd051533f320c05ccbb0c52b246',
+  :url => 'http://curl.haxx.se/download/curl-7.21.6.tar.gz',
+  :md5 => 'c502b67898b4a1bd687fe1b86419a44b',
   :deps => [ 'openssl' ],
   :post_patch => {
     :Windows => lambda { |c|
