@@ -1,6 +1,6 @@
 {
-  :url => "http://www.thrysoee.dk/editline/libedit-20090722-3.0.tar.gz",
-  :md5 => "379afe3fa302e41fc3cb82ad5c969596",
+  :url => "http://www.thrysoee.dk/editline/libedit-20110227-3.0.tar.gz",
+  :md5 => "411e0a79c36a2e8d64b160b4ca2fcf53",
   :configure => {
     [ :Linux, :MacOSX ] => lambda { |c|
       if c[:platform] == :MacOSX
