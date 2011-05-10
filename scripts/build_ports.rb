@@ -18,9 +18,8 @@ if packages.length == 0
   }
 
   # now remove known broken/incomplete ones
-  #   nodejs depends on some ENV vars, haven't dug into it
   #   pythons are fine on osx10.5 and later
-  badPackages = [ "nodejs" ]
+  badPackages = []
   if CONFIG['arch'] =~ /darwin/
     ["python26", "python31"].each { |p| 
       badPackages.push(p)
