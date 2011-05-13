@@ -486,7 +486,7 @@ class Builder
           else
             system("tar xvzf \"#{path}\"")
           end
-        elsif path =~ /.zip/
+        elsif path =~ /.zip/ || path =~ /.7z/
           if @platform == :Windows
             system("\"#{@sevenZCmd}\" x \"#{path}\"")
           else
