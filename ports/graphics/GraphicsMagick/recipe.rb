@@ -1,6 +1,8 @@
 {
-  :url => 'http://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.12/GraphicsMagick-1.3.12.tar.gz',
-  :md5 => '2cf6e2eea0d7af3019c9a89b81aad624',
+  :url => { [ :Linux, :MacOSX ] => 'http://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.12/GraphicsMagick-1.3.12.tar.gz', 
+            :Windows => 'http://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.12/GraphicsMagick-1.3.12-windows-source.7z' },
+  :md5 => { [ :Linux, :MacOSX ] => '2cf6e2eea0d7af3019c9a89b81aad624',
+            :Windows => '18db4ccafbde714c95d9c870fffcbc8f' },
   :deps => [ 'jpeg', 'libpng', 'zlib' ],
   
   :post_patch => {
@@ -74,7 +76,6 @@
   :install => {
     [ :Linux, :MacOSX ] => lambda { |c|
       system("make install")
-
       # rename static lib (append _s and move to buildtype dir)
       Dir.glob(File.join(c[:output_dir], "lib", "libGraphics*")).each { |l|
         newFname = File.basename(l).sub(/\.a$/, "_s.a")
