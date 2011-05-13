@@ -1,7 +1,9 @@
 {
-  :url => { [ :Linux, :MacOSX ] => 'http://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.12/GraphicsMagick-1.3.12.tar.gz', 
+  :url => { :Linux => 'http://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.12/GraphicsMagick-1.3.12.tar.gz', 
+            :MacOSX => 'http://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.12/GraphicsMagick-1.3.12.tar.gz', 
             :Windows => 'http://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.12/GraphicsMagick-1.3.12-windows-source.7z' },
-  :md5 => { [ :Linux, :MacOSX ] => '2cf6e2eea0d7af3019c9a89b81aad624',
+  :md5 => { :Linux => '2cf6e2eea0d7af3019c9a89b81aad624',
+            :MacOSX => '2cf6e2eea0d7af3019c9a89b81aad624',
             :Windows => '18db4ccafbde714c95d9c870fffcbc8f' },
   :deps => [ 'jpeg', 'libpng', 'zlib' ],
   
