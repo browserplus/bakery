@@ -1,6 +1,6 @@
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/CORE_Magick++_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/CORE_Magick++_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/CORE_Magick++_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/CORE_Magick++_xt_lib.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/CORE_Magick++_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,139 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -143,7 +143,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/CORE_Magick++_xt_lib
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_analyze_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_analyze_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_analyze_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_analyze_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_analyze_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -259,7 +259,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_analyze_xt
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_button_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_button_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_button_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_button_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_button_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -375,7 +375,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_button_xt_
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_demo_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_demo_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_demo_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_demo_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_demo_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -491,7 +491,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_demo_xt_ex
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_detrans_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_detrans_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_detrans_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_detrans_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_detrans_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -607,7 +607,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_detrans_xt
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_flip_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_flip_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_flip_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_flip_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_flip_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -723,7 +723,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_flip_xt_ex
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_gravity_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_gravity_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_gravity_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_gravity_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_gravity_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -839,7 +839,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_gravity_xt
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_piddle_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_piddle_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_piddle_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_piddle_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_piddle_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -955,7 +955,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_piddle_xt_
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_shapes_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_shapes_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_shapes_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_shapes_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_shapes_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -1071,7 +1071,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_shapes_xt_
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_zoom_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_zoom_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_zoom_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_zoom_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/demo/UTIL_zoom_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -1187,7 +1187,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/demo/UTIL_zoom_xt_ex
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_appendImages_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_appendImages_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_appendImages_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_appendImages_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_appendImages_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -1303,7 +1303,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_appendIma
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_attributes_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_attributes_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_attributes_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_attributes_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_attributes_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -1419,7 +1419,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_attribute
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_averageImages_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_averageImages_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_averageImages_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_averageImages_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_averageImages_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -1439,7 +1439,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_averageIm
 +      ConfigurationType="1"
 +      UseOfMFC="0"
 +      ATLMinimizesCRunTimeLibraryUsage="FALSE"
-+      CharacterSet="2">
++      CharacterSet="2">
 +      <Tool
 +        Name="VCCLCompilerTool"
 +        RuntimeLibrary="0"
@@ -1490,7 +1490,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_averageIm
 +        StringPooling="TRUE"
 +        EnableFunctionLevelLinking="TRUE"
 +        WarningLevel="3"
-+        UsePrecompiledHeader="0"
++        UsePrecompiledHeader="0"
 +        SuppressStartupBanner="TRUE"
 +        CompileAs="0"
 +        InlineFunctionExpansion="2"
@@ -1535,7 +1535,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_averageIm
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_coalesceImages_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_coalesceImages_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_coalesceImages_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_coalesceImages_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_coalesceImages_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -1651,7 +1651,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_coalesceI
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_coderInfo_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_coderInfo_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_coderInfo_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_coderInfo_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_coderInfo_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -1767,7 +1767,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_coderInfo
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_colorHistogram_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_colorHistogram_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_colorHistogram_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_colorHistogram_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_colorHistogram_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -1883,7 +1883,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_colorHist
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_color_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_color_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_color_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_color_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_color_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -1905,7 +1905,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_color_xt_
 +      ATLMinimizesCRunTimeLibraryUsage="FALSE"
 +      CharacterSet="2">
 +      <Tool
-+        Name="VCCLCompilerTool"
++        Name="VCCLCompilerTool"
 +        RuntimeLibrary="0"
 +        StringPooling="TRUE"
 +        EnableFunctionLevelLinking="TRUE"
@@ -1999,7 +1999,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_color_xt_
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_exceptions_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_exceptions_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_exceptions_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_exceptions_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_exceptions_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -2115,7 +2115,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_exception
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_montageImages_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_montageImages_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_montageImages_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_montageImages_xt_exe.vcproj	Fri May 13 18:08:14 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_montageImages_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -2135,7 +2135,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_montageIm
 +      ConfigurationType="1"
 +      UseOfMFC="0"
 +      ATLMinimizesCRunTimeLibraryUsage="FALSE"
-+      CharacterSet="2">
++      CharacterSet="2">
 +      <Tool
 +        Name="VCCLCompilerTool"
 +        RuntimeLibrary="0"
@@ -2186,7 +2186,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_montageIm
 +        StringPooling="TRUE"
 +        EnableFunctionLevelLinking="TRUE"
 +        WarningLevel="3"
-+        UsePrecompiledHeader="0"
++        UsePrecompiledHeader="0"
 +        SuppressStartupBanner="TRUE"
 +        CompileAs="0"
 +        InlineFunctionExpansion="2"
@@ -2231,7 +2231,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_montageIm
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_morphImages_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_morphImages_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_morphImages_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_morphImages_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_morphImages_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -2347,7 +2347,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_morphImag
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_readWriteBlob_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_readWriteBlob_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_readWriteBlob_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_readWriteBlob_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_readWriteBlob_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -2367,7 +2367,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_readWrite
 +      ConfigurationType="1"
 +      UseOfMFC="0"
 +      ATLMinimizesCRunTimeLibraryUsage="FALSE"
-+      CharacterSet="2">
++      CharacterSet="2">
 +      <Tool
 +        Name="VCCLCompilerTool"
 +        RuntimeLibrary="0"
@@ -2418,7 +2418,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_readWrite
 +        StringPooling="TRUE"
 +        EnableFunctionLevelLinking="TRUE"
 +        WarningLevel="3"
-+        UsePrecompiledHeader="0"
++        UsePrecompiledHeader="0"
 +        SuppressStartupBanner="TRUE"
 +        CompileAs="0"
 +        InlineFunctionExpansion="2"
@@ -2463,7 +2463,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_readWrite
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_readWriteImages_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_readWriteImages_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_readWriteImages_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_readWriteImages_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/Magick++/tests/UTIL_readWriteImages_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -2579,7 +2579,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/Magick++/tests/UTIL_readWrite
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/VisualStaticMT.sln GraphicsMagick-1.3.12/VisualMagick/VisualStaticMT.sln
 --- GraphicsMagick-1.3.12.orig/VisualMagick/VisualStaticMT.sln	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/VisualStaticMT.sln	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/VisualStaticMT.sln	Fri May 13 16:08:16 2011
 @@ -0,0 +1,875 @@
 +Microsoft Visual Studio Solution File, Format Version 7.00
 +Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "All", ".\All\All.vcproj", "{68FD69E8-087A-4DD3-BC69-F4D337E387B6}"
@@ -2703,7 +2703,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/VisualStaticMT.sln GraphicsMa
 +		{68FD69E8-087A-4DD3-BC69-F4D337E387B6}.14 = {9A1E5C20-6545-4AE6-9F78-EE94861FC84F}
 +		{68FD69E8-087A-4DD3-BC69-F4D337E387B6}.15 = {353B1B24-8520-4338-A385-C129204C1DC4}
 +		{68FD69E8-087A-4DD3-BC69-F4D337E387B6}.16 = {0564DEE7-6D6E-4097-9A02-FCD513E354E2}
-+		{68FD69E8-087A-4DD3-BC69-F4D337E387B6}.17 = {F77C6A3D-7631-4407-9ECE-3A22D9DDD335}
++		{68FD69E8-087A-4DD3-BC69-F4D337E387B6}.17 = {F77C6A3D-7631-4407-9ECE-3A22D9DDD335}
 +		{68FD69E8-087A-4DD3-BC69-F4D337E387B6}.18 = {C9D64411-3CC5-4187-8784-773D8A554CF7}
 +		{68FD69E8-087A-4DD3-BC69-F4D337E387B6}.19 = {681D2B51-5F28-4880-9D46-FD8F5EF2BA3B}
 +		{68FD69E8-087A-4DD3-BC69-F4D337E387B6}.20 = {5BBAB78B-026A-4831-A4BD-B812A5DB6C9A}
@@ -3373,7 +3373,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/VisualStaticMT.sln GraphicsMa
 +		{CEF64016-F5F9-4181-969F-F09EC0B5E734}.Debug.ActiveCfg = Debug|Win32
 +		{CEF64016-F5F9-4181-969F-F09EC0B5E734}.Debug.Build.0 = Debug|Win32
 +		{CEF64016-F5F9-4181-969F-F09EC0B5E734}.Release.ActiveCfg = Release|Win32
-+		{CEF64016-F5F9-4181-969F-F09EC0B5E734}.Release.Build.0 = Release|Win32
++		{CEF64016-F5F9-4181-969F-F09EC0B5E734}.Release.Build.0 = Release|Win32
 +		{F2350863-BF93-4C0F-ABB9-07ECFCB7777D}.Debug.ActiveCfg = Debug|Win32
 +		{F2350863-BF93-4C0F-ABB9-07ECFCB7777D}.Debug.Build.0 = Debug|Win32
 +		{F2350863-BF93-4C0F-ABB9-07ECFCB7777D}.Release.ActiveCfg = Release|Win32
@@ -3458,7 +3458,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/VisualStaticMT.sln GraphicsMa
 +EndGlobal
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/bzlib/CORE_bzlib_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/bzlib/CORE_bzlib_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/bzlib/CORE_bzlib_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/bzlib/CORE_bzlib_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/bzlib/CORE_bzlib_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,115 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -3577,7 +3577,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/bzlib/CORE_bzlib_xt_lib.vcpro
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/coders/CORE_coders_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/coders/CORE_coders_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/coders/CORE_coders_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/coders/CORE_coders_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/coders/CORE_coders_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,204 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -3813,7 +3813,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/coders/LIBRARY.bak GraphicsMa
 -
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/coders/LIBRARY.txt GraphicsMagick-1.3.12/VisualMagick/coders/LIBRARY.txt
 --- GraphicsMagick-1.3.12.orig/VisualMagick/coders/LIBRARY.txt	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/coders/LIBRARY.txt	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/coders/LIBRARY.txt	Tue May  6 16:03:34 2003
 @@ -0,0 +1,24 @@
 +#ECF - this file contains additional configuration info.
 +INCLUDE = ..\..\wmf
@@ -3841,7 +3841,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/coders/LIBRARY.txt GraphicsMa
 +
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/coders/MODULE.bak GraphicsMagick-1.3.12/VisualMagick/coders/MODULE.bak
 --- GraphicsMagick-1.3.12.orig/VisualMagick/coders/MODULE.bak	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/coders/MODULE.bak	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/coders/MODULE.bak	Thu Apr  6 00:12:00 2000
 @@ -0,0 +1 @@
 +This is a placeholder to make sure that this directory exists.
 \ No newline at end of file
@@ -3853,7 +3853,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/coders/MODULE.txt GraphicsMag
 \ No newline at end of file
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/contrib/MODULE.bak GraphicsMagick-1.3.12/VisualMagick/contrib/MODULE.bak
 --- GraphicsMagick-1.3.12.orig/VisualMagick/contrib/MODULE.bak	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/contrib/MODULE.bak	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/contrib/MODULE.bak	Tue Jul 17 14:44:29 2007
 @@ -0,0 +1,2 @@
 +DEFINE = _CRT_SECURE_NO_WARNINGS
 +DEFINE = _CRT_NONSTDC_NO_WARNINGS
@@ -3865,7 +3865,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/contrib/MODULE.txt GraphicsMa
 -DEFINE = _CRT_NONSTDC_NO_WARNINGS
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/contrib/utilities/UTIL_iptcutil_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/contrib/utilities/UTIL_iptcutil_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/contrib/utilities/UTIL_iptcutil_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/contrib/utilities/UTIL_iptcutil_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/contrib/utilities/UTIL_iptcutil_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -3981,7 +3981,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/contrib/utilities/UTIL_iptcut
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/contrib/win32/MODULE.bak GraphicsMagick-1.3.12/VisualMagick/contrib/win32/MODULE.bak
 --- GraphicsMagick-1.3.12.orig/VisualMagick/contrib/win32/MODULE.bak	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/contrib/win32/MODULE.bak	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/contrib/win32/MODULE.bak	Sat Aug 11 20:12:52 2001
 @@ -0,0 +1 @@
 +This is a placeholder to make sure that this directory exists.
 \ No newline at end of file
@@ -3993,7 +3993,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/contrib/win32/MODULE.txt Grap
 \ No newline at end of file
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/filters/CORE_filters_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/filters/CORE_filters_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/filters/CORE_filters_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/filters/CORE_filters_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/filters/CORE_filters_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,106 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -4103,7 +4103,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/filters/CORE_filters_xt_lib.v
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/jbig/CORE_jbig_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/jbig/CORE_jbig_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/jbig/CORE_jbig_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/jbig/CORE_jbig_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/jbig/CORE_jbig_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,109 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -4216,7 +4216,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/jbig/CORE_jbig_xt_lib.vcproj 
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/jp2/CORE_jp2_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/jp2/CORE_jp2_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/jp2/CORE_jp2_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/jp2/CORE_jp2_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/jp2/CORE_jp2_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,185 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -4405,7 +4405,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/jp2/CORE_jp2_xt_lib.vcproj Gr
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/jp2/src/appl/UTIL_jasper_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/jp2/src/appl/UTIL_jasper_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/jp2/src/appl/UTIL_jasper_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/jp2/src/appl/UTIL_jasper_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/jp2/src/appl/UTIL_jasper_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,112 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -4521,7 +4521,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/jp2/src/appl/UTIL_jasper_xt_e
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/jpeg/CORE_jpeg_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/jpeg/CORE_jpeg_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/jpeg/CORE_jpeg_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/jpeg/CORE_jpeg_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/jpeg/CORE_jpeg_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,166 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -4691,7 +4691,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/jpeg/CORE_jpeg_xt_lib.vcproj 
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/lcms/CORE_lcms_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/lcms/CORE_lcms_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/lcms/CORE_lcms_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/lcms/CORE_lcms_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/lcms/CORE_lcms_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,130 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -4825,7 +4825,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/lcms/CORE_lcms_xt_lib.vcproj 
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/libxml/CORE_libxml_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/libxml/CORE_libxml_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/libxml/CORE_libxml_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/libxml/CORE_libxml_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/libxml/CORE_libxml_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,172 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -5001,7 +5001,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/libxml/CORE_libxml_xt_lib.vcp
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/magick/CORE_magick_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/magick/CORE_magick_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/magick/CORE_magick_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/magick/CORE_magick_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/magick/CORE_magick_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,269 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -5274,439 +5274,63 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/magick/CORE_magick_xt_lib.vcp
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/magick/magick_config.h.in GraphicsMagick-1.3.12/VisualMagick/magick/magick_config.h.in
 --- GraphicsMagick-1.3.12.orig/VisualMagick/magick/magick_config.h.in	Wed Jan 20 15:31:44 2010
-+++ GraphicsMagick-1.3.12/VisualMagick/magick/magick_config.h.in	Fri May 13 18:08:15 2011
-@@ -1,214 +1,214 @@
--// This may look like C code, but it is really -*- C++ -*-
--//
--// Copyright (C) 2003, 2004 GraphicsMagick Group
--// Copyright (C) 2002 ImageMagick Studio
--// Copyright 1991-1999 E. I. du Pont de Nemours and Company
--//
--// This program is covered by multiple licenses, which are described in
--// Copyright.txt. You should have received a copy of Copyright.txt with this
--// package; otherwise see http://www.graphicsmagick.org/www/Copyright.html.
--
--//
--// This header file is for compilation using Visual Studio for the
--// WIN32 target environment.
--//
--
--// GraphicsMagick build feature configuration.  Please note that
--// disabling a feature via this header file may not be sufficient to
--// remove any library dependencies from the build.  The VisualMagick
--// project files may need to be edited to remove libraries the feature
--// depends on. When building a static GraphicsMagick, coder
--// registrations are made via magick\static.c so if a format is
--// removed, the call to its registration function should be commented
--// out in static.c.  Note that VisualMagick configure updates
--// magick\static.c so re-running configure may cause local changes to
--// be lost.
--//
--// Note that by default GraphicsMagick is configured with a
--// QuantumDepth of eight, has LZW compression enabled, and looks for
--// all files in the directory where the executable is located.  The
--// installed configuration (i.e.  the setup.exe-style installer) is
--// modifying by defining "UseInstalledMagick".  If you would like to
--// install GraphicsMagick using hard-coded paths, or want to use the
--// Windows registry to install GraphicsMagick, then
--// UseInstalledMagick" should be defined.
--//
--// Enabled options are of the form:
--//
--//   #define option
--//
--// while disabled options are initially in the form
--//
--//   // #undef option
--//
--// so it is necessary to remove the comment, and change "undef" to "define"
--// in order for the option to be enabled.
--
--/////////////
--//
--// QuantumDepth
--//
--// Specify size of PixelPacket color Quantums (8, 16, or 32).  A value
--// of 8 uses half the memory than 16 and typically runs 30% faster,
--// but provides 256 times less color resolution than a value of 16.  A
--// value of 16 is recommended if it is desired that all features be
--// fully supported but even a value of 8 allows reading 16-bit files
--// (while losing precision).
--#define QuantumDepth 8
--
--/////////////
--//
--// UseInstalledMagick
--//
--// Define to build a GraphicsMagick which uses registry settings or
--// hard-coded paths to locate installed components.  This supports
--// using the "setup.exe" style installer, or using hard-coded path
--// definitions (see below).  If you want to be able to simply copy
--// the built GraphicsMagick to any directory on any machine, then do
--// not use this setting.
--// #undef UseInstalledMagick
--
--/////////////
--//
--// ProvideDllMain
--//
--// When building GraphicsMagick using DLLs, include a DllMain()
--// function which automatically invokes InitializeMagick(NULL), and
--// DestroyMagick() so that the user doesn't need to.  Note that
--// repeated calls to InitializeMagick() are ignored so if a path must
--// be passed to InitializeMagick(), then disable this setting.
--#define ProvideDllMain
--
--
--/////////////
--//
--// PREFIX_MAGICK_SYMBOLS
--//
--// Define if the symbols in the GraphicsMagick library should all be
--// prefixed with "Gm" to ensure that there are no conflicts at the
--// library level. Symbol renaming is done using the C preprocessor so
--// there is still risk of conflict at the source level.
--#undef PREFIX_MAGICK_SYMBOLS
--
--
--/////////////
--//
--// DisableSlowOpenMP
--//
--// Define in order to disable use of OpenMP for quick algorithms which
--// may run slower and slower rather than faster and faster as CPU
--// cores are added.  Unfortunately some operating systems and hardware
--// are not so good for OpenMP so that they incur considerable overhead
--// and therefore only provide benefit for very slow algorithms.  Since
--// the problematic algorithms are quick, the inability to speed them
--// up is not much of a problem.
--//
--// From what we have seen, AMD server CPUs (Opteron family) always
--// show a benefit from OpenMP, AMD desktop CPUs (e.g. Phenom X4) are
--// ok, Intel Core 2 Dual core are ok, Intel Core 2 Quad and other
--// Intel multi-chip modules (MCM) or older dual-CPU systems may
--// perform poorly for lightweight algorithms.  If the CPU cores need
--// to communicate via L3 cache or main memory, then performance may
--// suffer unless this define is used.
--#define DisableSlowOpenMP
--
--
--/////////////
--//
--// Optional packages
--//
--// All packages except autotrace and X11 are included by default in the build.
--
--// Define to use the autotrace library (obtain sources seperately)
--// #undef HasAUTOTRACE
--
--// Define to use the bzip2 compression library
++++ GraphicsMagick-1.3.12/VisualMagick/magick/magick_config.h.in	Fri May 13 16:08:08 2011
+@@ -123,7 +123,7 @@
+ // #undef HasAUTOTRACE
+ 
+ // Define to use the bzip2 compression library
 -#define HasBZLIB
--
--// Define to use the FlashPIX library (fpx module/subdirectory).
--// FlashPix is no longer actively supported but it should still be
--// discovered by the configure program and work if the source is
--// extracted to a 'fpx' subdirectory.
--// #undef HasFPX
--
--// Define to use the JBIG library
--#define HasJBIG
--
--// Define to use the Jasper JPEG v2 library
--#define HasJP2
--
--// Define to use the IJG JPEG v1 library
--#define HasJPEG
--
--// Define to use the "little" Color Management System (LCMS) library
--#define HasLCMS
--
--// Define to use the PNG library
--#define HasPNG
--
--// Define to use the TIFF library
--#define HasTIFF
--
--// Define to use the FreeType (TrueType & Postscript font support) library
--#define HasTTF
--
--// Define to use the Windows GDI32 library (for clipboard and emf modules)
--#define HasWINGDI32
--
--// Define to use the libwmf WMF parsing library
--#define HasWMFlite
--
--/////////////
--//
--// HasX11
--//
--// Define if MIT X11 is available (or stubbed) X11 is required in
--// order for the 'animate', 'display', and 'import' commands to be
--// available.  X11 is not usually available under Windows since it
--// requires that another package be installed such as Cygwin's X11.
--// If you know what X11 is and actually plan to use it, then define
--// HasX11.
--// #undef HasX11
--
--// Define to use the GNOME XML library
--#define HasXML
--
--// Define to use the zlib ZIP compression library
--#define HasZLIB
--
--/////////////
--//
--// Hard Coded Paths
--//
--// If hard-coded paths are defined via the the following define
--// statements, then they will override any values from the Windows
--// registry.
--// It is unusual to use hard-coded paths under Windows.
--
--// Optional: Specify where X11 application resource files are installed
--// #define ApplicationDefaults "c:\\GraphicsMagick\\"
--
--// Optional: Specify where user-specific X11 application resource files are installed
--// #define PreferencesDefaults  "~\\."
--
--// Optional: Specify where gm.exe and support executables are installed
--// #define MagickBinPath       "c:\\GraphicsMagick\\"
--
--// Optional: Specify where operating system specific files are installed
--// #define MagickLibPath       "c:\\GraphicsMagick\\"
--
--// Optional: Specify where operating system independent files are installed
--// #define MagickSharePath     "c:\\GraphicsMagick\\"
--
--// Optional: Specify where coder modules (DLLs) are installed
--// #define MagickCoderModulesPath   "c:\\GraphicsMagick\\"
--
--// Optional: Specify where filter modules (DLLs) are installed
--// #define MagickFilterModulesPath   "c:\\GraphicsMagick\\"
--
--/////////////
--//
--// The remaining defines should not require user modification.
--//
--#define HAVE_SYS_TYPES_H 1
--
-+// This may look like C code, but it is really -*- C++ -*-
-+//
-+// Copyright (C) 2003, 2004 GraphicsMagick Group
-+// Copyright (C) 2002 ImageMagick Studio
-+// Copyright 1991-1999 E. I. du Pont de Nemours and Company
-+//
-+// This program is covered by multiple licenses, which are described in
-+// Copyright.txt. You should have received a copy of Copyright.txt with this
-+// package; otherwise see http://www.graphicsmagick.org/www/Copyright.html.
-+
-+//
-+// This header file is for compilation using Visual Studio for the
-+// WIN32 target environment.
-+//
-+
-+// GraphicsMagick build feature configuration.  Please note that
-+// disabling a feature via this header file may not be sufficient to
-+// remove any library dependencies from the build.  The VisualMagick
-+// project files may need to be edited to remove libraries the feature
-+// depends on. When building a static GraphicsMagick, coder
-+// registrations are made via magick\static.c so if a format is
-+// removed, the call to its registration function should be commented
-+// out in static.c.  Note that VisualMagick configure updates
-+// magick\static.c so re-running configure may cause local changes to
-+// be lost.
-+//
-+// Note that by default GraphicsMagick is configured with a
-+// QuantumDepth of eight, has LZW compression enabled, and looks for
-+// all files in the directory where the executable is located.  The
-+// installed configuration (i.e.  the setup.exe-style installer) is
-+// modifying by defining "UseInstalledMagick".  If you would like to
-+// install GraphicsMagick using hard-coded paths, or want to use the
-+// Windows registry to install GraphicsMagick, then
-+// UseInstalledMagick" should be defined.
-+//
-+// Enabled options are of the form:
-+//
-+//   #define option
-+//
-+// while disabled options are initially in the form
-+//
-+//   // #undef option
-+//
-+// so it is necessary to remove the comment, and change "undef" to "define"
-+// in order for the option to be enabled.
-+
-+/////////////
-+//
-+// QuantumDepth
-+//
-+// Specify size of PixelPacket color Quantums (8, 16, or 32).  A value
-+// of 8 uses half the memory than 16 and typically runs 30% faster,
-+// but provides 256 times less color resolution than a value of 16.  A
-+// value of 16 is recommended if it is desired that all features be
-+// fully supported but even a value of 8 allows reading 16-bit files
-+// (while losing precision).
-+#define QuantumDepth 8
-+
-+/////////////
-+//
-+// UseInstalledMagick
-+//
-+// Define to build a GraphicsMagick which uses registry settings or
-+// hard-coded paths to locate installed components.  This supports
-+// using the "setup.exe" style installer, or using hard-coded path
-+// definitions (see below).  If you want to be able to simply copy
-+// the built GraphicsMagick to any directory on any machine, then do
-+// not use this setting.
-+// #undef UseInstalledMagick
-+
-+/////////////
-+//
-+// ProvideDllMain
-+//
-+// When building GraphicsMagick using DLLs, include a DllMain()
-+// function which automatically invokes InitializeMagick(NULL), and
-+// DestroyMagick() so that the user doesn't need to.  Note that
-+// repeated calls to InitializeMagick() are ignored so if a path must
-+// be passed to InitializeMagick(), then disable this setting.
-+#define ProvideDllMain
-+
-+
-+/////////////
-+//
-+// PREFIX_MAGICK_SYMBOLS
-+//
-+// Define if the symbols in the GraphicsMagick library should all be
-+// prefixed with "Gm" to ensure that there are no conflicts at the
-+// library level. Symbol renaming is done using the C preprocessor so
-+// there is still risk of conflict at the source level.
-+#undef PREFIX_MAGICK_SYMBOLS
-+
-+
-+/////////////
-+//
-+// DisableSlowOpenMP
-+//
-+// Define in order to disable use of OpenMP for quick algorithms which
-+// may run slower and slower rather than faster and faster as CPU
-+// cores are added.  Unfortunately some operating systems and hardware
-+// are not so good for OpenMP so that they incur considerable overhead
-+// and therefore only provide benefit for very slow algorithms.  Since
-+// the problematic algorithms are quick, the inability to speed them
-+// up is not much of a problem.
-+//
-+// From what we have seen, AMD server CPUs (Opteron family) always
-+// show a benefit from OpenMP, AMD desktop CPUs (e.g. Phenom X4) are
-+// ok, Intel Core 2 Dual core are ok, Intel Core 2 Quad and other
-+// Intel multi-chip modules (MCM) or older dual-CPU systems may
-+// perform poorly for lightweight algorithms.  If the CPU cores need
-+// to communicate via L3 cache or main memory, then performance may
-+// suffer unless this define is used.
-+#define DisableSlowOpenMP
-+
-+
-+/////////////
-+//
-+// Optional packages
-+//
-+// All packages except autotrace and X11 are included by default in the build.
-+
-+// Define to use the autotrace library (obtain sources seperately)
-+// #undef HasAUTOTRACE
-+
-+// Define to use the bzip2 compression library
 +//#define HasBZLIB
-+
-+// Define to use the FlashPIX library (fpx module/subdirectory).
-+// FlashPix is no longer actively supported but it should still be
-+// discovered by the configure program and work if the source is
-+// extracted to a 'fpx' subdirectory.
-+// #undef HasFPX
-+
-+// Define to use the JBIG library
-+#define HasJBIG
-+
-+// Define to use the Jasper JPEG v2 library
+ 
+ // Define to use the FlashPIX library (fpx module/subdirectory).
+ // FlashPix is no longer actively supported but it should still be
+@@ -135,28 +135,28 @@
+ #define HasJBIG
+ 
+ // Define to use the Jasper JPEG v2 library
+-#define HasJP2
 +//#define HasJP2
-+
-+// Define to use the IJG JPEG v1 library
-+#define HasJPEG
-+
-+// Define to use the "little" Color Management System (LCMS) library
+ 
+ // Define to use the IJG JPEG v1 library
+ #define HasJPEG
+ 
+ // Define to use the "little" Color Management System (LCMS) library
+-#define HasLCMS
 +//#define HasLCMS
-+
-+// Define to use the PNG library
-+#define HasPNG
-+
-+// Define to use the TIFF library
+ 
+ // Define to use the PNG library
+ #define HasPNG
+ 
+ // Define to use the TIFF library
+-#define HasTIFF
 +//#define HasTIFF
-+
-+// Define to use the FreeType (TrueType & Postscript font support) library
+ 
+ // Define to use the FreeType (TrueType & Postscript font support) library
+-#define HasTTF
 +//#define HasTTF
-+
-+// Define to use the Windows GDI32 library (for clipboard and emf modules)
+ 
+ // Define to use the Windows GDI32 library (for clipboard and emf modules)
+-#define HasWINGDI32
 +//#define HasWINGDI32
-+
-+// Define to use the libwmf WMF parsing library
+ 
+ // Define to use the libwmf WMF parsing library
+-#define HasWMFlite
 +//#define HasWMFlite
-+
-+/////////////
-+//
-+// HasX11
-+//
-+// Define if MIT X11 is available (or stubbed) X11 is required in
-+// order for the 'animate', 'display', and 'import' commands to be
-+// available.  X11 is not usually available under Windows since it
-+// requires that another package be installed such as Cygwin's X11.
-+// If you know what X11 is and actually plan to use it, then define
-+// HasX11.
-+// #undef HasX11
-+
-+// Define to use the GNOME XML library
+ 
+ /////////////
+ //
+@@ -171,7 +171,7 @@
+ // #undef HasX11
+ 
+ // Define to use the GNOME XML library
+-#define HasXML
 +//#define HasXML
-+
-+// Define to use the zlib ZIP compression library
-+#define HasZLIB
-+
-+/////////////
-+//
-+// Hard Coded Paths
-+//
-+// If hard-coded paths are defined via the the following define
-+// statements, then they will override any values from the Windows
-+// registry.
-+// It is unusual to use hard-coded paths under Windows.
-+
-+// Optional: Specify where X11 application resource files are installed
-+// #define ApplicationDefaults "c:\\GraphicsMagick\\"
-+
-+// Optional: Specify where user-specific X11 application resource files are installed
-+// #define PreferencesDefaults  "~\\."
-+
-+// Optional: Specify where gm.exe and support executables are installed
-+// #define MagickBinPath       "c:\\GraphicsMagick\\"
-+
-+// Optional: Specify where operating system specific files are installed
-+// #define MagickLibPath       "c:\\GraphicsMagick\\"
-+
-+// Optional: Specify where operating system independent files are installed
-+// #define MagickSharePath     "c:\\GraphicsMagick\\"
-+
-+// Optional: Specify where coder modules (DLLs) are installed
-+// #define MagickCoderModulesPath   "c:\\GraphicsMagick\\"
-+
-+// Optional: Specify where filter modules (DLLs) are installed
-+// #define MagickFilterModulesPath   "c:\\GraphicsMagick\\"
-+
-+/////////////
-+//
-+// The remaining defines should not require user modification.
-+//
-+#define HAVE_SYS_TYPES_H 1
-+
+ 
+ // Define to use the zlib ZIP compression library
+ #define HasZLIB
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/png/CORE_png_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/png/CORE_png_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/png/CORE_png_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/png/CORE_png_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/png/CORE_png_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,125 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -5835,7 +5459,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/png/CORE_png_xt_lib.vcproj Gr
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_bitstream_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_bitstream_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_bitstream_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_bitstream_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_bitstream_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,113 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -5952,7 +5576,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_bitstream_xt_exe.v
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_constitute_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_constitute_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_constitute_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_constitute_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_constitute_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,113 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -6069,7 +5693,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_constitute_xt_exe.
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_drawtest_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_drawtest_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_drawtest_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_drawtest_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_drawtest_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,113 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -6186,7 +5810,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_drawtest_xt_exe.vc
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_maptest_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_maptest_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_maptest_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_maptest_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_maptest_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,113 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -6303,7 +5927,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_maptest_xt_exe.vcp
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_rwblob_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_rwblob_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_rwblob_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_rwblob_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_rwblob_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,113 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -6420,7 +6044,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_rwblob_xt_exe.vcpr
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_rwfile_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_rwfile_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_rwfile_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_rwfile_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/tests/UTIL_rwfile_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,113 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -6537,7 +6161,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tests/UTIL_rwfile_xt_exe.vcpr
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tiff/CORE_tiff_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/tiff/CORE_tiff_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/tiff/CORE_tiff_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/tiff/CORE_tiff_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/tiff/CORE_tiff_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,159 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -6700,7 +6324,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/tiff/CORE_tiff_xt_lib.vcproj 
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/ttf/CORE_ttf_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/ttf/CORE_ttf_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/ttf/CORE_ttf_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/ttf/CORE_ttf_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/ttf/CORE_ttf_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,304 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -7008,7 +6632,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/ttf/CORE_ttf_xt_lib.vcproj Gr
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/utilities/UTIL_gm_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/utilities/UTIL_gm_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/utilities/UTIL_gm_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/utilities/UTIL_gm_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/utilities/UTIL_gm_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,113 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -7125,7 +6749,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/utilities/UTIL_gm_xt_exe.vcpr
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/wand/CORE_wand_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/wand/CORE_wand_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/wand/CORE_wand_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/wand/CORE_wand_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/wand/CORE_wand_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,115 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -7244,7 +6868,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/wand/CORE_wand_xt_lib.vcproj 
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/win2k/IMDisplay/UTIL_IMDisplay_xt_exe.vcproj GraphicsMagick-1.3.12/VisualMagick/win2k/IMDisplay/UTIL_IMDisplay_xt_exe.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/win2k/IMDisplay/UTIL_IMDisplay_xt_exe.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/win2k/IMDisplay/UTIL_IMDisplay_xt_exe.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/win2k/IMDisplay/UTIL_IMDisplay_xt_exe.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,133 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -7381,7 +7005,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/win2k/IMDisplay/UTIL_IMDispla
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/wmf/CORE_wmf_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/wmf/CORE_wmf_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/wmf/CORE_wmf_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/wmf/CORE_wmf_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/wmf/CORE_wmf_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,118 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -7503,7 +7127,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/wmf/CORE_wmf_xt_lib.vcproj Gr
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/xlib/CORE_xlib_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/xlib/CORE_xlib_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/xlib/CORE_xlib_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/xlib/CORE_xlib_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/xlib/CORE_xlib_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,106 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -7548,7 +7172,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/xlib/CORE_xlib_xt_lib.vcproj 
 +        PreprocessorDefinitions="NDEBUG"
 +        Culture="1033"/>
 +      <Tool
-+        Name="VCLibrarianTool"
++        Name="VCLibrarianTool"
 +        AdditionalDependencies=""
 +        SuppressStartupBanner="TRUE"
 +        LinkIncremental="1"
@@ -7613,7 +7237,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/xlib/CORE_xlib_xt_lib.vcproj 
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/zlib/CORE_zlib_xt_lib.vcproj GraphicsMagick-1.3.12/VisualMagick/zlib/CORE_zlib_xt_lib.vcproj
 --- GraphicsMagick-1.3.12.orig/VisualMagick/zlib/CORE_zlib_xt_lib.vcproj	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/VisualMagick/zlib/CORE_zlib_xt_lib.vcproj	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/VisualMagick/zlib/CORE_zlib_xt_lib.vcproj	Fri May 13 16:08:16 2011
 @@ -0,0 +1,129 @@
 +<?xml version="1.0" encoding = "Windows-1252"?>
 +<VisualStudioProject
@@ -7746,7 +7370,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/zlib/CORE_zlib_xt_lib.vcproj 
 +</VisualStudioProject>
 diff -durN GraphicsMagick-1.3.12.orig/jpeg/jconfig.h GraphicsMagick-1.3.12/jpeg/jconfig.h
 --- GraphicsMagick-1.3.12.orig/jpeg/jconfig.h	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/jpeg/jconfig.h	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/jpeg/jconfig.h	Fri May 13 16:00:00 2011
 @@ -0,0 +1,46 @@
 +/* jconfig.vc --- jconfig.h for Microsoft Visual C++ on Windows 95 or NT. */
 +/* see jconfig.doc for explanations */
@@ -7796,7 +7420,7 @@ diff -durN GraphicsMagick-1.3.12.orig/jpeg/jconfig.h GraphicsMagick-1.3.12/jpeg/
 +#endif /* JPEG_CJPEG_DJPEG */
 diff -durN GraphicsMagick-1.3.12.orig/jpeg/jmorecfg.h.bak GraphicsMagick-1.3.12/jpeg/jmorecfg.h.bak
 --- GraphicsMagick-1.3.12.orig/jpeg/jmorecfg.h.bak	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/jpeg/jmorecfg.h.bak	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/jpeg/jmorecfg.h.bak	Mon Apr 29 09:08:06 2002
 @@ -0,0 +1,394 @@
 +/*
 + * jmorecfg.h
@@ -8195,7 +7819,7 @@ diff -durN GraphicsMagick-1.3.12.orig/jpeg/jmorecfg.h.bak GraphicsMagick-1.3.12/
 \ No newline at end of file
 diff -durN GraphicsMagick-1.3.12.orig/magick/magick_config.h GraphicsMagick-1.3.12/magick/magick_config.h
 --- GraphicsMagick-1.3.12.orig/magick/magick_config.h	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/magick/magick_config.h	Fri May 13 18:08:36 2011
++++ GraphicsMagick-1.3.12/magick/magick_config.h	Fri May 13 16:00:00 2011
 @@ -0,0 +1,214 @@
 +// This may look like C code, but it is really -*- C++ -*-
 +//
@@ -8233,7 +7857,7 @@ diff -durN GraphicsMagick-1.3.12.orig/magick/magick_config.h GraphicsMagick-1.3.
 +// UseInstalledMagick" should be defined.
 +//
 +// Enabled options are of the form:
-+//
++//
 +//   #define option
 +//
 +// while disabled options are initially in the form
@@ -8331,7 +7955,7 @@ diff -durN GraphicsMagick-1.3.12.orig/magick/magick_config.h GraphicsMagick-1.3.
 +// #undef HasFPX
 +
 +// Define to use the JBIG library
-+//#define HasJBIG
++#define HasJBIG
 +
 +// Define to use the Jasper JPEG v2 library
 +//#define HasJP2
@@ -8413,7 +8037,7 @@ diff -durN GraphicsMagick-1.3.12.orig/magick/magick_config.h GraphicsMagick-1.3.
 +
 diff -durN GraphicsMagick-1.3.12.orig/magick/magick_types.h GraphicsMagick-1.3.12/magick/magick_types.h
 --- GraphicsMagick-1.3.12.orig/magick/magick_types.h	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/magick/magick_types.h	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/magick/magick_types.h	Fri May 13 16:00:00 2011
 @@ -0,0 +1,99 @@
 +/*
 +  Copyright (C) 2003, 2007, 2009 GraphicsMagick Group
@@ -8516,7 +8140,7 @@ diff -durN GraphicsMagick-1.3.12.orig/magick/magick_types.h GraphicsMagick-1.3.1
 +#endif /* _MAGICK_TYPES_H */
 diff -durN GraphicsMagick-1.3.12.orig/tiff/libtiff/tif_config.h GraphicsMagick-1.3.12/tiff/libtiff/tif_config.h
 --- GraphicsMagick-1.3.12.orig/tiff/libtiff/tif_config.h	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/tiff/libtiff/tif_config.h	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/tiff/libtiff/tif_config.h	Fri May 13 16:00:00 2011
 @@ -0,0 +1,62 @@
 +/* Define to 1 if you have the <assert.h> header file. */
 +#define HAVE_ASSERT_H 1
@@ -8541,7 +8165,7 @@ diff -durN GraphicsMagick-1.3.12.orig/tiff/libtiff/tif_config.h GraphicsMagick-1
 +#define HAVE_IO_H 1
 +
 +/* Define to 1 if you have the <search.h> header file. */
-+#define HAVE_SEARCH_H 1
++#define HAVE_SEARCH_H 1
 +
 +/* Define to 1 if you have the `setmode' function. */
 +#define HAVE_SETMODE 1
@@ -8582,7 +8206,7 @@ diff -durN GraphicsMagick-1.3.12.orig/tiff/libtiff/tif_config.h GraphicsMagick-1
 +#define lfind _lfind
 diff -durN GraphicsMagick-1.3.12.orig/tiff/libtiff/tiffconf.h GraphicsMagick-1.3.12/tiff/libtiff/tiffconf.h
 --- GraphicsMagick-1.3.12.orig/tiff/libtiff/tiffconf.h	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/tiff/libtiff/tiffconf.h	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/tiff/libtiff/tiffconf.h	Fri May 13 16:00:00 2011
 @@ -0,0 +1,109 @@
 +/*
 +  Configuration defines for installed libtiff.
@@ -8695,7 +8319,7 @@ diff -durN GraphicsMagick-1.3.12.orig/tiff/libtiff/tiffconf.h GraphicsMagick-1.3
 +#endif /* _TIFFCONF_ */
 diff -durN GraphicsMagick-1.3.12.orig/wmf/wmfconfig.h GraphicsMagick-1.3.12/wmf/wmfconfig.h
 --- GraphicsMagick-1.3.12.orig/wmf/wmfconfig.h	Wed Dec 31 16:00:00 1969
-+++ GraphicsMagick-1.3.12/wmf/wmfconfig.h	Fri May 13 18:08:15 2011
++++ GraphicsMagick-1.3.12/wmf/wmfconfig.h	Fri May 13 16:00:00 2011
 @@ -0,0 +1,189 @@
 +/* wmfconfig.h.in.  Generated automatically from configure.ac by autoheader.  */
 +

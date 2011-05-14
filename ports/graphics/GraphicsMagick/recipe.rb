@@ -110,10 +110,10 @@
                      c[:output_inc_dir], :preserve => true, :verbose => true)
         # finally the magic.mgk file, an xml document which enumerates
         # supported formats
-        #magicMgkHome = File.join(c[:output_share_dir], "GraphicsMagick-1.3.12", "config")
-        #FileUtils.mkdir_p(magicMgkHome) 
-        #FileUtils.cp(File.join(c[:src_dir], "VisualMagick", "bin", "magic.mgk"),
-        #             magicMgkHome, :preserve => true, :verbose => true)
+        magicMgkHome = File.join(c[:output_share_dir], "GraphicsMagick-1.3.12", "config")
+        FileUtils.mkdir_p(magicMgkHome) 
+        FileUtils.cp(File.join(c[:src_dir], "VisualMagick", "bin", "magic.mgk"),
+                     magicMgkHome, :preserve => true, :verbose => true)
       end
     }
   }
