@@ -5340,7 +5340,7 @@ diff -durN GraphicsMagick-1.3.12.orig/VisualMagick/magick/magick_config.h.in Gra
 -//
 -// Define to build a GraphicsMagick which uses registry settings or
 -// hard-coded paths to locate installed components.  This supports
--// using the "setup.exe" style installer, or using hard-coded path
+-// using the "setup.exe" style installer, or using hard-coded path
 -// definitions (see below).  If you want to be able to simply copy
 -// the built GraphicsMagick to any directory on any machine, then do
 -// not use this setting.
