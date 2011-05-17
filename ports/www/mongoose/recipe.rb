@@ -1,6 +1,6 @@
 {
-  :url => 'http://mongoose.googlecode.com/files/mongoose-2.8.tgz',
-  :md5 => 'b72e937a356d3f3cd80cfe6653f0168d',
+  :url => 'http://mongoose.googlecode.com/files/mongoose-3.0.tgz',
+  :md5 => '98a8bdb7f955404ec7ef1996445411cc',
   :configure => lambda { |c|
     # configuration is making a local copy of source.  why not?
     Dir.glob(File.join(c[:src_dir], "*")).each { |f|
