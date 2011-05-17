@@ -1,6 +1,6 @@
 diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
---- mongoose.orig/mongoose.c	2011-05-17 14:36:53.000000000 -0700
-+++ mongoose/mongoose.c	2011-05-17 14:59:16.000000000 -0700
+--- mongoose.orig/mongoose.c	2011-05-17 15:58:21.000000000 -0700
++++ mongoose/mongoose.c	2011-05-17 16:03:00.000000000 -0700
 @@ -221,7 +221,10 @@
  #define MAX_CGI_ENVIR_VARS 64
  #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
@@ -13,7 +13,18 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
  #define DEBUG_TRACE(x) do { \
    flockfile(stdout); \
    printf("*** %lu.%p.%s.%d: ", \
-@@ -3308,11 +3311,15 @@
+@@ -3298,6 +3301,10 @@
+   }
+ }
+ 
++#ifndef INADDR_LOOPBACK
++#define INADDR_LOOPBACK (u_int32_t)0x7f000001
++#endif // INADDR_LOOPBACK
++
+ // Valid listening port specification is: [ip_address:]port[s|p]
+ // Examples: 80, 443s, 127.0.0.1:3128p, 1.2.3.4:8080sp
+ static int parse_port_string(const struct vec *vec, struct socket *so) {
+@@ -3308,11 +3315,15 @@
    memset(so, 0, sizeof(*so));
  
    if (sscanf(vec->ptr, "%d.%d.%d.%d:%d%n", &a, &b, &c, &d, &port, &len) == 5) {
@@ -29,11 +40,11 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 +// For security, only use loopback.
 +//    // Only port number is specified. Bind to all addresses
 +//    usa->u.sin.sin_addr.s_addr = htonl(INADDR_ANY);
-+    usa->u.sin.sin_addr.s_addr = htonl(/*INADDR_LOOPBACK*/(u_int32_t)0x7f000001);
++    usa->u.sin.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
    } else {
      return 0;
    }
-@@ -3331,6 +3338,7 @@
+@@ -3331,6 +3342,7 @@
    return 1;
  }
  
@@ -41,7 +52,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
  static int set_ports_option(struct mg_context *ctx) {
    const char *list = ctx->config[LISTENING_PORTS];
    int reuseaddr = 1, success = 1;
-@@ -3377,6 +3385,15 @@
+@@ -3377,6 +3389,15 @@
      close_all_listening_sockets(ctx);
    }
  
@@ -57,7 +68,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
    return success;
  }
  
-@@ -3900,14 +3917,19 @@
+@@ -3900,14 +3921,19 @@
  
      close_connection(conn);
    }
@@ -84,7 +95,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
  
    DEBUG_TRACE(("exiting"));
  }
-@@ -4045,14 +4067,19 @@
+@@ -4045,14 +4071,19 @@
    while (ctx->stop_flag != 2) {
      (void) sleep(0);
    }
@@ -106,7 +117,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
                              const char **options) {
    struct mg_context *ctx;
    const char *name, *value, *default_value;
-@@ -4119,11 +4146,15 @@
+@@ -4119,11 +4150,15 @@
    (void) pthread_cond_init(&ctx->cond, NULL);
    (void) pthread_cond_init(&ctx->sq_empty, NULL);
    (void) pthread_cond_init(&ctx->sq_full, NULL);
@@ -123,7 +134,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
    for (i = 0; i < atoi(ctx->config[NUM_THREADS]); i++) {
      if (start_thread(ctx, (mg_thread_func_t) worker_thread, ctx) != 0) {
        cry(fc(ctx), "Cannot start worker thread: %d", ERRNO);
-@@ -4131,6 +4162,5 @@
+@@ -4131,6 +4166,5 @@
        ctx->num_threads++;
      }
    }
@@ -132,8 +143,8 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 +  return success;
  }
 diff -durN mongoose.orig/mongoose.h mongoose/mongoose.h
---- mongoose.orig/mongoose.h	2011-05-17 14:36:55.000000000 -0700
-+++ mongoose/mongoose.h	2011-05-17 14:37:51.000000000 -0700
+--- mongoose.orig/mongoose.h	2011-05-17 15:58:24.000000000 -0700
++++ mongoose/mongoose.h	2011-05-17 15:58:52.000000000 -0700
 @@ -79,7 +79,7 @@
                                  const struct mg_request_info *request_info);
  
