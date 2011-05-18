@@ -1,6 +1,6 @@
 diff -durN mongoose.orig/Makefile mongoose/Makefile
---- mongoose.orig/Makefile	2011-05-02 00:00:20.000000000 -0700
-+++ mongoose/Makefile	2011-05-17 14:35:02.000000000 -0700
+--- mongoose.orig/Makefile	2011-05-18 13:18:44.000000000 -0700
++++ mongoose/Makefile	2011-05-18 13:19:04.000000000 -0700
 @@ -1,138 +1,32 @@
 -# This file is part of Mongoose project, http://code.google.com/p/mongoose
 -# $Id: Makefile 473 2009-09-02 11:20:06Z valenok $
