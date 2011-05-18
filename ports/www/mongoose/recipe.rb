@@ -9,13 +9,17 @@
   },
   :build => {
     :Windows => lambda { |c|
-      cflags = "-DNO_CGI -DNO_SSL -DNO_SSI"
+      cflags = ""
+      #cflags += "-DNO_CGI -DNO_SSL -DNO_SSI"
+      cflags += "-DNO_SSL"
       cflags += " -nologo -Os"
       cflags += (c[:build_type] == :debug) ? " -Zi -DDEBUG -D_DEBUG -MTd" : " -DNDEBUG -MT"
       system("nmake CL_FLAGS=\"#{cflags}\" msvc")
     },
     [ :MacOSX, :Linux ] => lambda { |c|
-      cflags = "#{c[:os_compile_flags]} -Wall"
+      cflags = ""
+      cflags += "-DNO_SSL"
+      cflags += "#{c[:os_compile_flags]} -Wall"
       cflags += (c[:build_type] == :debug) ? " -g -O0" : " -O2"
       ENV['CFLAGS'] = cflags
       system("make unix")
