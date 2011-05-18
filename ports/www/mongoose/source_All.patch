@@ -1,6 +1,6 @@
 diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 --- mongoose.orig/mongoose.c	2011-05-17 15:58:21.000000000 -0700
-+++ mongoose/mongoose.c	2011-05-17 18:41:26.000000000 -0700
++++ mongoose/mongoose.c	2011-05-17 18:45:24.000000000 -0700
 @@ -221,7 +221,10 @@
  #define MAX_CGI_ENVIR_VARS 64
  #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
@@ -134,7 +134,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
    for (i = 0; i < atoi(ctx->config[NUM_THREADS]); i++) {
      if (start_thread(ctx, (mg_thread_func_t) worker_thread, ctx) != 0) {
        cry(fc(ctx), "Cannot start worker thread: %d", ERRNO);
-@@ -4131,6 +4166,20 @@
+@@ -4131,6 +4166,22 @@
        ctx->num_threads++;
      }
    }
@@ -142,6 +142,8 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 +}
  
 +void *mg_set_options(struct mg_context *ctx, const char **options) {
++  const char *name = NULL, *value = NULL;
++  int i = 0;
 +  while (options && (name = *options++) != NULL) {
 +    if ((i = get_option_index(name)) == -1) {
 +      cry(fc(ctx), "Invalid option: %s", name);
