@@ -1,6 +1,6 @@
 diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 --- mongoose.orig/mongoose.c	2011-05-19 13:00:59.000000000 -0700
-+++ mongoose/mongoose.c	2011-05-19 16:10:58.000000000 -0700
++++ mongoose/mongoose.c	2011-05-19 16:37:09.000000000 -0700
 @@ -221,7 +221,10 @@
  #define MAX_CGI_ENVIR_VARS 64
  #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
@@ -155,7 +155,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
        ctx->num_threads++;
      }
    }
-+  return success;
++  return success == 0 ? ctx : NULL;
 +}
  
 +void *mg_set_options(struct mg_context *ctx, const char **options) {
