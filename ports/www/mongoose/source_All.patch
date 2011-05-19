@@ -1,6 +1,6 @@
 diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 --- mongoose.orig/mongoose.c	2011-05-19 13:00:59.000000000 -0700
-+++ mongoose/mongoose.c	2011-05-19 13:03:09.000000000 -0700
++++ mongoose/mongoose.c	2011-05-19 15:40:42.000000000 -0700
 @@ -221,7 +221,10 @@
  #define MAX_CGI_ENVIR_VARS 64
  #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
@@ -13,6 +13,15 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
  #define DEBUG_TRACE(x) do { \
    flockfile(stdout); \
    printf("*** %lu.%p.%s.%d: ", \
+@@ -421,7 +424,7 @@
+   "l", "access_control_list", NULL,
+   "M", "max_request_size", "16384",
+   "m", "extra_mime_types", NULL,
+-  "p", "listening_ports", "8080",
++  "p", "listening_ports", "0",
+   "r", "document_root",  ".",
+   "s", "ssl_certificate", NULL,
+   "t", "num_threads", "10",
 @@ -3298,6 +3301,10 @@
    }
  }
