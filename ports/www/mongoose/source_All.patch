@@ -1,6 +1,6 @@
 diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 --- mongoose.orig/mongoose.c	2011-05-19 13:00:59.000000000 -0700
-+++ mongoose/mongoose.c	2011-05-19 17:26:35.000000000 -0700
++++ mongoose/mongoose.c	2011-05-19 17:29:56.000000000 -0700
 @@ -221,7 +221,10 @@
  #define MAX_CGI_ENVIR_VARS 64
  #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
@@ -66,13 +66,13 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
    }
  
 +  if (success) {
++    int port;
 +    struct usa sa;
 +    memset((void *) &sa, 0, sizeof(sa));
 +    sa.len = sizeof(sa.u.sin);
 +    if (getsockname(sock, &sa.u.sa, &sa.len) != 0) {
 +        return 0;
 +    }
-+    int port;
 +    port = ntohs((uint16_t) sa.u.sin.sin_port);
 +    // If we are to bound to ephemeral, then save the current port in context config.
 +    // Now future get_option requests will ensure the correct port is returned.
