@@ -1,6 +1,6 @@
 diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 --- mongoose.orig/mongoose.c	2011-05-19 13:00:59.000000000 -0700
-+++ mongoose/mongoose.c	2011-05-19 16:37:09.000000000 -0700
++++ mongoose/mongoose.c	2011-05-19 17:26:35.000000000 -0700
 @@ -221,7 +221,10 @@
  #define MAX_CGI_ENVIR_VARS 64
  #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
@@ -61,7 +61,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
  static int set_ports_option(struct mg_context *ctx) {
    const char *list = ctx->config[LISTENING_PORTS];
    int reuseaddr = 1, success = 1;
-@@ -3377,6 +3389,23 @@
+@@ -3377,6 +3389,24 @@
      close_all_listening_sockets(ctx);
    }
  
@@ -72,7 +72,8 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 +    if (getsockname(sock, &sa.u.sa, &sa.len) != 0) {
 +        return 0;
 +    }
-+    int port = ntohs((uint16_t) sa.u.sin.sin_port);
++    int port;
++    port = ntohs((uint16_t) sa.u.sin.sin_port);
 +    // If we are to bound to ephemeral, then save the current port in context config.
 +    // Now future get_option requests will ensure the correct port is returned.
 +    if (ctx->config[LISTENING_PORTS] == NULL || 0 == strcmp(ctx->config[LISTENING_PORTS], "0")) {
@@ -85,7 +86,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
    return success;
  }
  
-@@ -3900,14 +3929,19 @@
+@@ -3900,14 +3930,19 @@
  
      close_connection(conn);
    }
@@ -112,7 +113,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
  
    DEBUG_TRACE(("exiting"));
  }
-@@ -4045,14 +4079,19 @@
+@@ -4045,14 +4080,19 @@
    while (ctx->stop_flag != 2) {
      (void) sleep(0);
    }
@@ -134,7 +135,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
                              const char **options) {
    struct mg_context *ctx;
    const char *name, *value, *default_value;
-@@ -4119,11 +4158,15 @@
+@@ -4119,11 +4159,15 @@
    (void) pthread_cond_init(&ctx->cond, NULL);
    (void) pthread_cond_init(&ctx->sq_empty, NULL);
    (void) pthread_cond_init(&ctx->sq_full, NULL);
@@ -151,11 +152,11 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
    for (i = 0; i < atoi(ctx->config[NUM_THREADS]); i++) {
      if (start_thread(ctx, (mg_thread_func_t) worker_thread, ctx) != 0) {
        cry(fc(ctx), "Cannot start worker thread: %d", ERRNO);
-@@ -4131,6 +4174,22 @@
+@@ -4131,6 +4175,22 @@
        ctx->num_threads++;
      }
    }
-+  return success == 0 ? ctx : NULL;
++  return (success == 0) ? (int)ctx : NULL;
 +}
  
 +void *mg_set_options(struct mg_context *ctx, const char **options) {
