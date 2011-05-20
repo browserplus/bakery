@@ -1,6 +1,6 @@
 diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 --- mongoose.orig/mongoose.c	2011-05-19 13:00:59.000000000 -0700
-+++ mongoose/mongoose.c	2011-05-19 17:29:56.000000000 -0700
++++ mongoose/mongoose.c	2011-05-19 18:46:42.000000000 -0700
 @@ -221,7 +221,10 @@
  #define MAX_CGI_ENVIR_VARS 64
  #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
@@ -13,15 +13,6 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
  #define DEBUG_TRACE(x) do { \
    flockfile(stdout); \
    printf("*** %lu.%p.%s.%d: ", \
-@@ -421,7 +424,7 @@
-   "l", "access_control_list", NULL,
-   "M", "max_request_size", "16384",
-   "m", "extra_mime_types", NULL,
--  "p", "listening_ports", "8080",
-+  "p", "listening_ports", "0",
-   "r", "document_root",  ".",
-   "s", "ssl_certificate", NULL,
-   "t", "num_threads", "10",
 @@ -3298,6 +3301,10 @@
    }
  }
@@ -86,34 +77,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
    return success;
  }
  
-@@ -3900,14 +3930,19 @@
- 
-     close_connection(conn);
-   }
--  free(conn);
- 
--  // Signal master that we're done with connection and exiting
--  (void) pthread_mutex_lock(&ctx->mutex);
--  ctx->num_threads--;
--  (void) pthread_cond_signal(&ctx->cond);
--  assert(ctx->num_threads >= 0);
--  (void) pthread_mutex_unlock(&ctx->mutex);
-+  // It's possible to have a connection for which get_socket()
-+  // immediately returns false, resulting in a null ctx
-+  if (conn->ctx != NULL) {
-+    // Signal master that we're done with connection and exiting
-+    pthread_mutex_lock(&(conn->ctx->mutex));
-+    conn->ctx->num_threads--;
-+    pthread_cond_signal(&(conn->ctx->cond));
-+    assert(conn->ctx->num_threads >= 0);
-+    pthread_mutex_unlock(&(conn->ctx->mutex));
-+  }
-+
-+  free(conn);
- 
-   DEBUG_TRACE(("exiting"));
- }
-@@ -4045,14 +4080,19 @@
+@@ -4045,14 +4075,19 @@
    while (ctx->stop_flag != 2) {
      (void) sleep(0);
    }
@@ -135,7 +99,7 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
                              const char **options) {
    struct mg_context *ctx;
    const char *name, *value, *default_value;
-@@ -4119,11 +4159,15 @@
+@@ -4119,7 +4154,11 @@
    (void) pthread_cond_init(&ctx->cond, NULL);
    (void) pthread_cond_init(&ctx->sq_empty, NULL);
    (void) pthread_cond_init(&ctx->sq_full, NULL);
@@ -143,41 +107,13 @@ diff -durN mongoose.orig/mongoose.c mongoose/mongoose.c
 +}
  
 +int mg_start(struct mg_context *ctx) {
-   // Start master (listening) thread
--  start_thread(ctx, (mg_thread_func_t) master_thread, ctx);
-+  int success = start_thread(ctx, (mg_thread_func_t) master_thread, ctx);
- 
-   // Start worker threads
 +  int i;
-   for (i = 0; i < atoi(ctx->config[NUM_THREADS]); i++) {
-     if (start_thread(ctx, (mg_thread_func_t) worker_thread, ctx) != 0) {
-       cry(fc(ctx), "Cannot start worker thread: %d", ERRNO);
-@@ -4131,6 +4175,22 @@
-       ctx->num_threads++;
-     }
-   }
-+  return (success == 0) ? (int)ctx : NULL;
-+}
+   // Start master (listening) thread
+   start_thread(ctx, (mg_thread_func_t) master_thread, ctx);
  
-+void *mg_set_options(struct mg_context *ctx, const char **options) {
-+  const char *name = NULL, *value = NULL;
-+  int i = 0;
-+  while (options && (name = *options++) != NULL) {
-+    if ((i = get_option_index(name)) == -1) {
-+      cry(fc(ctx), "Invalid option: %s", name);
-+      return NULL;
-+    } else if ((value = *options++) == NULL) {
-+      cry(fc(ctx), "%s: option value cannot be NULL", name);
-+      return NULL;
-+    }
-+    ctx->config[i] = mg_strdup(value);
-+    DEBUG_TRACE(("[%s] -> [%s]", name, value));
-+  }
-   return ctx;
- }
 diff -durN mongoose.orig/mongoose.h mongoose/mongoose.h
 --- mongoose.orig/mongoose.h	2011-05-19 13:00:58.000000000 -0700
-+++ mongoose/mongoose.h	2011-05-19 13:01:18.000000000 -0700
++++ mongoose/mongoose.h	2011-05-19 18:46:10.000000000 -0700
 @@ -79,7 +79,7 @@
                                  const struct mg_request_info *request_info);
  
@@ -216,11 +152,3 @@ diff -durN mongoose.orig/mongoose.h mongoose/mongoose.h
  
  // Get the value of particular configuration parameter.
  // The value returned is read-only. Mongoose does not allow changing
-@@ -119,6 +126,7 @@
- // set, zero-length string is returned.
- const char *mg_get_option(const struct mg_context *ctx, const char *name);
- 
-+void *mg_set_options(struct mg_context *ctx, const char **options);
- 
- // Return array of strings that represent valid configuration options.
- // For each option, a short name, long name, and default value is returned.
