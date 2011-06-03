@@ -1,6 +1,6 @@
 {
-  :url => 'http://sourceforge.net/projects/libpng/files/libpng12/1.2.44/libpng-1.2.44.tar.bz2',
-  :md5 => 'e3ac7879d62ad166a6f0c7441390d12b',
+  :url => 'http://sourceforge.net/projects/libpng/files/libpng15/1.5.2/libpng-1.5.2.tar.bz2',
+  :md5 => 'a003b37ed9afb0d9164eb7228421057c',
   :deps => [ 'zlib' ],
   :post_patch => {
     :Windows => lambda { |c|
@@ -64,7 +64,7 @@
         Dir.glob(File.join(c[:output_dir], "include", "png*h")).each { |h|
           FileUtils.mv(h, c[:output_inc_dir], :verbose => true)
         }
-        FileUtils.mv(File.join(c[:output_dir], "include", "libpng12"),
+        FileUtils.mv(File.join(c[:output_dir], "include", "libpng15"),
                      c[:output_inc_dir],
                      :verbose => true)      
       end
