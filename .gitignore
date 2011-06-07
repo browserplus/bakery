@@ -5,4 +5,4 @@
 /example/*.dSYM
 /ports/work
 /ports/dist
-/scriptsbuild/
+/scripts/build/
