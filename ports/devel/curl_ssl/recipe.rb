@@ -17,7 +17,6 @@
       ENV['LDFLAGS'] = "#{c[:os_link_flags]} #{ENV['LDFLAGS']}"
       puts "CFLAGS = #{ENV['CFLAGS']}"
       puts "LDFLAGS = #{ENV['LDFLAGS']}"
-
       if c[:platform] == :MacOSX
         osVersion = c[:toolchain] == 'gcc-4.0' ? '10.4.0' : '10.5.0'
         Dir.chdir(c[:src_dir]) {
@@ -25,6 +24,29 @@
         }
       else
         raise "Don't know how to configure Linux"
+      end
+    },
+    :Windows => lambda { |c| 
+      if c[:build_type] == :debug
+        # patched curlsrc includes a substitution target in libcurl.vcproj
+        # we'll sub that now with the path to openssl headers
+
+        vcpPath = File.join(c[:src_dir], "lib",
+                            c[:toolchain] == "vs10" ? "libcurl.vcxproj" : "libcurl.vcproj")
+
+        raise "can't find libcurl.vcproj (#{vcpPath})" if !File.readable?(vcpPath)
+
+        # read the whole thing
+        contents = File.read(vcpPath)
+
+        # sub in the proper path
+        libDir = File.join(File.dirname(File.join(c[:output_inc_dir])))
+        realPath = File.expand_path(libDir).gsub(/\//,"\\")
+        puts "replacing OPENSSL_INCLUDE_PATH with '#{realPath}'"
+        contents.gsub!(/OPENSSL_INCLUDE_PATH/, realPath)
+        
+        # write the whole thing
+        File.open(vcpPath, "w") { |f| f.write contents }
       end
     }
   },
@@ -88,4 +110,3 @@
     }
   },
 }
-
