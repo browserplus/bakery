@@ -1,11 +1,19 @@
 #!/usr/bin/env ruby
 
+# XXX when 10.4 support dropped, get rid of this logic
+if ARGV.length >= 1 && ARGV[0] == "osx10.4"
+  puts '*** DOING OSX10.4 BUILD **'
+  ENV['BP_OSX_TARGET'] = '10.4'
+else
+  ENV['BP_OSX_TARGET'] = ''
+end
+
 require "../ports/bakery"
 require 'pp'
 
 packages = []
 ARGV.each { |a|
-  packages.push(a)
+  packages.push(a) unless a == "osx10.4"
 }
 
 if packages.length == 0
