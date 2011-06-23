@@ -1,6 +1,6 @@
-diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects/visualc6/example.vcproj
---- zlib-1.2.4.orig/projects/visualc6/example.vcproj	1969-12-31 16:00:00.000000000 -0800
-+++ zlib-1.2.4/projects/visualc6/example.vcproj	2010-03-17 11:41:12.187500000 -0700
+diff -durN zlib-1.2.5.orig/projects/visualc6/example.vcproj zlib-1.2.5/projects/visualc6/example.vcproj
+--- zlib-1.2.5.orig/projects/visualc6/example.vcproj	1969-12-31 16:00:00.000000000 -0800
++++ zlib-1.2.5/projects/visualc6/example.vcproj	2011-06-23 10:40:27.000000000 -0700
 @@ -0,0 +1,822 @@
 +<?xml version="1.0" encoding="Windows-1252"?>
 +<VisualStudioProject
@@ -50,7 +50,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_LIB_ASM_Debug/example.pch"
 +				AssemblerListingLocation=".\Win32_LIB_ASM_Debug/"
 +				ObjectFile=".\Win32_LIB_ASM_Debug/"
@@ -140,7 +140,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_LIB_Release/example.pch"
 +				AssemblerListingLocation=".\Win32_LIB_Release/"
@@ -228,7 +228,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_DLL_ASM_Release/example.pch"
 +				AssemblerListingLocation=".\Win32_DLL_ASM_Release/"
@@ -316,7 +316,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_LIB_ASM_Release/example.pch"
 +				AssemblerListingLocation=".\Win32_LIB_ASM_Release/"
@@ -404,7 +404,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_DLL_Release/example.pch"
 +				AssemblerListingLocation=".\Win32_DLL_Release/"
@@ -492,7 +492,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_LIB_Debug/example.pch"
 +				AssemblerListingLocation=".\Win32_LIB_Debug/"
 +				ObjectFile=".\Win32_LIB_Debug/"
@@ -582,7 +582,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_DLL_Debug/example.pch"
 +				AssemblerListingLocation=".\Win32_DLL_Debug/"
 +				ObjectFile=".\Win32_DLL_Debug/"
@@ -672,7 +672,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_DLL_ASM_Debug/example.pch"
 +				AssemblerListingLocation=".\Win32_DLL_ASM_Debug/"
 +				ObjectFile=".\Win32_DLL_ASM_Debug/"
@@ -824,9 +824,9 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/example.vcproj zlib-1.2.4/projects
 +	<Globals>
 +	</Globals>
 +</VisualStudioProject>
-diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/projects/visualc6/minigzip.vcproj
---- zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj	1969-12-31 16:00:00.000000000 -0800
-+++ zlib-1.2.4/projects/visualc6/minigzip.vcproj	2010-03-17 11:41:12.156250000 -0700
+diff -durN zlib-1.2.5.orig/projects/visualc6/minigzip.vcproj zlib-1.2.5/projects/visualc6/minigzip.vcproj
+--- zlib-1.2.5.orig/projects/visualc6/minigzip.vcproj	1969-12-31 16:00:00.000000000 -0800
++++ zlib-1.2.5/projects/visualc6/minigzip.vcproj	2011-06-23 10:40:48.000000000 -0700
 @@ -0,0 +1,822 @@
 +<?xml version="1.0" encoding="Windows-1252"?>
 +<VisualStudioProject
@@ -876,7 +876,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/project
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_DLL_ASM_Debug/minigzip.pch"
 +				AssemblerListingLocation=".\Win32_DLL_ASM_Debug/"
 +				ObjectFile=".\Win32_DLL_ASM_Debug/"
@@ -966,7 +966,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/project
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_LIB_ASM_Debug/minigzip.pch"
 +				AssemblerListingLocation=".\Win32_LIB_ASM_Debug/"
 +				ObjectFile=".\Win32_LIB_ASM_Debug/"
@@ -1056,7 +1056,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/project
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_LIB_Release/minigzip.pch"
 +				AssemblerListingLocation=".\Win32_LIB_Release/"
@@ -1144,7 +1144,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/project
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_DLL_ASM_Release/minigzip.pch"
 +				AssemblerListingLocation=".\Win32_DLL_ASM_Release/"
@@ -1232,7 +1232,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/project
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_LIB_Debug/minigzip.pch"
 +				AssemblerListingLocation=".\Win32_LIB_Debug/"
 +				ObjectFile=".\Win32_LIB_Debug/"
@@ -1322,7 +1322,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/project
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_DLL_Debug/minigzip.pch"
 +				AssemblerListingLocation=".\Win32_DLL_Debug/"
 +				ObjectFile=".\Win32_DLL_Debug/"
@@ -1412,7 +1412,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/project
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_LIB_ASM_Release/minigzip.pch"
 +				AssemblerListingLocation=".\Win32_LIB_ASM_Release/"
@@ -1500,7 +1500,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/project
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_DLL_Release/minigzip.pch"
 +				AssemblerListingLocation=".\Win32_DLL_Release/"
@@ -1650,14 +1650,9 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/minigzip.vcproj zlib-1.2.4/project
 +	<Globals>
 +	</Globals>
 +</VisualStudioProject>
-diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.ncb zlib-1.2.4/projects/visualc6/zlib.ncb
---- zlib-1.2.4.orig/projects/visualc6/zlib.ncb	1969-12-31 16:00:00.000000000 -0800
-+++ zlib-1.2.4/projects/visualc6/zlib.ncb	2010-03-17 11:41:12.515625000 -0700
-@@ -0,0 +1 @@
-+Microsoft C/C++ MSF 7.00
-diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.sln zlib-1.2.4/projects/visualc6/zlib.sln
---- zlib-1.2.4.orig/projects/visualc6/zlib.sln	1969-12-31 16:00:00.000000000 -0800
-+++ zlib-1.2.4/projects/visualc6/zlib.sln	2010-03-17 11:41:12.187500000 -0700
+diff -durN zlib-1.2.5.orig/projects/visualc6/zlib.sln zlib-1.2.5/projects/visualc6/zlib.sln
+--- zlib-1.2.5.orig/projects/visualc6/zlib.sln	1969-12-31 16:00:00.000000000 -0800
++++ zlib-1.2.5/projects/visualc6/zlib.sln	2011-06-23 10:29:19.000000000 -0700
 @@ -0,0 +1,80 @@
 +ï»¿
 +Microsoft Visual Studio Solution File, Format Version 10.00
@@ -1739,15 +1734,9 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.sln zlib-1.2.4/projects/visua
 +		HideSolutionNode = FALSE
 +	EndGlobalSection
 +EndGlobal
-diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.suo zlib-1.2.4/projects/visualc6/zlib.suo
---- zlib-1.2.4.orig/projects/visualc6/zlib.suo	1969-12-31 16:00:00.000000000 -0800
-+++ zlib-1.2.4/projects/visualc6/zlib.suo	2010-03-17 11:41:12.406000000 -0700
-@@ -0,0 +1 @@
-+ÐÏà¡±
-\ No newline at end of file
-diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.vcproj zlib-1.2.4/projects/visualc6/zlib.vcproj
---- zlib-1.2.4.orig/projects/visualc6/zlib.vcproj	1969-12-31 16:00:00.000000000 -0800
-+++ zlib-1.2.4/projects/visualc6/zlib.vcproj	2010-03-17 11:41:12.156250000 -0700
+diff -durN zlib-1.2.5.orig/projects/visualc6/zlib.vcproj zlib-1.2.5/projects/visualc6/zlib.vcproj
+--- zlib-1.2.5.orig/projects/visualc6/zlib.vcproj	1969-12-31 16:00:00.000000000 -0800
++++ zlib-1.2.5/projects/visualc6/zlib.vcproj	2011-06-23 10:41:15.000000000 -0700
 @@ -0,0 +1,2122 @@
 +<?xml version="1.0" encoding="Windows-1252"?>
 +<VisualStudioProject
@@ -1801,7 +1790,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.vcproj zlib-1.2.4/projects/vi
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_DLL_Release/zlib.pch"
 +				AssemblerListingLocation=".\Win32_DLL_Release/"
@@ -1894,7 +1883,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.vcproj zlib-1.2.4/projects/vi
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;ASMV;ASMINF"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_DLL_ASM_Debug/zlib.pch"
 +				AssemblerListingLocation=".\Win32_DLL_ASM_Debug/"
 +				ObjectFile=".\Win32_DLL_ASM_Debug/"
@@ -1983,7 +1972,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.vcproj zlib-1.2.4/projects/vi
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;ASMV;ASMINF"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_LIB_ASM_Debug/zlib.pch"
 +				AssemblerListingLocation=".\Win32_LIB_ASM_Debug/"
 +				ObjectFile=".\Win32_LIB_ASM_Debug/"
@@ -2063,7 +2052,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.vcproj zlib-1.2.4/projects/vi
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;ASMV;ASMINF"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_DLL_ASM_Release/zlib.pch"
 +				AssemblerListingLocation=".\Win32_DLL_ASM_Release/"
@@ -2230,7 +2219,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.vcproj zlib-1.2.4/projects/vi
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG"
 +				MinimalRebuild="true"
 +				BasicRuntimeChecks="3"
-+				RuntimeLibrary="3"
++				RuntimeLibrary="1"
 +				PrecompiledHeaderFile=".\Win32_DLL_Debug/zlib.pch"
 +				AssemblerListingLocation=".\Win32_DLL_Debug/"
 +				ObjectFile=".\Win32_DLL_Debug/"
@@ -2392,7 +2381,7 @@ diff -PNaur zlib-1.2.4.orig/projects/visualc6/zlib.vcproj zlib-1.2.4/projects/vi
 +				InlineFunctionExpansion="1"
 +				PreprocessorDefinitions="WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;ASMV;ASMINF"
 +				StringPooling="true"
-+				RuntimeLibrary="2"
++				RuntimeLibrary="0"
 +				EnableFunctionLevelLinking="true"
 +				PrecompiledHeaderFile=".\Win32_LIB_ASM_Release/zlib.pch"
 +				AssemblerListingLocation=".\Win32_LIB_ASM_Release/"
