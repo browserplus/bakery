@@ -7,7 +7,17 @@
             :Windows => '18db4ccafbde714c95d9c870fffcbc8f' },
   :deps => [ 'jpeg', 'libpng', 'zlib' ],
   :post_patch => {
+    [ :Linux, :MacOSX ] => lambda { |c|
+      # XXX Remove during next update of GraphicsMagick source
+      FileUtils.cp(File.join(c[:recipe_dir], "png.c"),
+                   File.join(c[:src_dir], "coders"),
+                   :preserve => true, :verbose => true)
+    },
     :Windows => lambda { |c| 
+      # XXX Remove during next update of GraphicsMagick source
+      FileUtils.cp(File.join(c[:recipe_dir], "png.c"),
+                   File.join(c[:src_dir], "coders"),
+                   :preserve => true, :verbose => true)
       puts "Running post-patch"
       # Now ladies and gentlemen, we'll go through all vcproj files and
       # replace a couple paths with their actual path
