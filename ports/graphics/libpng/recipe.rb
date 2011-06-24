@@ -90,7 +90,7 @@
                         :preserve => true, :verbose => true)
 
       puts "installing headers"
-      ["png.h", "pngconf.h"].each do |f|
+      ["png.h", "pngconf.h", "pnglibconf.h"].each do |f|
         FileUtils.install(File.join(c[:src_dir], f), c[:output_inc_dir],
                           :preserve => true, :verbose => true)
       end
