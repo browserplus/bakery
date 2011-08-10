@@ -1,5 +1,5 @@
 {
-  :url => 'http://sourceforge.net/projects/libpng/files/libpng15/1.5.2/libpng-1.5.2.tar.bz2',
+  :url => 'http://sourceforge.net/projects/libpng/files/libpng15/older-releases/1.5.2/libpng-1.5.2.tar.bz2',
   :md5 => 'a003b37ed9afb0d9164eb7228421057c',
   :deps => [ 'zlib' ],
   :post_patch => {
