@@ -40,13 +40,7 @@ def system *args
 end
 
 class Builder
-  def cache_dir
-    @cache_dir
-  end
-
-  def toolchain
-    @toolchain
-  end
+  attr_reader(:platform, :cache_dir, :toolchain)
 
   def __checkSym map, sym
     if !map || !map.has_key?(sym)
@@ -54,7 +48,8 @@ class Builder
     end
   end
 
-  def initialize pkg, verbose, output_dir, cmake_gen, cache_dir, wintools_dir, recipe_location = nil
+  def initialize pkg, verbose, output_dir, cmake_gen, cache_dir,
+      wintools_dir, recipe_location = nil
     # capture the top level portDir
     @port_dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
 
@@ -95,7 +90,8 @@ class Builder
     @logdir_path = File.join(@workdir_path, "logs")
 
     # create and define directories where ports should put stuff
-    @wintools_dir = wintools_dir ? wintools_dir : File.join(@port_dir, "WinTools")
+    @wintools_dir = wintools_dir ? wintools_dir : File.join(@port_dir,
+                                                            "WinTools")
 
     # create and define directories where ports should put stuff
     @output_dir = output_dir ? output_dir : File.join(@port_dir, "dist")
@@ -127,7 +123,8 @@ class Builder
       @sevenZCmd = File.expand_path(File.join(@port_dir, "WinTools", "7z.exe"))
       # on windows, patch is called ptch since an exe named "patch" will
       # cause a UAC on Vista
-      @patch_cmd = File.expand_path(File.join(@port_dir, "WinTools", "ptch.exe"))
+      @patch_cmd = File.expand_path(File.join(@port_dir, "WinTools",
+                                              "ptch.exe"))
 
       # determine what Visual Studio we are using
       foo=`devenv.com /?`
@@ -147,14 +144,15 @@ class Builder
       @platform = :MacOSX
       @platlookup = [ @platform, :Unix, :All ]
 
-      # Compiler/linker flags needed for backward compatibility.  The surrounding
-      # spaces are important, don't be tempted to remove them.
+      # Compiler/linker flags needed for backward compatibility.  
+      # The surrounding spaces are important, don't be tempted to remove them.
       #
       # Backward compatibility is painful, see 
       # http://developer.apple.com/releasenotes/Darwin/SymbolVariantsRelNotes/index
-      # In general, we must get these flags to the compiler and linker to tell it
-      # what sdk to use.  In addition, source which defines any of the preprocessor
-      # symbols mentioned in the above article will be problematic.
+      # In general, we must get these flags to the compiler and linker 
+      # to tell it what sdk to use.  In addition, source which defines
+      # any of the preprocessor symbols mentioned in the above article
+      # will be problematic.
       #
 
       # Kinda skanky, switch on an env var for 10.4 builds.
@@ -218,7 +216,9 @@ class Builder
         user = uri.host
         # it's time to build a url
         @url = "http://github.com/#{user}/#{project}/tarball/#{sha256}"
-        @tarball = File.expand_path(File.join(@distfiles_path, "#{user}-#{project}-#{sha256}.tgz"))
+        @tarball = File.expand_path(
+                       File.join(@distfiles_path,
+                                 "#{user}-#{project}-#{sha256}.tgz"))
       else 
         tarball = File.basename(uri.path)
         @tarball = File.expand_path(File.join(@distfiles_path, tarball))
@@ -262,8 +262,8 @@ class Builder
     FileUtils.mkdir_p(@receipts_dir)
     @receipt_path = File.join(@receipts_dir, "#{@pkg}.yaml")
 
-    # port md5 calculation is expensive.  we only calculate it once per invocation
-    # using this member as a cache
+    # port md5 calculation is expensive.  we only calculate it once per
+    # invocation using this member as a cache
     @port_md5 = nil
   end
 
@@ -271,8 +271,8 @@ class Builder
     @deps
   end
 
-  # fetch the current contents of one of the subdirs of output_dir (like lib/ include/
-  # share/ or bin/
+  # fetch the current contents of one of the subdirs of output_dir
+  # (like lib/ include/ share/ or bin/)
   def __output_contents
     oc = Set.new
     Dir.glob(File.join(@output_dir, "*")).each { |p|
@@ -281,7 +281,11 @@ class Builder
       next if prefix == 'receipts'
       if File.directory? p
         oc.merge(Dir.chdir(p) {
-                   Dir.glob("**/*").reject { |f| File.directory?(f) }.collect { |f| File.join(prefix, f ) } })
+                   Dir.glob("**/*").reject { |f|
+                     File.directory?(f) }.collect { |f|
+                     File.join(prefix, f)
+                   }
+                 })
       else
         oc.add(prefix)
       end
@@ -354,8 +358,8 @@ class Builder
     # for purposes of receipts, let's take a snapshot of the lib directory
     @output_dir_before = __output_contents
 
-    # the total set of files that were installed, populated during write_receipts
-    # phase.
+    # the total set of files that were installed, populated during
+    # write_receipts phase.
     @files_installed = Array.new
   end
 
@@ -381,6 +385,15 @@ class Builder
   end
 
   def fetch
+    # is fetch a lamda?
+    if @recipe[:fetch].kind_of?(Proc)
+      @build_dir = File.join(@workdir_path, "src")
+      @conf[:src_dir] = @build_dir
+      FileUtils.mkdir_p(@build_dir)
+      invokeLambda(:fetch, @recipe, :fetch)
+      return
+    end
+
     if @url == nil
       log_with_time "      nothing to fetch for this port"
       return
@@ -566,6 +579,11 @@ class Builder
     end
   end
 
+  def post_fetch
+    @build_dir = @src_dir # yes martha, that's a hack
+    invokeLambda(:post_fetch, @recipe, :post_fetch)
+  end
+
   def post_patch
     @build_dir = @src_dir # yes martha, that's a hack
     invokeLambda(:post_patch, @recipe, :post_patch)
@@ -721,7 +739,11 @@ class Builder
         @files_installed.add Pathname.new(@receipt_path).relative_path_from(Pathname.new(@output_dir)).to_s
 
         filelist = File.join(@workdir_path, "filelist.txt")
-        File.open(filelist, "w+") { |f| @files_installed.each { |fi| f.puts fi } }
+        File.open(filelist, "w+") { |f|
+          @files_installed.each { |fi|
+            f.puts fi
+          }
+        }
         if @platform == :Windows
           system("\"#{@sevenZCmd}\" a -y \"#{fname}\" @\"#{filelist}\"")
         else

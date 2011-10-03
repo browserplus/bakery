@@ -25,6 +25,7 @@ class Hash
   end
 end
 
+
 class Bakery
   @@distfiles_dir = File.join(File.dirname(__FILE__), "distfiles")
   @@work_dir = File.join(File.dirname(__FILE__), "work")
@@ -55,13 +56,15 @@ class Bakery
       next if fullDeps.has_key? p
       recipe = nil
       recipe = @use_recipe[p] if @use_recipe && @use_recipe.has_key?(p) 
-      b = Builder.new(p, @verbose, @output_dir, @cmake_generator, @cache_dir, @wintools_dir, recipe)      
+      b = Builder.new(p, @verbose, @output_dir, @cmake_generator,
+                      @cache_dir, @wintools_dir, recipe)      
       fullDeps[p] = b.deps
       b.deps.each { |d| stack.push d }
     end
     # topological sort
     @packages = fullDeps.tsort
   end
+
   
   def build
     log_with_time "building #{@packages.length} packages:" if @verbose
@@ -69,34 +72,51 @@ class Bakery
       recipe = nil
       recipe = @use_recipe[p] if @use_recipe && @use_recipe.has_key?(p) 
       log_with_time "--- building #{p}#{recipe ? (" (" + recipe + ")") : ""} ---" if @verbose      
-      b = Builder.new(p, @verbose, @output_dir, @cmake_generator, @cache_dir, @wintools_dir, recipe)
+      b = Builder.new(p, @verbose, @output_dir, @cmake_generator,
+                      @cache_dir, @wintools_dir, recipe)
       if !b.needsBuild
-        log_with_time "  - skipping #{p}, already built!" if @verbose              
+        log_with_time "  - skipping #{p}, already built!" if @verbose
         next
       end
+
       log_with_time "  - cleaning #{p}" if @verbose      
       b.clean
+
       # if we've got the built bits in the cache, then let's use em
       # and call it a day!
       log_with_time "  - checking cache for built pkg" if @verbose
       if b.install_from_cache
         log_with_time "      Installed from cache!  all done." if @verbose
         next
+      end
+
       # if use_source is specified for this package it short circuts
       # fetch and unpack
-      elsif @use_source && @use_source.has_key?(p)
-        log_with_time "  - copying local source for #{p} (#{@use_source[p]})" if @verbose      
-        b.use_source @use_source[p]
+      useSourcePath = nil
+      if @use_source && @use_source.has_key?(p)
+        if @use_source[p].kind_of?(Hash) && @use_source[p].has_key?(b.platform)
+          useSourcePath = @use_source[p][b.platform]
+        elsif @use_source[p].kind_of?(String)
+          useSourcePath = @use_source[p]
+        end
+      end
+      if useSourcePath
+        log_with_time "  - copying local source for #{p} (#{useSourcePath})" if @verbose      
+        b.use_source useSourcePath
       else 
         log_with_time "  - fetching #{p}" if @verbose      
         b.fetch
         log_with_time "  - unpacking #{p}" if @verbose      
         b.unpack
       end
+      log_with_time "  - post-fetch #{p}" if @verbose      
+      b.post_fetch
+
       log_with_time "  - patching #{p}" if @verbose      
       b.patch
       log_with_time "  - post-patch #{p}" if @verbose      
       b.post_patch
+
       @build_types.each { |bt|
         log_with_time "  - pre_build step for #{p} (#{bt})" if @verbose      
         b.pre_build bt
@@ -106,10 +126,10 @@ class Bakery
         b.build
         log_with_time "  - installing #{p} (#{bt})" if @verbose      
         b.install
-        log_with_time "  - running post_install for #{p} (#{bt})" if @verbose      
+        log_with_time "  - running post_install for #{p} (#{bt})" if @verbose
         b.post_install
       }
-      log_with_time "  - running post_install_common for #{p}" if @verbose      
+      log_with_time "  - running post_install_common for #{p}" if @verbose  
       b.post_install_common
       log_with_time "  - cleaning up #{p}" if @verbose      
       b.dist_clean
@@ -119,6 +139,7 @@ class Bakery
       b.save_to_cache
     }
   end
+
 
   def check
     # an array populated with warnings as we check the bakery 
@@ -144,16 +165,17 @@ class Bakery
     Dir.glob(File.join(@output_dir, "receipts", "*.yaml")).each { |rp|
       pkg = File.basename(rp, ".yaml")
       recipe = nil
-      recipe = @use_recipe[pkg] if @use_recipe && @use_recipe.has_key?(pkg)       
-      b = Builder.new(pkg, @verbose, @output_dir, @cmake_generator, @cache_dir, @wintools_dir, recipe)
+      recipe = @use_recipe[pkg] if @use_recipe && @use_recipe.has_key?(pkg)  
+      b = Builder.new(pkg, @verbose, @output_dir, @cmake_generator,
+                      @cache_dir, @wintools_dir, recipe)
       state[:info].push "#{pkg} is out of date, and needs to be built" if b.needsBuild
 
       # now load up the receipts
       receipts[pkg] = File.open( rp ) { |yf| YAML::load( yf ) }
     }
 
-    # first let's ensure there's no files owned by multiple ports while we build up a
-    # set of all owned files
+    # first let's ensure there's no files owned by multiple ports 
+    # while we build up a set of all owned files
     allOwnedFiles = Hash.new
     mycombinations(receipts.collect{ |pkg, rcpt|
       rcpt[:files].each { |a| allOwnedFiles[a[0]] = a[1] }
@@ -164,7 +186,8 @@ class Bakery
       state[:error].push "#{a[0]} & #{b[0]} both think they own certain files (vewy, vewy, bad): #{c.to_a.join(', ')}" if c.size > 0
     }
 
-    # iterate through all files in output dir, make sure they're owned by a pkg and the md5 matches
+    # iterate through all files in output dir, make sure they're
+    # owned by a pkg and the md5 matches
     contents.each { |f, md5|
       if !allOwnedFiles.has_key? f
         state[:error].push "file '#{f}' is not owned by any package!"
@@ -179,6 +202,7 @@ class Bakery
 
     state
   end
+
 
   def __output_contents
     oc = Hash.new
